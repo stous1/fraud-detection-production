@@ -8,12 +8,27 @@ servicio local con monitoreo de deriva y ficha del modelo.
 **Estado:** hitos 1 a 3 de 5 terminados (datos, cliente, grafo y modelo). El detalle con
 todas las cifras está en [INFORME_TECNICO.md](INFORME_TECNICO.md).
 
-## La cifra principal
+## El resultado: un rango, no una cifra
 
-**AP 0,551 [0,526–0,574] en clientes nuevos**, en prueba (días 121 a 182, medida una vez con
-XGBoost congelado; el azar da 0,044). Con 1 % de falsas alarmas, detecta el 44,6 % de los
-fraudes de clientes nuevos. Con un costo supuesto de 10 US$ por falsa alarma, el umbral
-elegido en validación reduce el costo total en 62 % frente a no tener modelo.
+En prueba (días 121 a 182, medida una sola vez con modelos congelados), la AP en **clientes
+nuevos** (sin transacciones antes del periodo; el azar da 0,044) queda en un rango:
+
+| | AP en clientes nuevos | Recall con 1 % de falsas alarmas |
+|---|---|---|
+| **Sin las variables opacas de Vesta** (C, D, V, identidad) | **0,300** [0,278–0,326] | 19,7 % |
+| **Con ellas** (modelo completo) | **0,551** [0,526–0,574] | 44,6 % |
+| Cota conservadora: clientes nuevos del producto W | **0,161** [0,121–0,207] | |
+
+**Por qué un rango.** Las variables opacas de Vesta (C, V) explican casi toda la diferencia
+entre 0,300 y 0,551, pero no se sabe cómo se calcularon. La hipótesis: agregan por
+identificadores de cuenta que IEEE-CIS no publica (dirección de correo completa, cuenta del
+comercio, dispositivo), que son los mismos por los que la competencia propagó la etiqueta.
+Si es así, para un `uid` "nuevo" pueden delatar una cuenta ya marcada, y parte de esa
+ganancia sería el mismo artefacto que infla a los clientes ya vistos. Lo apoya que, en W (el
+71 % de las transacciones de clientes nuevos y el producto con menos identidad), la AP es
+0,161 y las opacas suman apenas 0,035, mientras que en C, R, H y S el modelo llega a
+0,58-0,80. Con estos datos no se puede separar la señal real del artefacto: 0,300 es lo
+defendible sin las opacas, 0,551 es el techo con ellas y W es la cota conservadora.
 
 **Por qué clientes nuevos y no todos.** IEEE-CIS etiquetó por propagación: tras un
 contracargo, marcó como fraude lo que siguió en la misma cuenta, correo o dirección. Un
@@ -21,10 +36,8 @@ modelo que reconoce a un cliente ya marcado se ve muy bien en los datos (AP 0,83
 ya vistos) y no serviría en un banco, donde la tarjeta se bloquea tras el contracargo. Esa
 cifra se reporta aparte y no se presenta como rendimiento.
 
-**Y un matiz más.** El 71 % de las transacciones de clientes nuevos son del producto W, y ahí
-la AP es 0,161. En los demás productos (C, R, H, S) llega a 0,58-0,80, probablemente porque
-las variables opacas de Vesta (C, V) agregan por identificadores de cuenta que IEEE-CIS no
-publica, por los que también se propagó la etiqueta. La cifra de W es la cota conservadora.
+**Costo.** Con un supuesto de 10 US$ por falsa alarma, el umbral del modelo completo, elegido
+en validación, reduce el costo total en 62 % frente a no tener modelo.
 
 ## Lo que dejó el hito 1
 
@@ -64,8 +77,7 @@ publica, por los que también se propagó la etiqueta. La cifra de W es la cota 
   `hito3-congelado`, huellas SHA-256).
 - **Cuánto aporta cada grupo en clientes nuevos** (AP del completo menos AP sin el grupo):
   variables sospechosas C/D/V/identidad +0,250, transacción +0,021, historia de fraude del
-  cliente +0,002 y vecindario del grafo −0,008. Sin las sospechosas, el mejor modelo llega a
-  0,300. La red sobre el grafo no se entrenó: la regla declarada exigía que el vecindario
+  cliente +0,002 y vecindario del grafo −0,008. La red sobre el grafo no se entrenó: la regla declarada exigía que el vecindario
   aportara al menos 0,01 en validación, y aportó 0,002.
 - **SHAP** (TreeSHAP de XGBoost): en clientes nuevos, las sospechosas son el 57 % del peso;
   las variables principales son el tipo de tarjeta, el monto y las C1, C13 y C14.

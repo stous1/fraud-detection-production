@@ -7,7 +7,7 @@ Detalle de cada hito, con todas las cifras. Cada número sale de un JSON en
 |---|---|---|
 | [1. Datos y cliente](#hito-1-ingesta-exploración-sospechas-y-reconstrucción-del-cliente) | Ingesta, partición, exploración, sospechas y cliente | El cliente es `card1 + addr1 + D1n` exacto. **La etiqueta se propaga por cliente:** con un fraude conocido 30 días antes, el 58 % de las transacciones siguientes del mismo cliente son fraude (16 veces la prevalencia) |
 | [2. Grafo y vecindario](#hito-2-grafo-de-identidad-compartida-y-variables-de-vecindario) | Seis entidades, 139 variables solo con pasado, ocho variantes medidas una vez en prueba | Con el esquema realista (etiquetas hasta el día 90), una logística de vecindario llega a **AP 0,360** en prueba: **0,182 en clientes nuevos y 0,784 en ya vistos**. Sin retraso de etiquetas daría 0,681 |
-| [3. Modelo](#hito-3-xgboost-en-gpu-ablaciones-por-grupo-umbral-por-costo-y-shap) | XGBoost en GPU, 13 variantes congeladas, evaluación en CPU | **Cifra principal: AP 0,551 en clientes nuevos** (azar 0,044; hito 2: 0,182). Las variables sospechosas C/D/V cargan la señal (+0,250); el vecindario no aporta sobre XGBoost. En nuevos de W, la mayoría, solo 0,161. Ya vistos, 0,831 (inflada por la propagación) |
+| [3. Modelo](#hito-3-xgboost-en-gpu-ablaciones-por-grupo-umbral-por-costo-y-shap) | XGBoost en GPU, 13 variantes congeladas, evaluación en CPU | **AP en clientes nuevos: rango de 0,300 (sin las variables opacas de Vesta) a 0,551 (con ellas)**, con W (0,161) como cota conservadora; azar 0,044. Las opacas pueden delatar cuentas ya marcadas por identificadores no publicados. El vecindario no aporta sobre XGBoost. Ya vistos: 0,831, inflada por la propagación |
 
 ---
 
@@ -360,6 +360,26 @@ cuenta, correo o dirección (hito 1: con un fraude ya conocido del cliente, el 5
 sigue es fraude). En un banco real, la tarjeta se bloquea tras el contracargo y esas
 transacciones no llegan a puntuarse; un modelo que "reconoce" al cliente ya marcado se ve muy
 bien aquí y no aportaría nada en producción.
+
+**El resultado en clientes nuevos se presenta como un rango, no como una cifra única:**
+
+| | AP en clientes nuevos (prueba) |
+|---|---|
+| Sin las variables opacas de Vesta (C, D, V, identidad): `sin_sospechosas` | **0,300** [0,278–0,326] |
+| Con ellas: modelo completo (principal) | **0,551** [0,526–0,574] |
+| Cota conservadora: clientes nuevos del producto W | **0,161** [0,121–0,207] |
+
+La diferencia entre 0,300 y 0,551 es casi toda de las variables opacas (C y V sobre todo).
+**Hipótesis:** Vesta las calculó agregando por identificadores de cuenta que IEEE-CIS no
+publica (correo completo, cuenta, dispositivo), los mismos por los que la competencia propagó
+la etiqueta. Para un `uid` nuevo, entonces, pueden delatar una cuenta ya marcada, y parte de
+la ganancia sería el mismo artefacto que infla a los clientes ya vistos. Lo apoya la
+diferencia por producto (abajo): en W, el producto con menos identidad y el 71 % de los
+nuevos, las opacas suman solo 0,035 y la AP es 0,161; en C, R, H y S, el modelo llega a
+0,58-0,80. No se puede separar señal real de artefacto con estos datos, así que 0,300 es lo
+defendible sin las opacas, 0,551 el techo con ellas y W la cota conservadora. El modelo
+completo sigue siendo el principal operativo (el que se sirve en el hito 4), con esta
+advertencia en su ficha.
 
 ### Método
 

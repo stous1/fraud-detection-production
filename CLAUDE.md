@@ -149,6 +149,9 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
   validación 61 a 90 (regularización, hiperparámetros, umbral), reajuste 1 a 90. Los días 91
   a 120 son historia sin etiqueta. `todas_las_etiquetas` (entrena 1 a 90, valida 91 a 120,
   reajusta 1 a 120) se reporta **solo como comparación**, para medir cuánto infla.
+- **Resultados en clientes nuevos como rango**: sin las variables opacas de Vesta
+  (`sin_sospechosas`), con ellas (completo) y W como cota conservadora. Nunca una cifra
+  única.
 - **Cifra principal: AP en clientes nuevos.** El rendimiento en ya vistos está inflado por la
   propagación de etiquetas de la competencia (en un banco real la tarjeta se bloquea tras un
   contracargo): se reporta aparte, nunca como rendimiento. Los hiperparámetros se eligen por
@@ -191,8 +194,13 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
 ## Regla de credenciales (para Claude y cualquier subagente)
 
 - Las credenciales guardadas en la máquina solo se usan para `git push`. Para cualquier otra
-  cosa (leer logs de CI, llamar la API de GitHub, activar Pages) hay que preguntarle antes al
-  usuario.
+  cosa que use credenciales hay que preguntarle antes al usuario.
+- **Excepción (autorizada por el usuario en el hito 3):** se permiten lecturas públicas **sin
+  token** de la API de GitHub (por ejemplo `curl https://api.github.com/repos/stous1/...`)
+  para ver el estado de CI y de Pages de este repo y de cualquier otro repo público del
+  usuario. Nunca con credenciales: sin `gh`, sin cabecera `Authorization`, sin tokens.
+- GitHub Pages está activo (rama `main`, carpeta `/docs`): se verifica con peticiones a las
+  URL públicas (`https://stous1.github.io/fraud-detection-production/...`), sin credenciales.
 
 ## Regla de git
 
