@@ -234,17 +234,21 @@ def cambios(
     base: np.ndarray,
     variante: np.ndarray,
     refs: dict[str, dict[str, float]],
+    mascara: pd.Series | None = None,
 ) -> dict[str, dict[str, float]]:
     """Pares consecutivos que ``variante`` une y ``base`` no (agregados), y pares que
     ``base`` une y ``variante`` no (separados), con su concordancia por atributo.
 
     ``fraccion_mismo_cliente`` interpola entre las referencias: 1 = como pares del mismo
-    ``uid``, 0 = como pares de clientes distintos.
+    ``uid``, 0 = como pares de clientes distintos. ``mascara`` limita los pares a las
+    transacciones marcadas (por ejemplo, una franja horaria).
     """
     salida: dict[str, dict[str, float]] = {}
     for nombre, une, otra in (("agregados", variante, base), ("separados", base, variante)):
         otra_previa = pd.Series(otra, index=df.index).groupby(une).shift()
         cambio = otra_previa.notna() & (otra_previa != otra)
+        if mascara is not None:
+            cambio &= mascara
         fila: dict[str, float] = {"pares": int(cambio.sum())}
         for col, r in refs.items():
             a, p, v = _pares_consecutivos(df, une, col)
@@ -255,4 +259,29 @@ def cambios(
                 r["mismo_uid"] - r["uid_distinto"]
             )
         salida[nombre] = fila
+    return salida
+
+
+def d1_cero(df: pd.DataFrame, uid: np.ndarray) -> dict[str, dict[str, float]]:
+    """Por producto: fracción de transacciones con ``D1 = 0`` y, de ellas, qué fracción tiene
+    después otra transacción del mismo ``uid`` con ``D1 > 0`` (alta real de una tarjeta que
+    sigue activa)."""
+    g = pd.Series(uid, index=df.index)
+    positiva = (df["D1"] > 0).astype(float)
+    # ¿Hay alguna transacción posterior del mismo uid con D1 > 0?
+    posterior = positiva[::-1].groupby(g[::-1]).cummax()[::-1].groupby(g).shift(-1).fillna(0)
+    salida = {}
+    for producto, sub in df.groupby("ProductCD"):
+        cero = sub["D1"] == 0
+        salida[str(producto)] = {
+            "transacciones": int(len(sub)),
+            "fraccion_d1_cero": float(cero.mean()),
+            "fraccion_seguidas_por_d1_positivo": float(posterior[sub.index][cero].mean()),
+        }
+    cero = df["D1"] == 0
+    salida["todos"] = {
+        "transacciones": int(len(df)),
+        "fraccion_d1_cero": float(cero.mean()),
+        "fraccion_seguidas_por_d1_positivo": float(posterior[cero].mean()),
+    }
     return salida

@@ -97,3 +97,11 @@ def test_splink_resuelve_el_mini(base_mini):
     ids, info = splink_ref.resolver(df, max_pares_u=2e5)
     assert len(ids) == len(df) and info["pares_sobre_umbral"] > 0
     assert _pureza(ids, verdad) > 0.9
+
+
+def test_d1_cero():
+    df = pd.DataFrame({"ProductCD": ["W", "W", "W", "H"], "D1": [0.0, 3.0, 0.0, 0.0]})
+    r = clientes.d1_cero(df, np.array([0, 0, 1, 2]))
+    assert r["W"]["fraccion_d1_cero"] == pytest.approx(2 / 3)
+    assert r["W"]["fraccion_seguidas_por_d1_positivo"] == 0.5
+    assert r["H"]["fraccion_seguidas_por_d1_positivo"] == 0.0

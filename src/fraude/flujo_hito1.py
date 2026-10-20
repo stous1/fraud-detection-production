@@ -198,6 +198,14 @@ def paso_clientes(
         "uid_tolerancia_1": clientes.cambios(df, uid, ids["uid_tolerancia_1"], refs),
         "uid_veto_correo": clientes.cambios(df, uid, ids["uid_veto_correo"], refs),
     }
+    # ¿La tolerancia acierta al menos cerca de la medianoche (zona horaria)?
+    hora = (df["TransactionDT"] % 86_400) // 3600
+    variantes["uid_tolerancia_1_por_hora"] = {
+        f"{a}-{b}": clientes.cambios(
+            df, uid, ids["uid_tolerancia_1"], refs, mascara=hora.between(a, b - 1)
+        )["agregados"]
+        for a, b in ((0, 3), (3, 12), (12, 24))
+    }
 
     splink = []
     ids_splink_09 = None
@@ -239,6 +247,7 @@ def paso_clientes(
         "variantes_descartadas": variantes,
         "splink": splink,
         "clientes_en_prueba": nuevos,
+        "d1_cero": clientes.d1_cero(df, uid),
     }
     util.escribir_json(datos, salida / "clientes.json")
     if propia:
@@ -306,8 +315,9 @@ def paso_sospechas(con: duckdb.DuckDBPyConnection | None = None, salida: Path = 
     ).df()
     dev = con.execute(
         """
-        SELECT d.TransactionID, d.TransactionDT, d.isFraud, c.uid
+        SELECT d.TransactionID, d.TransactionDT, d.isFraud, d.P_emaildomain, i.DeviceInfo, c.uid
         FROM desarrollo d JOIN clientes c USING (TransactionID)
+        LEFT JOIN identidad i USING (TransactionID)
         ORDER BY d.TransactionDT, d.TransactionID
         """
     ).df()
@@ -323,6 +333,10 @@ def paso_sospechas(con: duckdb.DuckDBPyConnection | None = None, salida: Path = 
     rho = sospechas.prueba_futuro(primeras, [c for c in numericas if c != "D1"])
     datos = {
         "propagacion_desarrollo": prop,
+        "cambio_de_atributo_desarrollo": {
+            col: sospechas.cambio_de_atributo(dev, dev["uid"].to_numpy(), col)
+            for col in ("P_emaildomain", "DeviceInfo")
+        },
         "retraso_base_dias": sospechas.RETRASO_BASE,
         "monotonia": mono,
         "prueba_futuro": {

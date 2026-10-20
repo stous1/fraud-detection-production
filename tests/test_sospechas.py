@@ -54,3 +54,11 @@ def test_grupos_cubren_el_esquema():
     for c in (*esquema.COLUMNAS_TX, *esquema.COLUMNAS_ID):
         if c not in ("TransactionID", "isFraud", "TransactionDT"):
             assert c in declaradas, c
+
+
+def test_cambio_de_atributo():
+    df = pd.DataFrame({"x": ["a", "a", "b", None], "isFraud": [0, 0, 1, 0]})
+    r = {f["caso"]: f for f in sospechas.cambio_de_atributo(df, np.array([0, 0, 0, 0]), "x")}
+    assert r["primera del cliente"]["transacciones"] == 1
+    assert r["igual"]["p_fraude"] == 0.0 and r["distinto"]["p_fraude"] == 1.0
+    assert r["faltante"]["transacciones"] == 1

@@ -230,3 +230,23 @@ def resumen_futuro(rho: dict[str, float], umbral: float = 0.3) -> dict[str, obje
             "rho_mayor": rho[mayor],
         }
     return {"umbral": umbral, "grupos": salida}
+
+
+def cambio_de_atributo(
+    df: pd.DataFrame, cliente: np.ndarray, columna: str
+) -> list[dict[str, object]]:
+    """Fraude según si ``columna`` cambia respecto de la transacción anterior del mismo
+    cliente (solo desarrollo: lee ``isFraud``)."""
+    g = pd.Series(cliente, index=df.index)
+    previo = df[columna].groupby(g).shift()
+    primera = g.groupby(g).cumcount() == 0
+    caso = np.select(
+        [primera, df[columna].isna() | previo.isna(), df[columna] == previo],
+        ["primera del cliente", "faltante", "igual"],
+        "distinto",
+    )
+    tabla = df.assign(caso=caso).groupby("caso")["isFraud"].agg(["size", "mean"])
+    return [
+        {"caso": c, "transacciones": int(f["size"]), "p_fraude": float(f["mean"])}
+        for c, f in tabla.iterrows()
+    ]
