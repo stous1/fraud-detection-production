@@ -41,3 +41,16 @@ def test_sql_coincide_con_python(con):
 
 def test_vista_desarrollo_sin_prueba(con):
     assert con.execute("SELECT max(dia) FROM desarrollo").fetchone()[0] <= 120
+
+
+def test_esquema_realista_solo_usa_etiquetas_conocidas_al_desplegar():
+    """Despliegue el día 121 con 30 días de retraso: etiquetas hasta el día 90."""
+    assert particion.ULTIMO_DIA_ETIQUETADO == 90
+    for tramo in particion.ESQUEMAS["realista"].values():
+        assert tramo[1] <= particion.ULTIMO_DIA_ETIQUETADO
+    assert particion.ESQUEMA_PRINCIPAL == "realista"
+    for esquema in particion.ESQUEMAS.values():
+        ent, val = esquema["entrenamiento"], esquema["validacion"]
+        assert ent[1] + 1 == val[0]  # validación justo después del entrenamiento
+        assert esquema["reajuste"] == (ent[0], val[1])
+        assert val[1] < particion.PRUEBA[0]

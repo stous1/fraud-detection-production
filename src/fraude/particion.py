@@ -81,3 +81,30 @@ def resumen(con: duckdb.DuckDBPyConnection) -> list[dict[str, object]]:
     return [
         {"periodo": p, "dia_inicio": a, "dia_fin": b, "transacciones": n} for p, a, b, n in filas
     ]
+
+
+# --- Esquemas de entrenamiento con retraso de etiquetas (decididos en el hito 2) -----------
+#
+# El modelo entra a producción el día 121. Con un retraso de contracargo de 30 días, ese día
+# solo se conocen las etiquetas de las transacciones hasta el día 90: el esquema principal
+# ("realista") entrena, valida y elige umbral solo con ellas. Los días 91 a 120 sirven como
+# historia sin etiqueta. "todas_las_etiquetas" usa todo desarrollo y se reporta solo como
+# comparación, para medir cuánto infla.
+
+RETRASO_BASE = 30
+ULTIMO_DIA_ETIQUETADO = ULTIMO_DIA_DESARROLLO - RETRASO_BASE  # 90
+
+ESQUEMAS: dict[str, dict[str, tuple[int, int]]] = {
+    "realista": {
+        "entrenamiento": (1, 60),
+        "validacion": (61, ULTIMO_DIA_ETIQUETADO),
+        "reajuste": (1, ULTIMO_DIA_ETIQUETADO),
+    },
+    "todas_las_etiquetas": {
+        "entrenamiento": (1, ULTIMO_DIA_ENTRENAMIENTO),
+        "validacion": (ULTIMO_DIA_ENTRENAMIENTO + 1, ULTIMO_DIA_DESARROLLO),
+        "reajuste": (1, ULTIMO_DIA_DESARROLLO),
+    },
+}
+ESQUEMA_PRINCIPAL = "realista"
+PRUEBA: tuple[int, int] = (ULTIMO_DIA_DESARROLLO + 1, ULTIMO_DIA)
