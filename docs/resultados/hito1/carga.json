@@ -1,0 +1,33 @@
+{
+  "transacciones": 590540,
+  "identidades": 144233,
+  "cobertura_identidad": 0.244239,
+  "id_desordenados_en_tiempo": 0,
+  "dia_min": 1,
+  "dia_max": 182,
+  "dias_con_datos": 182,
+  "huellas_sha256": {
+    "train_transaction.csv": "3a5c83ab6b3cc13dcabe5ffa9f522307fd5f7f7b6e6f6a60c32284ca6283d642",
+    "train_identity.csv": "b63c725d8377be90a995268d97f347c17d456b95db45807adcf9f59cd603c37c"
+  },
+  "particion": [
+    {
+      "periodo": "entrenamiento",
+      "dia_inicio": 1,
+      "dia_fin": 90,
+      "transacciones": 315927
+    },
+    {
+      "periodo": "validacion",
+      "dia_inicio": 91,
+      "dia_fin": 120,
+      "transacciones": 98615
+    },
+    {
+      "periodo": "prueba",
+      "dia_inicio": 121,
+      "dia_fin": 182,
+      "transacciones": 175998
+    }
+  ]
+}

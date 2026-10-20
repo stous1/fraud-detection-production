@@ -1,0 +1,855 @@
+{
+  "atributos_validacion": [
+    "P_emaildomain",
+    "D10n",
+    "D15n",
+    "DeviceInfo"
+  ],
+  "referencias": {
+    "P_emaildomain": {
+      "mismo_uid": 0.780774,
+      "uid_distinto": 0.318429
+    },
+    "D10n": {
+      "mismo_uid": 0.666262,
+      "uid_distinto": 0.073453
+    },
+    "D15n": {
+      "mismo_uid": 0.694814,
+      "uid_distinto": 0.029247
+    },
+    "DeviceInfo": {
+      "mismo_uid": 0.639644,
+      "uid_distinto": 0.251836
+    }
+  },
+  "niveles": {
+    "tarjeta": {
+      "fragmentacion": {
+        "clientes": 13553,
+        "transacciones_por_cliente": 43.572641,
+        "fraccion_clientes_unicos": 0.254113,
+        "fraccion_tx_en_clientes_unicos": 0.005832,
+        "mediana_tamano": 4.0,
+        "p99_tamano": 786.44,
+        "max_tamano": 14932
+      },
+      "concordancia": {
+        "card2": {
+          "pares": 566872,
+          "concordancia": 0.997428
+        },
+        "card3": {
+          "pares": 574626,
+          "concordancia": 0.999856
+        },
+        "card4": {
+          "pares": 574623,
+          "concordancia": 1.0
+        },
+        "card5": {
+          "pares": 571940,
+          "concordancia": 0.995244
+        },
+        "card6": {
+          "pares": 574621,
+          "concordancia": 0.999179
+        },
+        "addr2": {
+          "pares": 509238,
+          "concordancia": 0.999379
+        },
+        "P_emaildomain": {
+          "pares": 422300,
+          "concordancia": 0.429406
+        },
+        "D10n": {
+          "pares": 469926,
+          "concordancia": 0.289086
+        },
+        "D15n": {
+          "pares": 451698,
+          "concordancia": 0.248916
+        },
+        "DeviceInfo": {
+          "pares": 68587,
+          "concordancia": 0.464709
+        }
+      }
+    },
+    "tarjeta_direccion": {
+      "fragmentacion": {
+        "clientes": 39974,
+        "transacciones_por_cliente": 14.773103,
+        "fraccion_clientes_unicos": 0.394056,
+        "fraccion_tx_en_clientes_unicos": 0.026674,
+        "mediana_tamano": 2.0,
+        "p99_tamano": 201.27,
+        "max_tamano": 9928
+      },
+      "concordancia": {
+        "card2": {
+          "pares": 540809,
+          "concordancia": 0.997354
+        },
+        "card3": {
+          "pares": 548023,
+          "concordancia": 0.999881
+        },
+        "card4": {
+          "pares": 548022,
+          "concordancia": 1.0
+        },
+        "card5": {
+          "pares": 545634,
+          "concordancia": 0.994236
+        },
+        "card6": {
+          "pares": 548023,
+          "concordancia": 0.999232
+        },
+        "addr2": {
+          "pares": 487303,
+          "concordancia": 0.999778
+        },
+        "P_emaildomain": {
+          "pares": 406426,
+          "concordancia": 0.478387
+        },
+        "D10n": {
+          "pares": 458003,
+          "concordancia": 0.312328
+        },
+        "D15n": {
+          "pares": 439198,
+          "concordancia": 0.285131
+        },
+        "DeviceInfo": {
+          "pares": 64393,
+          "concordancia": 0.495861
+        }
+      }
+    },
+    "uid": {
+      "fragmentacion": {
+        "clientes": 217850,
+        "transacciones_por_cliente": 2.710764,
+        "fraccion_clientes_unicos": 0.574808,
+        "fraccion_tx_en_clientes_unicos": 0.212047,
+        "mediana_tamano": 1.0,
+        "p99_tamano": 20.0,
+        "max_tamano": 1414
+      },
+      "concordancia": {
+        "card2": {
+          "pares": 366472,
+          "concordancia": 0.997708
+        },
+        "card3": {
+          "pares": 370911,
+          "concordancia": 0.999903
+        },
+        "card4": {
+          "pares": 370910,
+          "concordancia": 1.0
+        },
+        "card5": {
+          "pares": 369495,
+          "concordancia": 0.992225
+        },
+        "card6": {
+          "pares": 370911,
+          "concordancia": 0.999488
+        },
+        "addr2": {
+          "pares": 325001,
+          "concordancia": 0.99988
+        },
+        "P_emaildomain": {
+          "pares": 287511,
+          "concordancia": 0.780774
+        },
+        "D10n": {
+          "pares": 334508,
+          "concordancia": 0.666262
+        },
+        "D15n": {
+          "pares": 322112,
+          "concordancia": 0.694814
+        },
+        "DeviceInfo": {
+          "pares": 48194,
+          "concordancia": 0.639644
+        }
+      }
+    },
+    "uid_tolerancia_1": {
+      "fragmentacion": {
+        "clientes": 187997,
+        "transacciones_por_cliente": 3.14122,
+        "fraccion_clientes_unicos": 0.528258,
+        "fraccion_tx_en_clientes_unicos": 0.16817,
+        "mediana_tamano": 1.0,
+        "p99_tamano": 25.0,
+        "max_tamano": 1414
+      },
+      "concordancia": {
+        "card2": {
+          "pares": 395776,
+          "concordancia": 0.997739
+        },
+        "card3": {
+          "pares": 400616,
+          "concordancia": 0.999908
+        },
+        "card4": {
+          "pares": 400615,
+          "concordancia": 1.0
+        },
+        "card5": {
+          "pares": 399075,
+          "concordancia": 0.992515
+        },
+        "card6": {
+          "pares": 400616,
+          "concordancia": 0.999473
+        },
+        "addr2": {
+          "pares": 350848,
+          "concordancia": 0.999857
+        },
+        "P_emaildomain": {
+          "pares": 310075,
+          "concordancia": 0.727102
+        },
+        "D10n": {
+          "pares": 354982,
+          "concordancia": 0.608887
+        },
+        "D15n": {
+          "pares": 341566,
+          "concordancia": 0.631992
+        },
+        "DeviceInfo": {
+          "pares": 52850,
+          "concordancia": 0.597256
+        }
+      }
+    },
+    "uid_veto_correo": {
+      "fragmentacion": {
+        "clientes": 254704,
+        "transacciones_por_cliente": 2.318534,
+        "fraccion_clientes_unicos": 0.622287,
+        "fraccion_tx_en_clientes_unicos": 0.268397,
+        "mediana_tamano": 1.0,
+        "p99_tamano": 16.0,
+        "max_tamano": 1414
+      },
+      "concordancia": {
+        "card2": {
+          "pares": 330112,
+          "concordancia": 0.997616
+        },
+        "card3": {
+          "pares": 334191,
+          "concordancia": 0.999898
+        },
+        "card4": {
+          "pares": 334190,
+          "concordancia": 1.0
+        },
+        "card5": {
+          "pares": 332890,
+          "concordancia": 0.991526
+        },
+        "card6": {
+          "pares": 334191,
+          "concordancia": 0.999479
+        },
+        "addr2": {
+          "pares": 296049,
+          "concordancia": 0.999885
+        },
+        "P_emaildomain": {
+          "pares": 253460,
+          "concordancia": 0.999199
+        },
+        "D10n": {
+          "pares": 308171,
+          "concordancia": 0.677523
+        },
+        "D15n": {
+          "pares": 296523,
+          "concordancia": 0.713945
+        },
+        "DeviceInfo": {
+          "pares": 40940,
+          "concordancia": 0.715095
+        }
+      }
+    }
+  },
+  "variantes_descartadas": {
+    "uid_tolerancia_1": {
+      "agregados": {
+        "pares": 50715,
+        "P_emaildomain_concordancia": 0.324121,
+        "P_emaildomain_fraccion_mismo_cliente": 0.012311,
+        "D10n_concordancia": 0.044452,
+        "D10n_fraccion_mismo_cliente": -0.04892,
+        "D15n_concordancia": 0.04501,
+        "D15n_fraccion_mismo_cliente": 0.023684,
+        "DeviceInfo_concordancia": 0.232948,
+        "DeviceInfo_fraccion_mismo_cliente": -0.048703
+      },
+      "separados": {
+        "pares": 91,
+        "P_emaildomain_concordancia": 0.71875,
+        "P_emaildomain_fraccion_mismo_cliente": 0.86585,
+        "D10n_concordancia": 0.310345,
+        "D10n_fraccion_mismo_cliente": 0.399609,
+        "D15n_concordancia": 0.369048,
+        "D15n_fraccion_mismo_cliente": 0.510543,
+        "DeviceInfo_concordancia": 0.6,
+        "DeviceInfo_fraccion_mismo_cliente": 0.897774
+      }
+    },
+    "uid_veto_correo": {
+      "agregados": {
+        "pares": 0,
+        "P_emaildomain_concordancia": null,
+        "P_emaildomain_fraccion_mismo_cliente": null,
+        "D10n_concordancia": null,
+        "D10n_fraccion_mismo_cliente": null,
+        "D15n_concordancia": null,
+        "D15n_fraccion_mismo_cliente": null,
+        "DeviceInfo_concordancia": null,
+        "DeviceInfo_fraccion_mismo_cliente": null
+      },
+      "separados": {
+        "pares": 70634,
+        "P_emaildomain_concordancia": 0.0,
+        "P_emaildomain_fraccion_mismo_cliente": -0.688726,
+        "D10n_concordancia": 0.579983,
+        "D10n_fraccion_mismo_cliente": 0.854458,
+        "D15n_concordancia": 0.55486,
+        "D15n_fraccion_mismo_cliente": 0.789722,
+        "DeviceInfo_concordancia": 0.266017,
+        "DeviceInfo_fraccion_mismo_cliente": 0.036568
+      }
+    },
+    "uid_tolerancia_1_por_hora": {
+      "0-3": {
+        "pares": 11788,
+        "P_emaildomain_concordancia": 0.327755,
+        "P_emaildomain_fraccion_mismo_cliente": 0.020171,
+        "D10n_concordancia": 0.051182,
+        "D10n_fraccion_mismo_cliente": -0.037567,
+        "D15n_concordancia": 0.061897,
+        "D15n_fraccion_mismo_cliente": 0.049056,
+        "DeviceInfo_concordancia": 0.250736,
+        "DeviceInfo_fraccion_mismo_cliente": -0.002837
+      },
+      "3-12": {
+        "pares": 6802,
+        "P_emaildomain_concordancia": 0.339544,
+        "P_emaildomain_fraccion_mismo_cliente": 0.045669,
+        "D10n_concordancia": 0.053022,
+        "D10n_fraccion_mismo_cliente": -0.034464,
+        "D15n_concordancia": 0.05487,
+        "D15n_fraccion_mismo_cliente": 0.038498,
+        "DeviceInfo_concordancia": 0.199623,
+        "DeviceInfo_fraccion_mismo_cliente": -0.134635
+      },
+      "12-24": {
+        "pares": 32125,
+        "P_emaildomain_concordancia": 0.319362,
+        "P_emaildomain_fraccion_mismo_cliente": 0.002018,
+        "D10n_concordancia": 0.040184,
+        "D10n_fraccion_mismo_cliente": -0.05612,
+        "D15n_concordancia": 0.036822,
+        "D15n_fraccion_mismo_cliente": 0.011382,
+        "DeviceInfo_concordancia": 0.234401,
+        "DeviceInfo_fraccion_mismo_cliente": -0.044956
+      }
+    }
+  },
+  "splink": [
+    {
+      "umbral": 0.5,
+      "pares_sobre_umbral": 2659544,
+      "probabilidad_previa": 1.8e-05,
+      "fragmentacion": {
+        "clientes": 281441,
+        "transacciones_por_cliente": 2.098273,
+        "fraccion_clientes_unicos": 0.710181,
+        "fraccion_tx_en_clientes_unicos": 0.33846,
+        "mediana_tamano": 1.0,
+        "p99_tamano": 16.0,
+        "max_tamano": 1414
+      },
+      "acuerdo_con_uid": {
+        "pares_a": 3749714,
+        "pares_b": 4323726,
+        "pares_ambos": 3055227,
+        "precision": 0.814789,
+        "recall": 0.706619
+      },
+      "concordancia": {
+        "P_emaildomain": {
+          "pares": 239243,
+          "concordancia": 0.850554
+        },
+        "D10n": {
+          "pares": 306516,
+          "concordancia": 0.741798
+        },
+        "D15n": {
+          "pares": 296067,
+          "concordancia": 0.792861
+        },
+        "DeviceInfo": {
+          "pares": 24677,
+          "concordancia": 0.643879
+        }
+      },
+      "parametros": {
+        "D1n": [
+          {
+            "nivel": "Exact match on D1n",
+            "m": 0.87526,
+            "u": 0.002177
+          },
+          {
+            "nivel": "Absolute difference of 'D1n' <= 1",
+            "m": 0.014899,
+            "u": 0.005022
+          },
+          {
+            "nivel": "Absolute difference of 'D1n' <= 7",
+            "m": 0.014414,
+            "u": 0.030623
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.095427,
+            "u": 0.962178
+          }
+        ],
+        "D10n": [
+          {
+            "nivel": "Exact match on D10n",
+            "m": 0.665343,
+            "u": 0.00288
+          },
+          {
+            "nivel": "Absolute difference of 'D10n' <= 1",
+            "m": 0.199119,
+            "u": 0.005736
+          },
+          {
+            "nivel": "Absolute difference of 'D10n' <= 7",
+            "m": 0.020128,
+            "u": 0.03324
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.11541,
+            "u": 0.958144
+          }
+        ],
+        "D15n": [
+          {
+            "nivel": "Exact match on D15n",
+            "m": 0.791127,
+            "u": 0.002383
+          },
+          {
+            "nivel": "Absolute difference of 'D15n' <= 1",
+            "m": 0.118831,
+            "u": 0.004763
+          },
+          {
+            "nivel": "Absolute difference of 'D15n' <= 7",
+            "m": 0.015518,
+            "u": 0.027539
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.074523,
+            "u": 0.965315
+          }
+        ],
+        "P_emaildomain": [
+          {
+            "nivel": "Exact match on P_emaildomain",
+            "m": 0.73598,
+            "u": 0.309426
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.26402,
+            "u": 0.690574
+          }
+        ],
+        "ProductCD": [
+          {
+            "nivel": "Exact match on ProductCD",
+            "m": 0.99827,
+            "u": 0.56873
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.00173,
+            "u": 0.43127
+          }
+        ]
+      }
+    },
+    {
+      "umbral": 0.9,
+      "pares_sobre_umbral": 1647963,
+      "probabilidad_previa": 1.8e-05,
+      "fragmentacion": {
+        "clientes": 314696,
+        "transacciones_por_cliente": 1.876541,
+        "fraccion_clientes_unicos": 0.737677,
+        "fraccion_tx_en_clientes_unicos": 0.393105,
+        "mediana_tamano": 1.0,
+        "p99_tamano": 13.0,
+        "max_tamano": 420
+      },
+      "acuerdo_con_uid": {
+        "pares_a": 3749714,
+        "pares_b": 1871510,
+        "pares_ambos": 1672804,
+        "precision": 0.446115,
+        "recall": 0.893826
+      },
+      "concordancia": {
+        "P_emaildomain": {
+          "pares": 214468,
+          "concordancia": 0.862338
+        },
+        "D10n": {
+          "pares": 274139,
+          "concordancia": 0.802359
+        },
+        "D15n": {
+          "pares": 275844,
+          "concordancia": 0.803128
+        },
+        "DeviceInfo": {
+          "pares": 19635,
+          "concordancia": 0.624446
+        }
+      },
+      "parametros": {
+        "D1n": [
+          {
+            "nivel": "Exact match on D1n",
+            "m": 0.87526,
+            "u": 0.002177
+          },
+          {
+            "nivel": "Absolute difference of 'D1n' <= 1",
+            "m": 0.014899,
+            "u": 0.005022
+          },
+          {
+            "nivel": "Absolute difference of 'D1n' <= 7",
+            "m": 0.014414,
+            "u": 0.030623
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.095427,
+            "u": 0.962178
+          }
+        ],
+        "D10n": [
+          {
+            "nivel": "Exact match on D10n",
+            "m": 0.665343,
+            "u": 0.00288
+          },
+          {
+            "nivel": "Absolute difference of 'D10n' <= 1",
+            "m": 0.199119,
+            "u": 0.005736
+          },
+          {
+            "nivel": "Absolute difference of 'D10n' <= 7",
+            "m": 0.020128,
+            "u": 0.03324
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.11541,
+            "u": 0.958144
+          }
+        ],
+        "D15n": [
+          {
+            "nivel": "Exact match on D15n",
+            "m": 0.791127,
+            "u": 0.002383
+          },
+          {
+            "nivel": "Absolute difference of 'D15n' <= 1",
+            "m": 0.118831,
+            "u": 0.004763
+          },
+          {
+            "nivel": "Absolute difference of 'D15n' <= 7",
+            "m": 0.015518,
+            "u": 0.027539
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.074523,
+            "u": 0.965315
+          }
+        ],
+        "P_emaildomain": [
+          {
+            "nivel": "Exact match on P_emaildomain",
+            "m": 0.73598,
+            "u": 0.309426
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.26402,
+            "u": 0.690574
+          }
+        ],
+        "ProductCD": [
+          {
+            "nivel": "Exact match on ProductCD",
+            "m": 0.99827,
+            "u": 0.56873
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.00173,
+            "u": 0.43127
+          }
+        ]
+      }
+    },
+    {
+      "umbral": 0.99,
+      "pares_sobre_umbral": 1315970,
+      "probabilidad_previa": 1.8e-05,
+      "fragmentacion": {
+        "clientes": 342388,
+        "transacciones_por_cliente": 1.724768,
+        "fraccion_clientes_unicos": 0.754696,
+        "fraccion_tx_en_clientes_unicos": 0.437564,
+        "mediana_tamano": 1.0,
+        "p99_tamano": 11.0,
+        "max_tamano": 351
+      },
+      "acuerdo_con_uid": {
+        "pares_a": 3749714,
+        "pares_b": 1364313,
+        "pares_ambos": 1364313,
+        "precision": 0.363845,
+        "recall": 1.0
+      },
+      "concordancia": {
+        "P_emaildomain": {
+          "pares": 193022,
+          "concordancia": 0.855612
+        },
+        "D10n": {
+          "pares": 248152,
+          "concordancia": 0.968922
+        },
+        "D15n": {
+          "pares": 248152,
+          "concordancia": 0.972219
+        },
+        "DeviceInfo": {
+          "pares": 17901,
+          "concordancia": 0.613541
+        }
+      },
+      "parametros": {
+        "D1n": [
+          {
+            "nivel": "Exact match on D1n",
+            "m": 0.87526,
+            "u": 0.002177
+          },
+          {
+            "nivel": "Absolute difference of 'D1n' <= 1",
+            "m": 0.014899,
+            "u": 0.005022
+          },
+          {
+            "nivel": "Absolute difference of 'D1n' <= 7",
+            "m": 0.014414,
+            "u": 0.030623
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.095427,
+            "u": 0.962178
+          }
+        ],
+        "D10n": [
+          {
+            "nivel": "Exact match on D10n",
+            "m": 0.665343,
+            "u": 0.00288
+          },
+          {
+            "nivel": "Absolute difference of 'D10n' <= 1",
+            "m": 0.199119,
+            "u": 0.005736
+          },
+          {
+            "nivel": "Absolute difference of 'D10n' <= 7",
+            "m": 0.020128,
+            "u": 0.03324
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.11541,
+            "u": 0.958144
+          }
+        ],
+        "D15n": [
+          {
+            "nivel": "Exact match on D15n",
+            "m": 0.791127,
+            "u": 0.002383
+          },
+          {
+            "nivel": "Absolute difference of 'D15n' <= 1",
+            "m": 0.118831,
+            "u": 0.004763
+          },
+          {
+            "nivel": "Absolute difference of 'D15n' <= 7",
+            "m": 0.015518,
+            "u": 0.027539
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.074523,
+            "u": 0.965315
+          }
+        ],
+        "P_emaildomain": [
+          {
+            "nivel": "Exact match on P_emaildomain",
+            "m": 0.73598,
+            "u": 0.309426
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.26402,
+            "u": 0.690574
+          }
+        ],
+        "ProductCD": [
+          {
+            "nivel": "Exact match on ProductCD",
+            "m": 0.99827,
+            "u": 0.56873
+          },
+          {
+            "nivel": "All other comparisons",
+            "m": 0.00173,
+            "u": 0.43127
+          }
+        ]
+      }
+    }
+  ],
+  "clientes_en_prueba": {
+    "fraccion_tx_prueba_cliente_visto_en_desarrollo": 0.403431,
+    "por_semana": [
+      {
+        "semana_prueba": 1,
+        "transacciones": 22969,
+        "fraccion_cliente_visto": 0.517088
+      },
+      {
+        "semana_prueba": 2,
+        "transacciones": 18860,
+        "fraccion_cliente_visto": 0.485207
+      },
+      {
+        "semana_prueba": 3,
+        "transacciones": 18635,
+        "fraccion_cliente_visto": 0.451892
+      },
+      {
+        "semana_prueba": 4,
+        "transacciones": 18609,
+        "fraccion_cliente_visto": 0.420227
+      },
+      {
+        "semana_prueba": 5,
+        "transacciones": 21735,
+        "fraccion_cliente_visto": 0.423418
+      },
+      {
+        "semana_prueba": 6,
+        "transacciones": 19692,
+        "fraccion_cliente_visto": 0.35974
+      },
+      {
+        "semana_prueba": 7,
+        "transacciones": 20996,
+        "fraccion_cliente_visto": 0.318251
+      },
+      {
+        "semana_prueba": 8,
+        "transacciones": 19782,
+        "fraccion_cliente_visto": 0.308513
+      },
+      {
+        "semana_prueba": 9,
+        "transacciones": 14720,
+        "fraccion_cliente_visto": 0.316712
+      }
+    ]
+  },
+  "d1_cero": {
+    "C": {
+      "transacciones": 68519,
+      "fraccion_d1_cero": 0.726266,
+      "fraccion_seguidas_por_d1_positivo": 0.483271
+    },
+    "H": {
+      "transacciones": 33024,
+      "fraccion_d1_cero": 0.948431,
+      "fraccion_seguidas_por_d1_positivo": 0.180294
+    },
+    "R": {
+      "transacciones": 37699,
+      "fraccion_d1_cero": 0.885673,
+      "fraccion_seguidas_por_d1_positivo": 0.129354
+    },
+    "S": {
+      "transacciones": 11628,
+      "fraccion_d1_cero": 0.413313,
+      "fraccion_seguidas_por_d1_positivo": 0.215148
+    },
+    "W": {
+      "transacciones": 439670,
+      "fraccion_d1_cero": 0.365845,
+      "fraccion_seguidas_por_d1_positivo": 0.369224
+    },
+    "todos": {
+      "transacciones": 590540,
+      "fraccion_d1_cero": 0.474362,
+      "fraccion_seguidas_por_d1_positivo": 0.337126
+    }
+  }
+}

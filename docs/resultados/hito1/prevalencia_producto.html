@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"mark": {"type": "bar", "cornerRadiusEnd": 4, "height": 14}, "encoding": {"color": {"value": "#2f6db5"}, "tooltip": [{"field": "categoria", "type": "nominal"}, {"field": "transacciones", "type": "quantitative"}, {"field": "prevalencia", "format": ".2%", "type": "quantitative"}], "x": {"axis": {"format": ".1%", "tickCount": 6}, "field": "prevalencia", "title": "Fraude", "type": "quantitative"}, "y": {"field": "categoria", "sort": "-x", "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "prevalencia", "format": ".1%", "type": "quantitative"}, "tooltip": [{"field": "categoria", "type": "nominal"}, {"field": "transacciones", "type": "quantitative"}, {"field": "prevalencia", "format": ".2%", "type": "quantitative"}], "x": {"axis": {"format": ".1%", "tickCount": 6}, "field": "prevalencia", "title": "Fraude", "type": "quantitative"}, "y": {"field": "categoria", "sort": "-x", "title": null, "type": "nominal"}}}], "data": {"name": "data-1daddd165e893af8ea93bc82a0752eca"}, "height": 120, "title": "Prevalencia por producto (desarrollo)", "width": 460, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-1daddd165e893af8ea93bc82a0752eca": [{"categoria": "W", "transacciones": 298873, "fraudes": 6213.0, "prevalencia": 0.020788093939566304}, {"categoria": "C", "transacciones": 50136, "fraudes": 5617.0, "prevalencia": 0.11203526408169778}, {"categoria": "R", "transacciones": 30185, "fraudes": 1063.0, "prevalencia": 0.03521616697034951}, {"categoria": "H", "transacciones": 28134, "fraudes": 1271.0, "prevalencia": 0.045176654581644986}, {"categoria": "S", "transacciones": 7214, "fraudes": 436.0, "prevalencia": 0.060438037149986135}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

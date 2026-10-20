@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"mark": {"type": "bar", "cornerRadiusEnd": 4, "height": 14}, "encoding": {"color": {"value": "#2f6db5"}, "tooltip": [{"field": "etiqueta", "type": "nominal"}, {"field": "transacciones", "type": "quantitative"}, {"field": "prevalencia", "format": ".2%", "type": "quantitative"}], "x": {"axis": {"format": ".1%", "tickCount": 6}, "field": "prevalencia", "title": "Fraude", "type": "quantitative"}, "y": {"field": "etiqueta", "sort": ["C \u00b7 3 o m\u00e1s decimales", "C \u00b7 centavos", "H \u00b7 entero", "R \u00b7 entero", "S \u00b7 entero", "W \u00b7 centavos", "W \u00b7 entero"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "prevalencia", "format": ".1%", "type": "quantitative"}, "tooltip": [{"field": "etiqueta", "type": "nominal"}, {"field": "transacciones", "type": "quantitative"}, {"field": "prevalencia", "format": ".2%", "type": "quantitative"}], "x": {"axis": {"format": ".1%", "tickCount": 6}, "field": "prevalencia", "title": "Fraude", "type": "quantitative"}, "y": {"field": "etiqueta", "sort": ["C \u00b7 3 o m\u00e1s decimales", "C \u00b7 centavos", "H \u00b7 entero", "R \u00b7 entero", "S \u00b7 entero", "W \u00b7 centavos", "W \u00b7 entero"], "title": null, "type": "nominal"}}}], "data": {"name": "data-61e1f9e6c0d5dc19499a86f2959e8261"}, "height": 168, "title": "Prevalencia seg\u00fan los decimales del monto (desarrollo)", "width": 460, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-61e1f9e6c0d5dc19499a86f2959e8261": [{"producto": "C", "decimales": "3 o m\u00e1s decimales", "transacciones": 45328, "prevalencia": 0.11244705259442288, "etiqueta": "C \u00b7 3 o m\u00e1s decimales"}, {"producto": "C", "decimales": "centavos", "transacciones": 4780, "prevalencia": 0.10627615062761506, "etiqueta": "C \u00b7 centavos"}, {"producto": "H", "decimales": "entero", "transacciones": 28134, "prevalencia": 0.045176654581644986, "etiqueta": "H \u00b7 entero"}, {"producto": "R", "decimales": "entero", "transacciones": 30185, "prevalencia": 0.03521616697034951, "etiqueta": "R \u00b7 entero"}, {"producto": "S", "decimales": "entero", "transacciones": 7173, "prevalencia": 0.06078349365676844, "etiqueta": "S \u00b7 entero"}, {"producto": "W", "decimales": "centavos", "transacciones": 147029, "prevalencia": 0.007794380700406042, "etiqueta": "W \u00b7 centavos"}, {"producto": "W", "decimales": "entero", "transacciones": 151842, "prevalencia": 0.033370213774844906, "etiqueta": "W \u00b7 entero"}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"mark": {"type": "bar", "cornerRadiusEnd": 4, "height": 14}, "encoding": {"color": {"value": "#2f6db5"}, "tooltip": [{"field": "columna", "type": "nominal"}, {"field": "rho", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "rho", "title": "\u03c1 de Spearman con las transacciones de los 30 d\u00edas siguientes", "type": "quantitative"}, "y": {"field": "columna", "sort": ["D3", "D15", "D11", "D10", "D4", "V99", "V130", "C1", "C2", "V96", "V124", "V127", "V115", "C11", "C9"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "rho", "format": ".3f", "type": "quantitative"}, "tooltip": [{"field": "columna", "type": "nominal"}, {"field": "rho", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "rho", "title": "\u03c1 de Spearman con las transacciones de los 30 d\u00edas siguientes", "type": "quantitative"}, "y": {"field": "columna", "sort": ["D3", "D15", "D11", "D10", "D4", "V99", "V130", "C1", "C2", "V96", "V124", "V127", "V115", "C11", "C9"], "title": null, "type": "nominal"}}}], "data": {"name": "data-fce5bf57f79b89d2364175fed871faa4"}, "height": 360, "title": "Correlaci\u00f3n con la actividad futura en la primera transacci\u00f3n de una tarjeta", "width": 460, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-fce5bf57f79b89d2364175fed871faa4": [{"columna": "D3", "rho": 0.12721024968725028, "abs_rho": 0.12721024968725028}, {"columna": "D15", "rho": 0.07790438151388704, "abs_rho": 0.07790438151388704}, {"columna": "D11", "rho": 0.07515174944019659, "abs_rho": 0.07515174944019659}, {"columna": "D10", "rho": 0.07059822722129862, "abs_rho": 0.07059822722129862}, {"columna": "D4", "rho": 0.07059502003338426, "abs_rho": 0.07059502003338426}, {"columna": "V99", "rho": 0.06811228540007207, "abs_rho": 0.06811228540007207}, {"columna": "V130", "rho": 0.067507420730103, "abs_rho": 0.067507420730103}, {"columna": "C1", "rho": 0.06541569514243606, "abs_rho": 0.06541569514243606}, {"columna": "C2", "rho": 0.0575796185643691, "abs_rho": 0.0575796185643691}, {"columna": "V96", "rho": 0.050457950839211556, "abs_rho": 0.050457950839211556}, {"columna": "V124", "rho": 0.049254328369600114, "abs_rho": 0.049254328369600114}, {"columna": "V127", "rho": 0.049099161265755815, "abs_rho": 0.049099161265755815}, {"columna": "V115", "rho": 0.04904043752638258, "abs_rho": 0.04904043752638258}, {"columna": "C11", "rho": 0.04615101351726347, "abs_rho": 0.04615101351726347}, {"columna": "C9", "rho": 0.041170189762344496, "abs_rho": 0.041170189762344496}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

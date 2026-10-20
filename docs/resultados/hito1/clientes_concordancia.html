@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "data": {"name": "data-521d88e6832f8d9eaba6103b090ff420"}, "facet": {"row": {"field": "atributo", "sort": ["P_emaildomain", "D10n", "D15n", "DeviceInfo"], "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "bar", "color": "#2f6db5", "cornerRadiusEnd": 4, "height": 12}, "encoding": {"tooltip": [{"field": "atributo", "type": "nominal"}, {"field": "nivel", "type": "nominal"}, {"field": "concordancia", "format": ".0%", "type": "quantitative"}], "x": {"axis": {"format": ".0%", "tickCount": 6}, "field": "concordancia", "title": "Pares que coinciden", "type": "quantitative"}, "y": {"field": "nivel", "sort": ["card1", "card1 + addr1", "uid (card1 + addr1 + D1n)", "uid con \u00b11 d\u00eda", "uid con veto de correo", "Splink (umbral 0,9)"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "concordancia", "format": ".0%", "type": "quantitative"}, "tooltip": [{"field": "atributo", "type": "nominal"}, {"field": "nivel", "type": "nominal"}, {"field": "concordancia", "format": ".0%", "type": "quantitative"}], "x": {"axis": {"format": ".0%", "tickCount": 6}, "field": "concordancia", "title": "Pares que coinciden", "type": "quantitative"}, "y": {"field": "nivel", "sort": ["card1", "card1 + addr1", "uid (card1 + addr1 + D1n)", "uid con \u00b11 d\u00eda", "uid con veto de correo", "Splink (umbral 0,9)"], "title": null, "type": "nominal"}}}], "height": 132, "width": 420}, "title": "Concordancia entre transacciones consecutivas del mismo cliente", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-521d88e6832f8d9eaba6103b090ff420": [{"nivel": "card1", "atributo": "P_emaildomain", "concordancia": 0.4294056358039309}, {"nivel": "card1", "atributo": "D10n", "concordancia": 0.28908594119074066}, {"nivel": "card1", "atributo": "D15n", "concordancia": 0.24891631134076309}, {"nivel": "card1", "atributo": "DeviceInfo", "concordancia": 0.4647090556519457}, {"nivel": "card1 + addr1", "atributo": "P_emaildomain", "concordancia": 0.4783872094797085}, {"nivel": "card1 + addr1", "atributo": "D10n", "concordancia": 0.3123276485088526}, {"nivel": "card1 + addr1", "atributo": "D15n", "concordancia": 0.28513107983187536}, {"nivel": "card1 + addr1", "atributo": "DeviceInfo", "concordancia": 0.4958613513891261}, {"nivel": "uid (card1 + addr1 + D1n)", "atributo": "P_emaildomain", "concordancia": 0.7807736051838017}, {"nivel": "uid (card1 + addr1 + D1n)", "atributo": "D10n", "concordancia": 0.6662620923864302}, {"nivel": "uid (card1 + addr1 + D1n)", "atributo": "D15n", "concordancia": 0.6948142261076893}, {"nivel": "uid (card1 + addr1 + D1n)", "atributo": "DeviceInfo", "concordancia": 0.6396439390795535}, {"nivel": "uid con \u00b11 d\u00eda", "atributo": "P_emaildomain", "concordancia": 0.72710150769975}, {"nivel": "uid con \u00b11 d\u00eda", "atributo": "D10n", "concordancia": 0.6088872111825389}, {"nivel": "uid con \u00b11 d\u00eda", "atributo": "D15n", "concordancia": 0.6319920600996586}, {"nivel": "uid con \u00b11 d\u00eda", "atributo": "DeviceInfo", "concordancia": 0.5972563859981078}, {"nivel": "uid con veto de correo", "atributo": "P_emaildomain", "concordancia": 0.9991990846681922}, {"nivel": "uid con veto de correo", "atributo": "D10n", "concordancia": 0.6775231932920359}, {"nivel": "uid con veto de correo", "atributo": "D15n", "concordancia": 0.7139446181240579}, {"nivel": "uid con veto de correo", "atributo": "DeviceInfo", "concordancia": 0.715095261358085}, {"nivel": "Splink (umbral 0,9)", "atributo": "P_emaildomain", "concordancia": 0.8623384374358879}, {"nivel": "Splink (umbral 0,9)", "atributo": "D10n", "concordancia": 0.8023593870262896}, {"nivel": "Splink (umbral 0,9)", "atributo": "D15n", "concordancia": 0.8031278548744942}, {"nivel": "Splink (umbral 0,9)", "atributo": "DeviceInfo", "concordancia": 0.6244461420932009}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

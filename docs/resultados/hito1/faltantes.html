@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "data": {"name": "data-61c1bebf8d1346b139181c14cf0943c4"}, "facet": {"row": {"field": "periodo", "sort": ["desarrollo", "prueba"], "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "bar", "color": "#2f6db5", "cornerRadiusEnd": 4, "height": 12}, "encoding": {"tooltip": [{"field": "periodo", "type": "nominal"}, {"field": "grupo", "type": "nominal"}, {"field": "faltante", "format": ".0%", "type": "quantitative"}], "x": {"axis": {"format": ".0%", "tickCount": 6}, "field": "faltante", "title": "Faltante", "type": "quantitative"}, "y": {"field": "grupo", "sort": ["card", "addr_dist", "correo", "C", "D", "M", "V", "identidad"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "faltante", "format": ".0%", "type": "quantitative"}, "tooltip": [{"field": "periodo", "type": "nominal"}, {"field": "grupo", "type": "nominal"}, {"field": "faltante", "format": ".0%", "type": "quantitative"}], "x": {"axis": {"format": ".0%", "tickCount": 6}, "field": "faltante", "title": "Faltante", "type": "quantitative"}, "y": {"field": "grupo", "sort": ["card", "addr_dist", "correo", "C", "D", "M", "V", "identidad"], "title": null, "type": "nominal"}}}], "height": 176, "width": 420}, "title": "Celdas faltantes por grupo de columnas", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-61c1bebf8d1346b139181c14cf0943c4": [{"grupo": "card", "periodo": "desarrollo", "faltante": 0.004814550355171133}, {"grupo": "card", "periodo": "prueba", "faltante": 0.005615594116599679}, {"grupo": "addr_dist", "periodo": "desarrollo", "faltante": 0.44447607238832254}, {"grupo": "addr_dist", "periodo": "prueba", "faltante": 0.4255446084614598}, {"grupo": "correo", "periodo": "desarrollo", "faltante": 0.45323151815738816}, {"grupo": "correo", "periodo": "prueba", "faltante": 0.4884657780202048}, {"grupo": "C", "periodo": "desarrollo", "faltante": 0.0}, {"grupo": "C", "periodo": "prueba", "faltante": 0.0}, {"grupo": "D", "periodo": "desarrollo", "faltante": 0.5914818442199345}, {"grupo": "D", "periodo": "prueba", "faltante": 0.5580313412650976}, {"grupo": "M", "periodo": "desarrollo", "faltante": 0.5572093217735881}, {"grupo": "M", "periodo": "prueba", "faltante": 0.36267773244906226}, {"grupo": "V", "periodo": "desarrollo", "faltante": 0.42676613401226643}, {"grupo": "V", "periodo": "prueba", "faltante": 0.4389077597789547}, {"grupo": "identidad", "periodo": "desarrollo", "faltante": 0.8306684244298211}, {"grupo": "identidad", "periodo": "prueba", "faltante": 0.8782072807645557}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+{
+  "desarrollo": {
+    "transacciones": 414542,
+    "fraudes": 14600,
+    "prevalencia": 0.03522,
+    "por_bloque_30_dias": [
+      {
+        "bloque": 1,
+        "transacciones": 134339,
+        "prevalencia": 0.025317
+      },
+      {
+        "bloque": 2,
+        "transacciones": 89399,
+        "prevalencia": 0.040012
+      },
+      {
+        "bloque": 3,
+        "transacciones": 92189,
+        "prevalencia": 0.040395
+      },
+      {
+        "bloque": 4,
+        "transacciones": 98615,
+        "prevalencia": 0.039527
+      }
+    ]
+  },
+  "semanal": [
+    {
+      "semana": 1,
+      "dia_inicio": 1,
+      "dia_fin": 7,
+      "transacciones": 27596,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.029135
+    },
+    {
+      "semana": 2,
+      "dia_inicio": 8,
+      "dia_fin": 14,
+      "transacciones": 28463,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.025191
+    },
+    {
+      "semana": 3,
+      "dia_inicio": 15,
+      "dia_fin": 21,
+      "transacciones": 35701,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.024341
+    },
+    {
+      "semana": 4,
+      "dia_inicio": 22,
+      "dia_fin": 28,
+      "transacciones": 34906,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.020741
+    },
+    {
+      "semana": 5,
+      "dia_inicio": 29,
+      "dia_fin": 35,
+      "transacciones": 24539,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.036228
+    },
+    {
+      "semana": 6,
+      "dia_inicio": 36,
+      "dia_fin": 42,
+      "transacciones": 20919,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.038386
+    },
+    {
+      "semana": 7,
+      "dia_inicio": 43,
+      "dia_fin": 49,
+      "transacciones": 20564,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.040021
+    },
+    {
+      "semana": 8,
+      "dia_inicio": 50,
+      "dia_fin": 56,
+      "transacciones": 19761,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.043621
+    },
+    {
+      "semana": 9,
+      "dia_inicio": 57,
+      "dia_fin": 63,
+      "transacciones": 21432,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.043253
+    },
+    {
+      "semana": 10,
+      "dia_inicio": 64,
+      "dia_fin": 70,
+      "transacciones": 22534,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.0442
+    },
+    {
+      "semana": 11,
+      "dia_inicio": 71,
+      "dia_fin": 77,
+      "transacciones": 20953,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.041999
+    },
+    {
+      "semana": 12,
+      "dia_inicio": 78,
+      "dia_fin": 84,
+      "transacciones": 20175,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.033507
+    },
+    {
+      "semana": 13,
+      "dia_inicio": 85,
+      "dia_fin": 91,
+      "transacciones": 22391,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.040731
+    },
+    {
+      "semana": 14,
+      "dia_inicio": 92,
+      "dia_fin": 98,
+      "transacciones": 27429,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.032229
+    },
+    {
+      "semana": 15,
+      "dia_inicio": 99,
+      "dia_fin": 105,
+      "transacciones": 21269,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.033758
+    },
+    {
+      "semana": 16,
+      "dia_inicio": 106,
+      "dia_fin": 112,
+      "transacciones": 20891,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.041453
+    },
+    {
+      "semana": 17,
+      "dia_inicio": 113,
+      "dia_fin": 119,
+      "transacciones": 21078,
+      "periodo": "desarrollo",
+      "prevalencia_desarrollo": 0.050716
+    },
+    {
+      "semana": 18,
+      "dia_inicio": 120,
+      "dia_fin": 126,
+      "transacciones": 23575,
+      "periodo": "mixta",
+      "prevalencia_desarrollo": 0.045927
+    },
+    {
+      "semana": 19,
+      "dia_inicio": 127,
+      "dia_fin": 133,
+      "transacciones": 19258,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    },
+    {
+      "semana": 20,
+      "dia_inicio": 134,
+      "dia_fin": 140,
+      "transacciones": 18572,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    },
+    {
+      "semana": 21,
+      "dia_inicio": 141,
+      "dia_fin": 147,
+      "transacciones": 18549,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    },
+    {
+      "semana": 22,
+      "dia_inicio": 148,
+      "dia_fin": 154,
+      "transacciones": 21443,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    },
+    {
+      "semana": 23,
+      "dia_inicio": 155,
+      "dia_fin": 161,
+      "transacciones": 19811,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    },
+    {
+      "semana": 24,
+      "dia_inicio": 162,
+      "dia_fin": 168,
+      "transacciones": 21038,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    },
+    {
+      "semana": 25,
+      "dia_inicio": 169,
+      "dia_fin": 175,
+      "transacciones": 19941,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    },
+    {
+      "semana": 26,
+      "dia_inicio": 176,
+      "dia_fin": 182,
+      "transacciones": 17752,
+      "periodo": "prueba",
+      "prevalencia_desarrollo": null
+    }
+  ],
+  "producto": [
+    {
+      "categoria": "W",
+      "transacciones": 298873,
+      "fraudes": 6213.0,
+      "prevalencia": 0.020788
+    },
+    {
+      "categoria": "C",
+      "transacciones": 50136,
+      "fraudes": 5617.0,
+      "prevalencia": 0.112035
+    },
+    {
+      "categoria": "R",
+      "transacciones": 30185,
+      "fraudes": 1063.0,
+      "prevalencia": 0.035216
+    },
+    {
+      "categoria": "H",
+      "transacciones": 28134,
+      "fraudes": 1271.0,
+      "prevalencia": 0.045177
+    },
+    {
+      "categoria": "S",
+      "transacciones": 7214,
+      "fraudes": 436.0,
+      "prevalencia": 0.060438
+    }
+  ],
+  "identidad": [
+    {
+      "categoria": "sin identidad",
+      "transacciones": 304442,
+      "fraudes": 6523.0,
+      "prevalencia": 0.021426
+    },
+    {
+      "categoria": "con identidad",
+      "transacciones": 110100,
+      "fraudes": 8077.0,
+      "prevalencia": 0.073361
+    }
+  ],
+  "tipo_dispositivo": [
+    {
+      "categoria": "(faltante)",
+      "transacciones": 306964,
+      "fraudes": 6568.0,
+      "prevalencia": 0.021397
+    },
+    {
+      "categoria": "desktop",
+      "transacciones": 66059,
+      "fraudes": 3936.0,
+      "prevalencia": 0.059583
+    },
+    {
+      "categoria": "mobile",
+      "transacciones": 41519,
+      "fraudes": 4096.0,
+      "prevalencia": 0.098654
+    }
+  ],
+  "tipo_tarjeta": [
+    {
+      "categoria": "debit",
+      "transacciones": 304108,
+      "fraudes": 7339.0,
+      "prevalencia": 0.024133
+    },
+    {
+      "categoria": "credit",
+      "transacciones": 109564,
+      "fraudes": 7237.0,
+      "prevalencia": 0.066053
+    },
+    {
+      "categoria": "(faltante)",
+      "transacciones": 826,
+      "fraudes": 24.0,
+      "prevalencia": 0.029056
+    },
+    {
+      "categoria": "debit or credit",
+      "transacciones": 29,
+      "fraudes": 0.0,
+      "prevalencia": 0.0
+    },
+    {
+      "categoria": "charge card",
+      "transacciones": 15,
+      "fraudes": 0.0,
+      "prevalencia": 0.0
+    }
+  ],
+  "marca_tarjeta": [
+    {
+      "categoria": "visa",
+      "transacciones": 270809,
+      "fraudes": 9386.0,
+      "prevalencia": 0.034659
+    },
+    {
+      "categoria": "mastercard",
+      "transacciones": 131383,
+      "fraudes": 4686.0,
+      "prevalencia": 0.035667
+    },
+    {
+      "categoria": "american express",
+      "transacciones": 6750,
+      "fraudes": 189.0,
+      "prevalencia": 0.028
+    },
+    {
+      "categoria": "discover",
+      "transacciones": 4771,
+      "fraudes": 313.0,
+      "prevalencia": 0.065605
+    },
+    {
+      "categoria": "(faltante)",
+      "transacciones": 829,
+      "fraudes": 26.0,
+      "prevalencia": 0.031363
+    }
+  ],
+  "correo_comprador": [
+    {
+      "categoria": "gmail.com",
+      "transacciones": 159712,
+      "fraudes": 7029.0,
+      "prevalencia": 0.04401
+    },
+    {
+      "categoria": "yahoo.com",
+      "transacciones": 70642,
+      "fraudes": 1676.0,
+      "prevalencia": 0.023725
+    },
+    {
+      "categoria": "(faltante)",
+      "transacciones": 64464,
+      "fraudes": 1932.0,
+      "prevalencia": 0.02997
+    },
+    {
+      "categoria": "hotmail.com",
+      "transacciones": 32907,
+      "fraudes": 1778.0,
+      "prevalencia": 0.054031
+    },
+    {
+      "categoria": "anonymous.com",
+      "transacciones": 26796,
+      "fraudes": 634.0,
+      "prevalencia": 0.02366
+    },
+    {
+      "categoria": "aol.com",
+      "transacciones": 19840,
+      "fraudes": 418.0,
+      "prevalencia": 0.021069
+    },
+    {
+      "categoria": "comcast.net",
+      "transacciones": 5740,
+      "fraudes": 118.0,
+      "prevalencia": 0.020557
+    },
+    {
+      "categoria": "icloud.com",
+      "transacciones": 4331,
+      "fraudes": 136.0,
+      "prevalencia": 0.031402
+    },
+    {
+      "categoria": "outlook.com",
+      "transacciones": 3558,
+      "fraudes": 316.0,
+      "prevalencia": 0.088814
+    },
+    {
+      "categoria": "msn.com",
+      "transacciones": 2971,
+      "fraudes": 47.0,
+      "prevalencia": 0.01582
+    },
+    {
+      "categoria": "att.net",
+      "transacciones": 2718,
+      "fraudes": 12.0,
+      "prevalencia": 0.004415
+    },
+    {
+      "categoria": "live.com",
+      "transacciones": 2197,
+      "fraudes": 78.0,
+      "prevalencia": 0.035503
+    },
+    {
+      "categoria": "sbcglobal.net",
+      "transacciones": 2152,
+      "fraudes": 7.0,
+      "prevalencia": 0.003253
+    },
+    {
+      "categoria": "verizon.net",
+      "transacciones": 2017,
+      "fraudes": 11.0,
+      "prevalencia": 0.005454
+    }
+  ],
+  "decimales_por_producto": [
+    {
+      "producto": "C",
+      "decimales": "3 o más decimales",
+      "transacciones": 45328,
+      "prevalencia": 0.112447
+    },
+    {
+      "producto": "C",
+      "decimales": "centavos",
+      "transacciones": 4780,
+      "prevalencia": 0.106276
+    },
+    {
+      "producto": "C",
+      "decimales": "entero",
+      "transacciones": 28,
+      "prevalencia": 0.428571
+    },
+    {
+      "producto": "H",
+      "decimales": "entero",
+      "transacciones": 28134,
+      "prevalencia": 0.045177
+    },
+    {
+      "producto": "R",
+      "decimales": "entero",
+      "transacciones": 30185,
+      "prevalencia": 0.035216
+    },
+    {
+      "producto": "S",
+      "decimales": "centavos",
+      "transacciones": 41,
+      "prevalencia": 0.0
+    },
+    {
+      "producto": "S",
+      "decimales": "entero",
+      "transacciones": 7173,
+      "prevalencia": 0.060783
+    },
+    {
+      "producto": "W",
+      "decimales": "3 o más decimales",
+      "transacciones": 2,
+      "prevalencia": 0.0
+    },
+    {
+      "producto": "W",
+      "decimales": "centavos",
+      "transacciones": 147029,
+      "prevalencia": 0.007794
+    },
+    {
+      "producto": "W",
+      "decimales": "entero",
+      "transacciones": 151842,
+      "prevalencia": 0.03337
+    }
+  ],
+  "montos": [
+    {
+      "fraude": 0,
+      "transacciones": 399942,
+      "p10": 25.95,
+      "p50": 68.95,
+      "p90": 270.0,
+      "p99": 1104.0
+    },
+    {
+      "fraude": 1,
+      "transacciones": 14600,
+      "p10": 19.239,
+      "p50": 76.023,
+      "p90": 335.0,
+      "p99": 994.0
+    }
+  ],
+  "faltantes": [
+    {
+      "grupo": "card",
+      "periodo": "desarrollo",
+      "faltante": 0.004815
+    },
+    {
+      "grupo": "card",
+      "periodo": "prueba",
+      "faltante": 0.005616
+    },
+    {
+      "grupo": "addr_dist",
+      "periodo": "desarrollo",
+      "faltante": 0.444476
+    },
+    {
+      "grupo": "addr_dist",
+      "periodo": "prueba",
+      "faltante": 0.425545
+    },
+    {
+      "grupo": "correo",
+      "periodo": "desarrollo",
+      "faltante": 0.453232
+    },
+    {
+      "grupo": "correo",
+      "periodo": "prueba",
+      "faltante": 0.488466
+    },
+    {
+      "grupo": "C",
+      "periodo": "desarrollo",
+      "faltante": 0.0
+    },
+    {
+      "grupo": "C",
+      "periodo": "prueba",
+      "faltante": 0.0
+    },
+    {
+      "grupo": "D",
+      "periodo": "desarrollo",
+      "faltante": 0.591482
+    },
+    {
+      "grupo": "D",
+      "periodo": "prueba",
+      "faltante": 0.558031
+    },
+    {
+      "grupo": "M",
+      "periodo": "desarrollo",
+      "faltante": 0.557209
+    },
+    {
+      "grupo": "M",
+      "periodo": "prueba",
+      "faltante": 0.362678
+    },
+    {
+      "grupo": "V",
+      "periodo": "desarrollo",
+      "faltante": 0.426766
+    },
+    {
+      "grupo": "V",
+      "periodo": "prueba",
+      "faltante": 0.438908
+    },
+    {
+      "grupo": "identidad",
+      "periodo": "desarrollo",
+      "faltante": 0.830668
+    },
+    {
+      "grupo": "identidad",
+      "periodo": "prueba",
+      "faltante": 0.878207
+    }
+  ],
+  "bloques_v": {
+    "bloques": 15,
+    "detalle": [
+      {
+        "faltante": 2e-05,
+        "columnas": 32,
+        "primera": "V279",
+        "ultima": "V321"
+      },
+      {
+        "faltante": 0.000532,
+        "columnas": 43,
+        "primera": "V95",
+        "ultima": "V137"
+      },
+      {
+        "faltante": 0.002149,
+        "columnas": 11,
+        "primera": "V281",
+        "ultima": "V315"
+      },
+      {
+        "faltante": 0.128819,
+        "columnas": 23,
+        "primera": "V12",
+        "ultima": "V34"
+      },
+      {
+        "faltante": 0.130552,
+        "columnas": 22,
+        "primera": "V53",
+        "ultima": "V74"
+      },
+      {
+        "faltante": 0.150987,
+        "columnas": 20,
+        "primera": "V75",
+        "ultima": "V94"
+      },
+      {
+        "faltante": 0.286126,
+        "columnas": 18,
+        "primera": "V35",
+        "ultima": "V52"
+      },
+      {
+        "faltante": 0.472935,
+        "columnas": 11,
+        "primera": "V1",
+        "ultima": "V11"
+      },
+      {
+        "faltante": 0.760531,
+        "columnas": 16,
+        "primera": "V220",
+        "ultima": "V272"
+      },
+      {
+        "faltante": 0.763235,
+        "columnas": 19,
+        "primera": "V169",
+        "ultima": "V210"
+      },
+      {
+        "faltante": 0.763554,
+        "columnas": 31,
+        "primera": "V167",
+        "ultima": "V216"
+      },
+      {
+        "faltante": 0.779134,
+        "columnas": 46,
+        "primera": "V217",
+        "ultima": "V278"
+      },
+      {
+        "faltante": 0.86055,
+        "columnas": 18,
+        "primera": "V322",
+        "ultima": "V339"
+      },
+      {
+        "faltante": 0.861227,
+        "columnas": 11,
+        "primera": "V143",
+        "ultima": "V166"
+      },
+      {
+        "faltante": 0.861237,
+        "columnas": 18,
+        "primera": "V138",
+        "ultima": "V163"
+      }
+    ]
+  }
+}
