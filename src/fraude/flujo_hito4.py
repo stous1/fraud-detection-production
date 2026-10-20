@@ -41,15 +41,23 @@ INSTANTANEA = rutas.DATA / "estado_dia120.pkl"
 VARIANTES_REGISTRO = {
     "completo": (
         "1.0.0",
-        "produccion",
-        "XGBoost completo (transacción, C/D/V/identidad, vecindario, historia). Rango en "
-        "clientes nuevos: 0,300 sin las opacas a 0,551 con ellas; W 0,161.",
+        "retirado",
+        "XGBoost completo. Retirado en la semana 1 de prueba: el monitoreo encontró relojes "
+        "encubiertos (antigüedad de región, correo y tarjeta, Spearman con el día de 0,87 a "
+        "1,00) con PSI de 4 a 7, sin necesitar etiquetas.",
     ),
-    "sin_sospechosas": (
-        "1.0.0-respaldo",
+    "sin_vecindario": (
+        "1.1.0",
+        "produccion",
+        "XGBoost sin vecindario (transacción, C/D/V/identidad, historia): sin relojes "
+        "encubiertos. Validación en nuevos 0,640 (el completo, 0,642). Ya congelado y medido "
+        "una vez en el hito 3.",
+    ),
+    "solo_transaccion": (
+        "1.1.0-respaldo",
         "respaldo",
-        "Respaldo sin las variables opacas de Vesta (C, D, V, identidad), por si dejan de "
-        "llegar o derivan. AP en clientes nuevos: 0,300.",
+        "Respaldo si las variables opacas de Vesta dejan de llegar o derivan: solo datos de la "
+        "transacción. Es la única variante congelada sin opacas y sin relojes encubiertos.",
     ),
 }
 TOP_VARIABLES = 20
@@ -127,21 +135,25 @@ def registrar(con=None) -> None:
     if propia:
         con.close()
     sin_etiqueta = df[df["dia"] > particion.ULTIMO_DIA_ETIQUETADO]  # días 91 a 120
-    umbrales = {"completo": principal}
-    # Respaldo: misma tasa de alertas por costo, convertida con sus propios puntajes.
-    cod = variables.Codificador(p["codificadores"]["realista"])
-    v = p["variantes"]["sin_sospechosas"]
-    modelo = modelo_xgb.cargar(h3.MODELOS / v["modelo"], v["sha256"])
-    s = modelo_xgb.puntuar(modelo, variables.matriz(sin_etiqueta, v["columnas"], cod))
     from fraude import costos
 
-    umbrales["sin_sospechosas"] = {
-        cfp: {
-            "tasa_alertas": u["tasa_alertas"],
-            "umbral": costos.umbral_de_tasa(s, u["tasa_alertas"]),
+    cod = variables.Codificador(p["codificadores"]["realista"])
+    umbrales = {}
+    for variante in VARIANTES_REGISTRO:
+        if variante == h3.PRINCIPAL:
+            umbrales[variante] = principal
+            continue
+        # Misma tasa de alertas por costo que el principal, con los puntajes propios.
+        v = p["variantes"][variante]
+        modelo = modelo_xgb.cargar(h3.MODELOS / v["modelo"], v["sha256"])
+        s = modelo_xgb.puntuar(modelo, variables.matriz(sin_etiqueta, v["columnas"], cod))
+        umbrales[variante] = {
+            cfp: {
+                "tasa_alertas": u["tasa_alertas"],
+                "umbral": costos.umbral_de_tasa(s, u["tasa_alertas"]),
+            }
+            for cfp, u in principal.items()
         }
-        for cfp, u in principal.items()
-    }
     versiones = registro.registrar_desde_hito3(
         h3.PARAMETROS_PUBLICADOS,
         h3.MODELOS,
@@ -184,18 +196,56 @@ def simular(con=None, salida: Path = SALIDA, costo_fp: str = "10.0") -> None:
 
     resultado: dict[str, object] = {"costo_fp_supuesto": float(costo_fp), "versiones": {}}
     todas_alertas = []
-    for version in (registro.en_produccion(versiones), registro.respaldo(versiones)):
+    desarrollo = df[df["dia"] <= particion.ULTIMO_DIA_DESARROLLO]
+    numericas = [c for c in df.attrs["columnas_vecindario"]] + [
+        c
+        for c in variables.TRANSACCION + variables.SOSPECHOSAS
+        if c in df and df[c].dtype.kind in "if"
+    ]
+    rho = monitoreo.correlacion_con_dia(desarrollo, numericas)
+    resultado["relojes_encubiertos"] = {
+        "umbral": monitoreo.RELOJ,
+        "variables": {
+            c: r
+            for c, r in sorted(rho.items(), key=lambda kv: -abs(kv[1]))
+            if abs(r) >= monitoreo.RELOJ
+        },
+        "en_cada_version": {
+            v.version: [
+                c
+                for c in json.loads(v.ruta_parametros().read_text(encoding="utf-8"))["variantes"][
+                    v.variante
+                ]["columnas"]
+                if abs(rho.get(c, 0)) >= monitoreo.RELOJ
+            ]
+            for v in versiones
+        },
+    }
+    for version in versiones:
         umbral = float(version.umbrales[costo_fp]["umbral"])
         tasa = float(version.umbrales[costo_fp]["tasa_alertas"])
         s_ref = _puntajes(version, referencia)
         s_prueba = _puntajes(version, prueba)
+        p_h3 = json.loads(version.ruta_parametros().read_text(encoding="utf-8"))
+        cod = variables.Codificador(p_h3["codificadores"]["realista"])
+        top_v = [c for c in top if c in p_h3["variantes"][version.variante]["columnas"]]
+        x_ref = variables.matriz(referencia, top_v, cod)
+        x_prueba = variables.matriz(prueba, top_v, cod)
         nombre_val = version.variante
         ap_val = h3_dev["variantes"][nombre_val]["validacion"]["nuevos"]["ap"]
         semanas = []
         for w in sorted(prueba["semana"].unique()):
             m = (prueba["semana"] == w).to_numpy()
             datos = monitoreo.semana(
-                referencia, prueba[m], s_ref, s_prueba[m], umbral, tasa, top, grupos
+                referencia,
+                prueba[m],
+                x_ref,
+                x_prueba[m],
+                s_ref,
+                s_prueba[m],
+                umbral,
+                tasa,
+                grupos,
             )
             fin = int(prueba.loc[m, "dia"].max())
             maduro = (prueba["dia"] <= fin - particion.RETRASO_BASE).to_numpy()
@@ -212,6 +262,9 @@ def simular(con=None, salida: Path = SALIDA, costo_fp: str = "10.0") -> None:
             datos["alertas"] = monitoreo.alertas(int(w), datos, ap_val)
             if version.estado == "produccion":
                 todas_alertas += datos["alertas"]
+            datos["alertas_resumen"] = {
+                n: sum(a["nivel"] == n for a in datos["alertas"]) for n in ("aviso", "critica")
+            }
             semanas.append(datos)
         resultado["versiones"][version.version] = {
             "variante": version.variante,
@@ -237,7 +290,8 @@ def graficos_monitoreo(salida: Path = SALIDA) -> None:
         for c, v in s["psi_variables"].items():
             filas.append({"semana": s["semana"], "variable": c, "psi": v})
     psi = pd.DataFrame(filas)
-    tope = psi.groupby("variable")["psi"].max().sort_values(ascending=False).head(6).index
+    # Cinco series como máximo: la paleta tiene cinco colores y no se repiten.
+    tope = psi.groupby("variable")["psi"].max().sort_values(ascending=False).head(5).index
     psi_top = psi[psi["variable"].isin(tope)]
     reglas = pd.DataFrame({"y": [0.10, 0.25], "nivel": ["aviso", "crítica"]})
     g = alt.layer(
@@ -250,7 +304,11 @@ def graficos_monitoreo(salida: Path = SALIDA) -> None:
             tooltip=["variable", "semana", alt.Tooltip("psi:Q", format=".3f")],
         ),
         alt.Chart(reglas).mark_rule(strokeDash=[4, 3], color=graficos.GRIS).encode(y="y:Q"),
-    ).properties(title="Deriva de las seis variables que más cambiaron", width=560, height=260)
+    ).properties(
+        title="Deriva de las cinco variables que más cambiaron (versión en producción)",
+        width=560,
+        height=260,
+    )
     graficos.guardar(g, salida / "psi_semanal")
 
     filas = []
@@ -271,6 +329,7 @@ def graficos_monitoreo(salida: Path = SALIDA) -> None:
             eje_x="Semana de prueba",
             eje_y="AP en nuevos",
             formato_y=".2f",
+            ordinal=True,
         )
         graficos.guardar(g, salida / "rendimiento_maduro")
     filas = [{"semana": s["semana"], "tasa": s["tasa_alertas"]} for s in prod["semanas"]]
@@ -282,6 +341,7 @@ def graficos_monitoreo(salida: Path = SALIDA) -> None:
         eje_x="Semana de prueba",
         eje_y="Transacciones marcadas",
         formato_y=".0%",
+        ordinal=True,
     )
     graficos.guardar(g, salida / "tasa_alertas")
 

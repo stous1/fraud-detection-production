@@ -1,0 +1,121 @@
+{
+  "versiones": [
+    {
+      "version": "1.0.0",
+      "variante": "completo",
+      "estado": "retirado",
+      "archivo": "modelos/v1.0.0_completo.ubj",
+      "sha256": "4967241cadab8a710c96bd73b74ebafc11724bdf5f124a12e917a279ccc6ea4c",
+      "parametros": "docs/resultados/hito3/parametros.json",
+      "sha256_parametros": "d9670d1c03cc22a6c941457f437e9573e24a41d6acda112cba80f1da72d18d28",
+      "descripcion": "XGBoost completo. Retirado en la semana 1 de prueba: el monitoreo encontró relojes encubiertos (antigüedad de región, correo y tarjeta, Spearman con el día de 0,87 a 1,00) con PSI de 4 a 7, sin necesitar etiquetas.",
+      "metricas_prueba": {
+        "ap_nuevos": 0.550688,
+        "ap_nuevos_ic95": [
+          0.526041,
+          0.574288
+        ],
+        "ap_nuevos_W": 0.161226,
+        "ap_vistos_inflada": 0.830824,
+        "ap_todos": 0.620973
+      },
+      "origen": "tag hito3-congelado",
+      "umbrales": {
+        "5.0": {
+          "tasa_alertas": 0.17,
+          "umbral": 0.031583
+        },
+        "10.0": {
+          "tasa_alertas": 0.14,
+          "umbral": 0.039841
+        },
+        "25.0": {
+          "tasa_alertas": 0.06,
+          "umbral": 0.106914
+        },
+        "50.0": {
+          "tasa_alertas": 0.035,
+          "umbral": 0.207872
+        }
+      }
+    },
+    {
+      "version": "1.1.0",
+      "variante": "sin_vecindario",
+      "estado": "produccion",
+      "archivo": "modelos/v1.1.0_sin_vecindario.ubj",
+      "sha256": "4bd95c833b85526bd0ac2a68b5662e941d6b80b67af5adf11757bccb2126297c",
+      "parametros": "docs/resultados/hito3/parametros.json",
+      "sha256_parametros": "d9670d1c03cc22a6c941457f437e9573e24a41d6acda112cba80f1da72d18d28",
+      "descripcion": "XGBoost sin vecindario (transacción, C/D/V/identidad, historia): sin relojes encubiertos. Validación en nuevos 0,640 (el completo, 0,642). Ya congelado y medido una vez en el hito 3.",
+      "metricas_prueba": {
+        "ap_nuevos": 0.558291,
+        "ap_nuevos_ic95": [
+          0.532475,
+          0.584376
+        ],
+        "ap_nuevos_W": 0.177204,
+        "ap_vistos_inflada": 0.825163,
+        "ap_todos": 0.62398
+      },
+      "origen": "tag hito3-congelado",
+      "umbrales": {
+        "5.0": {
+          "tasa_alertas": 0.17,
+          "umbral": 0.024755466729402542
+        },
+        "10.0": {
+          "tasa_alertas": 0.14,
+          "umbral": 0.031109919771552086
+        },
+        "25.0": {
+          "tasa_alertas": 0.06,
+          "umbral": 0.08435428142547607
+        },
+        "50.0": {
+          "tasa_alertas": 0.035,
+          "umbral": 0.17571747303009033
+        }
+      }
+    },
+    {
+      "version": "1.1.0-respaldo",
+      "variante": "solo_transaccion",
+      "estado": "respaldo",
+      "archivo": "modelos/v1.1.0-respaldo_solo_transaccion.ubj",
+      "sha256": "f51db638f18a213912f8083d2a4c35b032cdee08d13b9810277bde1977dd1c80",
+      "parametros": "docs/resultados/hito3/parametros.json",
+      "sha256_parametros": "d9670d1c03cc22a6c941457f437e9573e24a41d6acda112cba80f1da72d18d28",
+      "descripcion": "Respaldo si las variables opacas de Vesta dejan de llegar o derivan: solo datos de la transacción. Es la única variante congelada sin opacas y sin relojes encubiertos.",
+      "metricas_prueba": {
+        "ap_nuevos": 0.235201,
+        "ap_nuevos_ic95": [
+          0.215416,
+          0.257239
+        ],
+        "ap_nuevos_W": 0.076527,
+        "ap_vistos_inflada": 0.187635,
+        "ap_todos": 0.224207
+      },
+      "origen": "tag hito3-congelado",
+      "umbrales": {
+        "5.0": {
+          "tasa_alertas": 0.17,
+          "umbral": 0.03943117707967758
+        },
+        "10.0": {
+          "tasa_alertas": 0.14,
+          "umbral": 0.04888444393873215
+        },
+        "25.0": {
+          "tasa_alertas": 0.06,
+          "umbral": 0.11238817125558853
+        },
+        "50.0": {
+          "tasa_alertas": 0.035,
+          "umbral": 0.1693032681941986
+        }
+      }
+    }
+  ]
+}

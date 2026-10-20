@@ -1,0 +1,11 @@
+.venv
+.git
+.pytest_cache
+.ruff_cache
+data
+reports
+notebooks
+tests
+**/__pycache__
+docs
+!docs/resultados/hito3/parametros.json

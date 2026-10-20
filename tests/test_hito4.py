@@ -144,3 +144,22 @@ def test_servicio_reproduce_la_evaluacion_por_lotes(con, tmp_path):
     }
     assert cliente_http.post("/puntuar", json=viejo).status_code == 409
     shutil.rmtree(h3)
+
+
+def test_registro_versionado_es_valido_y_coincide_con_los_archivos():
+    versiones = registro.leer()
+    prod = registro.en_produccion(versiones)
+    assert prod.version == "1.1.0" and registro.respaldo(versiones) is not None
+    for v in versiones:
+        if v.estado != "retirado":
+            registro.verificar(v)
+
+
+def test_detecta_relojes_encubiertos():
+    dia = np.repeat(np.arange(1, 121), 50)
+    rng = np.random.default_rng(0)
+    df = pd.DataFrame(
+        {"dia": dia, "reloj": dia + rng.integers(0, 3, len(dia)), "ruido": rng.random(len(dia))}
+    )
+    rho = monitoreo.correlacion_con_dia(df, ["reloj", "ruido"])
+    assert rho["reloj"] >= monitoreo.RELOJ > abs(rho["ruido"])

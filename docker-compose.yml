@@ -1,0 +1,14 @@
+# Servicio local de puntuación. Requiere data/estado_dia120.pkl (scripts/hito4.py paridad).
+#   docker compose up -d --build
+#   docker compose down
+services:
+  fraude:
+    build: .
+    image: fraude-servicio:1.1.0
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/estado_dia120.pkl:/app/data/estado_dia120.pkl:ro
+    environment:
+      FRAUDE_COSTO_FP: "10.0"
+      # FRAUDE_VERSION: "1.1.0-respaldo"   # plan de contingencia: activar el respaldo

@@ -133,10 +133,14 @@ def lineas(
     sombra: tuple[float, float] | None = None,
     etiqueta_sombra: str = "",
     cero: bool = True,
+    ordinal: bool = False,
 ) -> alt.LayerChart:
-    """Líneas de 2 px con puntos; ``sombra`` marca un intervalo del eje x."""
+    """Líneas de 2 px con puntos; ``sombra`` marca un intervalo del eje x; ``ordinal``: eje x
+    por categorías (semanas enteras, sin decimales)."""
     enc = {
-        "x": alt.X(f"{x}:Q", title=eje_x, scale=alt.Scale(nice=False, zero=False)),
+        "x": alt.X(f"{x}:O", title=eje_x, axis=alt.Axis(labelAngle=0))
+        if ordinal
+        else alt.X(f"{x}:Q", title=eje_x, scale=alt.Scale(nice=False, zero=False)),
         "y": alt.Y(f"{y}:Q", title=eje_y, axis=_eje(formato_y), scale=alt.Scale(zero=cero)),
         "tooltip": [*([color] if color else []), x, alt.Tooltip(f"{y}:Q", format=formato_y)],
     }

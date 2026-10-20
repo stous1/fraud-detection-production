@@ -93,6 +93,17 @@ def nivel(valor: float, regla: str) -> str | None:
     return "critica" if valor >= r["critica"] else ("aviso" if valor >= r["aviso"] else None)
 
 
+RELOJ = 0.8
+
+
+def correlacion_con_dia(df: pd.DataFrame, columnas: Sequence[str]) -> dict[str, float]:
+    """Spearman de cada variable con el día (sin etiquetas). ``|rho| >= RELOJ`` delata un
+    reloj encubierto: la variable sube con el calendario y en producción toma valores que el
+    modelo nunca vio (en el hito 4: la antigüedad de entidades gruesas como la región)."""
+    dia = df["dia"].rank()
+    return {c: float(df[c].rank().corr(dia)) for c in columnas}
+
+
 def faltantes(df: pd.DataFrame, grupos: dict[str, Sequence[str]]) -> dict[str, float]:
     return {g: float(df[list(c)].isna().to_numpy().mean()) for g, c in grupos.items()}
 
@@ -100,15 +111,20 @@ def faltantes(df: pd.DataFrame, grupos: dict[str, Sequence[str]]) -> dict[str, f
 def semana(
     referencia: pd.DataFrame,
     actual: pd.DataFrame,
+    x_ref: pd.DataFrame,
+    x_act: pd.DataFrame,
     s_ref: np.ndarray,
     s_act: np.ndarray,
     umbral: float,
     tasa_esperada: float,
-    variables: Sequence[str],
     grupos: dict[str, Sequence[str]],
 ) -> dict[str, object]:
-    """Deriva y operación de una semana (sin etiquetas)."""
-    psis = {c: psi(referencia[c], actual[c]) for c in variables}
+    """Deriva y operación de una semana (sin etiquetas).
+
+    ``x_ref`` y ``x_act``: variables como las ve el modelo (categorías ya codificadas), para
+    el PSI; ``referencia`` y ``actual``: datos crudos, para los faltantes por grupo.
+    """
+    psis = {c: psi(x_ref[c], x_act[c]) for c in x_ref.columns}
     f_ref, f_act = faltantes(referencia, grupos), faltantes(actual, grupos)
     tasa = float((s_act > umbral).mean())
     return {
