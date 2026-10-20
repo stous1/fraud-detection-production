@@ -47,6 +47,10 @@ uv run pytest                                 # todas las pruebas (mini-IEEE sin
 uv run pytest -m "not integracion"            # solo pruebas rápidas
 uv run ruff check . && uv run ruff format .   # lint y formato
 uv run python scripts/hito1.py preparar       # CSV de train -> data/fraude.duckdb (~15 s)
+uv run python scripts/hito1.py explorar       # -> reports/hito1/exploracion.json y gráficos
+uv run python scripts/hito1.py clientes       # uid, variantes, Splink -> tabla clientes (~1 min)
+uv run python scripts/hito1.py sospechas      # propagación, monotonía, prueba de futuro
+uv run python scripts/hito1.py todo           # explorar + clientes + sospechas
 uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/resultados/hitoN
 ```
 
@@ -60,6 +64,11 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
 - `dia = TransactionDT // 86400` (1 a 182). La fecha de calendario es desconocida: no se
   inventa.
 - El esquema se fija en `esquema.py` (no se infiere); sirve de contrato para el servicio.
+- **Cliente = `uid` = `card1 + addr1 + D1n` exacto**, con `D1n = dia - D1` (día de alta de la
+  tarjeta). Tabla `clientes` en la base. La tolerancia de un día y el veto por correo se
+  midieron y se descartaron (ver `INFORME_TECNICO.md`). `D1 = 0` es frecuente (95 % en H,
+  89 % en R): ahí el `uid` se parte por día.
+- `card2`-`card6` y `addr2` dependen de `card1`: no sirven para validar clientes.
 
 ## Estructura
 
@@ -68,7 +77,18 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
   - `base.py`: conexión a DuckDB con memoria limitada, desborde a disco y UTC.
   - `esquema.py`, `ingesta.py`: CSV a DuckDB (`transacciones`, `identidad`).
   - `particion.py`: cortes fijos y vistas `tiempo` y `desarrollo`.
-  - `sintetico.py`: mini-IEEE con clientes plantados, para pruebas y CI.
+  - `sintetico.py`: mini-IEEE con clientes plantados (tarjetas hermanas, cambios de correo,
+    propagación de etiquetas, un contador en línea y un total con futuro), para pruebas y CI.
+  - `exploracion.py`, `graficos.py` (Altair, números en español, tooltip en el HTML).
+  - `clientes.py`: niveles de cliente, asignación en línea, validación con atributos que no
+    se usan para unir (`concordancia`, `referencias`, `cambios`).
+  - `splink_ref.py`: Fellegi-Sunter con EM, sin etiquetas, como referencia fuera de línea
+    (ve el futuro: **no alimenta al modelo**).
+  - `sospechas.py`: propagación de etiquetas (con retraso), monotonía, prueba de futuro y
+    registro `GRUPOS` de variables con o sin sospecha (verificado por una prueba).
+  - `flujo_hito1.py`: pasos del hito 1. `util.py`: JSON estable.
+  - **Quién lee `isFraud`:** solo los módulos listados en `tests/test_flujo_hito1.py`, y en
+    el hito 1 siempre a través de la vista `desarrollo`.
 - `scripts/`: puntos de entrada delgados que orquestan funciones de `src/`.
 - `notebooks/`: solo exploración. Nada en `src/` ni `scripts/` importa de notebooks.
 - `tests/`: pytest. Las lentas se marcan con `@pytest.mark.integracion`. Todas corren sobre el
