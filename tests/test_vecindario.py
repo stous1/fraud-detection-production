@@ -112,3 +112,18 @@ def test_columnas_por_retraso(con_grafo):
     sin = vecindario.columnas(v, None)
     assert sin and not any(c.endswith(("_r0", "_r30")) for c in sin)
     assert set(vecindario.columnas(v, 30)) - set(sin) == {c for c in v if c.endswith("_r30")}
+
+
+def test_columnas_nunca_incluyen_etiqueta_ni_identificadores():
+    nombres = [
+        "TransactionID",
+        "dia",
+        "cliente",
+        "isFraud",
+        "huella_tx_previas",
+        "cliente_fraudes_r30",
+    ]
+    for r in (None, 30):
+        cols = vecindario.columnas(nombres, r)
+        assert not set(cols) & vecindario.NO_VARIABLES
+    assert vecindario.columnas(nombres, 30) == ["huella_tx_previas", "cliente_fraudes_r30"]

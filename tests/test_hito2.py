@@ -60,3 +60,17 @@ def test_flujo_completo(con, tmp_path):
     # En el mini-IEEE la etiqueta se propaga: los clientes ya vistos se detectan mejor.
     assert r["vistos"]["ap"] > r["vistos"]["prevalencia"]
     assert (tmp_path / "ap_prueba.png").exists()
+
+
+@pytest.mark.integracion
+def test_parametros_sin_etiqueta(con, tmp_path):
+    df = clientes.cargar_base(con)
+    tabla = pd.DataFrame({"TransactionID": df["TransactionID"], "uid": clientes.asignar(df, "uid")})
+    con.register("t_cli", tabla)
+    con.execute("CREATE OR REPLACE TABLE clientes AS SELECT * FROM t_cli")
+    flujo_hito2.preparar(con)
+    flujo_hito2.desarrollar(con, tmp_path, grilla=(0.1,))
+    p = json.loads((tmp_path / "parametros.json").read_text(encoding="utf-8"))
+    for v in p["variantes"].values():
+        if "modelo" in v:
+            assert not set(v["modelo"]["columnas"]) & {"isFraud", "dia", "cliente"}

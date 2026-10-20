@@ -256,12 +256,20 @@ def construir(con: duckdb.DuckDBPyConnection, retrasos: Sequence[int] = RETRASOS
     return tabla
 
 
-def columnas(tabla: pd.DataFrame, retraso: int | None) -> list[str]:
-    """Columnas de vecindario sin etiquetas (``retraso=None``) o con las del retraso dado."""
+NO_VARIABLES: frozenset[str] = frozenset(
+    {"TransactionID", "TransactionDT", "dia", "cliente", "isFraud"}
+)
+
+
+def columnas(tabla: pd.DataFrame | Sequence[str], retraso: int | None) -> list[str]:
+    """Columnas de vecindario sin etiquetas (``retraso=None``) o con las del retraso dado.
+
+    Nunca devuelve identificadores, tiempo ni la etiqueta, aunque ``tabla`` los traiga.
+    """
+    nombres = list(tabla.columns if isinstance(tabla, pd.DataFrame) else tabla)
+    nombres = [c for c in nombres if c not in NO_VARIABLES]
     con_etiqueta = tuple(f"_r{r}" for r in RETRASOS)
-    sin_etiquetas = [
-        c for c in tabla.columns if c != "TransactionID" and not c.endswith(con_etiqueta)
-    ]
+    sin_etiquetas = [c for c in nombres if not c.endswith(con_etiqueta)]
     if retraso is None:
         return sin_etiquetas
-    return sin_etiquetas + [c for c in tabla.columns if c.endswith(f"_r{retraso}")]
+    return sin_etiquetas + [c for c in nombres if c.endswith(f"_r{retraso}")]
