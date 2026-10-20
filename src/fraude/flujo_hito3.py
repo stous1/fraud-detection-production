@@ -508,6 +508,9 @@ NOMBRES = {
 }
 
 
+ETIQUETA = {"transaccion": "transacción"}
+
+
 def graficos_evaluacion(salida: Path = SALIDA) -> None:
     """Gráficos de prueba desde ``evaluacion.json`` (sin volver a medir)."""
     e = json.loads((salida / "evaluacion.json").read_text(encoding="utf-8"))
@@ -546,7 +549,13 @@ def graficos_evaluacion(salida: Path = SALIDA) -> None:
     filas = []
     for corte, a in e["aportes_por_grupo"].items():
         for g, d in a["dejar_uno_fuera"].items():
-            filas.append({"corte": corte.replace("_", " "), "grupo": f"sin {g}", "caida_ap": d})
+            filas.append(
+                {
+                    "corte": corte.replace("_", " "),
+                    "grupo": f"sin {ETIQUETA.get(g, g)}",
+                    "caida_ap": d,
+                }
+            )
     graficos.guardar(
         graficos.barras_agrupadas(
             pd.DataFrame(filas),
@@ -556,7 +565,10 @@ def graficos_evaluacion(salida: Path = SALIDA) -> None:
             titulo="Cuánto cae la AP al quitar cada grupo (prueba, clientes nuevos)",
             eje_x="AP del modelo completo menos AP sin el grupo",
             formato_x=".3f",
-            orden_y=[f"sin {g}" for g in e["aportes_por_grupo"]["nuevos"]["dejar_uno_fuera"]],
+            orden_y=[
+                f"sin {ETIQUETA.get(g, g)}"
+                for g in e["aportes_por_grupo"]["nuevos"]["dejar_uno_fuera"]
+            ],
             orden_grupo=["nuevos", "nuevos estrictos", "nuevos W"],
         ),
         salida / "aporte_dejar_uno_fuera",
