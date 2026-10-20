@@ -14,6 +14,9 @@ dependencies = [
     "vl-convert-python",
     "splink>=4",
     "scikit-learn>=1.9.1",
+    # XGBoost: con CUDA en Windows (RTX 4080 local); solo CPU en Linux (CI), mismo módulo.
+    "xgboost>=3; sys_platform == 'win32'",
+    "xgboost-cpu>=3; sys_platform != 'win32'",
 ]
 
 [dependency-groups]

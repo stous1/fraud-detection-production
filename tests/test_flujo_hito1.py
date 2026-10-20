@@ -16,6 +16,8 @@ QUIEN_LEE_ETIQUETAS = {
     "flujo_hito1.py",  # pasa a sospechas la vista desarrollo
     "vecindario.py",  # etiquetas pasadas, solo con retraso (tests/test_vecindario.py)
     "flujo_hito2.py",  # desarrollo para elegir; prueba solo tras el tag de congelamiento
+    "flujo_hito3.py",  # igual que el hito 2
+    "variables.py",  # carga la etiqueta junto a las variables y prohíbe usarla como variable
 }
 
 
