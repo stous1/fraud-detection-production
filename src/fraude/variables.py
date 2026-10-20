@@ -107,16 +107,22 @@ def cargar(con: duckdb.DuckDBPyConnection, hasta_dia: int) -> pd.DataFrame:
         ORDER BY t.TransactionID
         """
     ).df()
-    segundos = df["TransactionDT"] % 86_400
-    df["hora"] = (segundos // 3600).astype("int8")
-    df["dia_semana"] = (df["dia"] % 7).astype("int8")
-    monto = df["TransactionAmt"]
+    df = derivadas(df)
+    df.attrs["columnas_vecindario"] = cols_vec
+    return df
+
+
+def derivadas(df: pd.DataFrame) -> pd.DataFrame:
+    """Agrega ``hora``, ``dia_semana`` y ``decimales`` (mismo código en el servicio)."""
+    t = df["TransactionDT"].astype("int64")
+    df["hora"] = ((t % 86_400) // 3600).astype("int8")
+    df["dia_semana"] = ((t // 86_400) % 7).astype("int8")
+    monto = df["TransactionAmt"].astype("float64")
     df["decimales"] = np.select(
         [np.isclose(monto, monto.round(0)), np.isclose(monto * 100, (monto * 100).round(0))],
         [0, 2],
         3,
     ).astype("int8")
-    df.attrs["columnas_vecindario"] = cols_vec
     return df
 
 

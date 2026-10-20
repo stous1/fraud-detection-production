@@ -17,6 +17,8 @@ dependencies = [
     # XGBoost: con CUDA en Windows (RTX 4080 local); solo CPU en Linux (CI), mismo módulo.
     "xgboost>=3; sys_platform == 'win32'",
     "xgboost-cpu>=3; sys_platform != 'win32'",
+    "fastapi>=0.154.0",
+    "uvicorn>=0.30",
 ]
 
 [dependency-groups]
@@ -24,6 +26,7 @@ dev = [
     "pytest",
     "ruff",
     "ipykernel",
+    "httpx>=0.28.1",
 ]
 
 [build-system]

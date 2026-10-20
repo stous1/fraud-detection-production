@@ -17,6 +17,7 @@ QUIEN_LEE_ETIQUETAS = {
     "vecindario.py",  # etiquetas pasadas, solo con retraso (tests/test_vecindario.py)
     "flujo_hito2.py",  # desarrollo para elegir; prueba solo tras el tag de congelamiento
     "flujo_hito3.py",  # igual que el hito 2
+    "flujo_hito4.py",  # simula contracargos (cuentan a los 30 días) y etiquetas maduras
     "variables.py",  # carga la etiqueta junto a las variables y prohíbe usarla como variable
 }
 
