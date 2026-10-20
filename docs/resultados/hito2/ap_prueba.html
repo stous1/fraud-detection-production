@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "data": {"name": "data-4aa5ce89b53d1d95862d6646491a9978"}, "facet": {"row": {"field": "clientes", "sort": ["clientes nuevos", "clientes vistos"], "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "bar", "color": "#2f6db5", "cornerRadiusEnd": 4, "height": 12}, "encoding": {"tooltip": [{"field": "clientes", "type": "nominal"}, {"field": "variante", "type": "nominal"}, {"field": "ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "ap", "title": "AP", "type": "quantitative"}, "y": {"axis": {"labelLimit": 360}, "field": "variante", "sort": ["Regla: fraude conocido del cliente", "Vecindario sin etiquetas", "Vecindario, retraso 30 (principal)", "Vecindario, retraso 15", "Vecindario, retraso 60", "Vecindario, retraso 90", "Vecindario, sin retraso (filtraci\u00f3n)", "Vecindario, retraso 30, todas las etiquetas"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "ap", "format": ".3f", "type": "quantitative"}, "tooltip": [{"field": "clientes", "type": "nominal"}, {"field": "variante", "type": "nominal"}, {"field": "ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "ap", "title": "AP", "type": "quantitative"}, "y": {"axis": {"labelLimit": 360}, "field": "variante", "sort": ["Regla: fraude conocido del cliente", "Vecindario sin etiquetas", "Vecindario, retraso 30 (principal)", "Vecindario, retraso 15", "Vecindario, retraso 60", "Vecindario, retraso 90", "Vecindario, sin retraso (filtraci\u00f3n)", "Vecindario, retraso 30, todas las etiquetas"], "title": null, "type": "nominal"}}}], "height": 176, "width": 420}, "title": "Precisi\u00f3n promedio en prueba (d\u00edas 121 a 182)", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-4aa5ce89b53d1d95862d6646491a9978": [{"variante": "Regla: fraude conocido del cliente", "clientes": "clientes nuevos", "ap": 0.052243}, {"variante": "Regla: fraude conocido del cliente", "clientes": "clientes vistos", "ap": 0.509524}, {"variante": "Vecindario sin etiquetas", "clientes": "clientes nuevos", "ap": 0.118574}, {"variante": "Vecindario sin etiquetas", "clientes": "clientes vistos", "ap": 0.06253}, {"variante": "Vecindario, retraso 30 (principal)", "clientes": "clientes nuevos", "ap": 0.18164}, {"variante": "Vecindario, retraso 30 (principal)", "clientes": "clientes vistos", "ap": 0.783548}, {"variante": "Vecindario, retraso 15", "clientes": "clientes nuevos", "ap": 0.249167}, {"variante": "Vecindario, retraso 15", "clientes": "clientes vistos", "ap": 0.84135}, {"variante": "Vecindario, retraso 60", "clientes": "clientes nuevos", "ap": 0.120867}, {"variante": "Vecindario, retraso 60", "clientes": "clientes vistos", "ap": 0.625445}, {"variante": "Vecindario, retraso 90", "clientes": "clientes nuevos", "ap": 0.118484}, {"variante": "Vecindario, retraso 90", "clientes": "clientes vistos", "ap": 0.062527}, {"variante": "Vecindario, sin retraso (filtraci\u00f3n)", "clientes": "clientes nuevos", "ap": 0.602846}, {"variante": "Vecindario, sin retraso (filtraci\u00f3n)", "clientes": "clientes vistos", "ap": 0.886012}, {"variante": "Vecindario, retraso 30, todas las etiquetas", "clientes": "clientes nuevos", "ap": 0.210417}, {"variante": "Vecindario, retraso 30, todas las etiquetas", "clientes": "clientes vistos", "ap": 0.782713}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

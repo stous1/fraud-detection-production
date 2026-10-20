@@ -1,0 +1,2527 @@
+{
+  "prueba_dias": [
+    121,
+    182
+  ],
+  "fraccion_tx_cliente_visto": 0.403431,
+  "variantes": {
+    "regla_cliente_fraude_r30": {
+      "descripcion": "Referencia simple: fraudes ya conocidos del mismo cliente (retraso de 30 días).",
+      "esquema": "realista",
+      "retraso": 30,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.154886,
+          "ap_ic95": [
+            0.124155,
+            0.185486
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.0,
+              "fpr_real": 0.007385,
+              "recall": 0.191654,
+              "precision": 0.480761
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.0,
+              "fpr_real": 0.007385,
+              "recall": 0.191654,
+              "precision": 0.480761
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.052243,
+          "ap_ic95": [
+            0.044615,
+            0.061696
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.0,
+              "fpr_real": 0.000777,
+              "recall": 0.014301,
+              "precision": 0.458333
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.0,
+              "fpr_real": 0.000777,
+              "recall": 0.014301,
+              "precision": 0.458333
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.509524,
+          "ap_ic95": [
+            0.429448,
+            0.59387
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 1.0,
+              "fpr_real": 0.009489,
+              "recall": 0.628453,
+              "precision": 0.579618
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.0,
+              "fpr_real": 0.016922,
+              "recall": 0.756906,
+              "precision": 0.482182
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_sin_etiquetas": {
+      "descripcion": "Solo estructura y velocidad del vecindario, sin etiquetas.",
+      "esquema": "realista",
+      "retraso": null,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.106702,
+          "ap_ic95": [
+            0.083177,
+            0.158839
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.695547,
+              "fpr_real": 0.009998,
+              "recall": 0.056738,
+              "precision": 0.16838
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.883013,
+              "fpr_real": 0.049996,
+              "recall": 0.254659,
+              "precision": 0.153785
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.118574,
+          "ap_ic95": [
+            0.090152,
+            0.182612
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.176392,
+              "fpr_real": 0.009992,
+              "recall": 0.009317,
+              "precision": 0.041109
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.601271,
+              "fpr_real": 0.05,
+              "recall": 0.234453,
+              "precision": 0.177348
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.06253,
+          "ap_ic95": [
+            0.039298,
+            0.098108
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.953257,
+              "fpr_real": 0.009992,
+              "recall": 0.066298,
+              "precision": 0.121365
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.690171,
+              "fpr_real": 0.049989,
+              "recall": 0.224448,
+              "precision": 0.085481
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r30": {
+      "descripcion": "Principal: vecindario con etiquetas conocidas a los 30 días.",
+      "esquema": "realista",
+      "retraso": 30,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.359764,
+          "ap_ic95": [
+            0.317575,
+            0.406651
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.772541,
+              "fpr_real": 0.009998,
+              "recall": 0.261752,
+              "precision": 0.482958
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.820632,
+              "fpr_real": 0.049996,
+              "recall": 0.458024,
+              "precision": 0.246341
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.18164,
+          "ap_ic95": [
+            0.144532,
+            0.221528
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.629222,
+              "fpr_real": 0.009992,
+              "recall": 0.102059,
+              "precision": 0.319539
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.533154,
+              "fpr_real": 0.05,
+              "recall": 0.276923,
+              "precision": 0.202954
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.783548,
+          "ap_ic95": [
+            0.723565,
+            0.825847
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.865769,
+              "fpr_real": 0.009992,
+              "recall": 0.776243,
+              "precision": 0.617922
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -3.574241,
+              "fpr_real": 0.049989,
+              "recall": 0.936464,
+              "precision": 0.280571
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r15": {
+      "descripcion": "Sensibilidad: retraso de 15 días.",
+      "esquema": "realista",
+      "retraso": 15,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.429588,
+          "ap_ic95": [
+            0.39214,
+            0.462604
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.566806,
+              "fpr_real": 0.009998,
+              "recall": 0.335972,
+              "precision": 0.545236
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.519671,
+              "fpr_real": 0.049996,
+              "recall": 0.538677,
+              "precision": 0.277674
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.249167,
+          "ap_ic95": [
+            0.21837,
+            0.278394
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.419085,
+              "fpr_real": 0.009992,
+              "recall": 0.156663,
+              "precision": 0.418888
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.247815,
+              "fpr_real": 0.05,
+              "recall": 0.339762,
+              "precision": 0.238045
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.84135,
+          "ap_ic95": [
+            0.778163,
+            0.881401
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.546457,
+              "fpr_real": 0.009992,
+              "recall": 0.872928,
+              "precision": 0.645227
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -4.34983,
+              "fpr_real": 0.049989,
+              "recall": 0.96616,
+              "precision": 0.286916
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r60": {
+      "descripcion": "Sensibilidad: retraso de 60 días.",
+      "esquema": "realista",
+      "retraso": 60,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.198871,
+          "ap_ic95": [
+            0.13729,
+            0.328292
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.263608,
+              "fpr_real": 0.009998,
+              "recall": 0.157183,
+              "precision": 0.359351
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.609878,
+              "fpr_real": 0.049996,
+              "recall": 0.395679,
+              "precision": 0.220193
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.120867,
+          "ap_ic95": [
+            0.091557,
+            0.187321
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.607991,
+              "fpr_real": 0.009992,
+              "recall": 0.006501,
+              "precision": 0.029042
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.312097,
+              "fpr_real": 0.05,
+              "recall": 0.23792,
+              "precision": 0.1795
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.625445,
+          "ap_ic95": [
+            0.557723,
+            0.691281
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.823441,
+              "fpr_real": 0.009992,
+              "recall": 0.614641,
+              "precision": 0.561514
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.931272,
+              "fpr_real": 0.049989,
+              "recall": 0.793508,
+              "precision": 0.248379
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r90": {
+      "descripcion": "Sensibilidad: retraso de 90 días.",
+      "esquema": "realista",
+      "retraso": 90,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.106596,
+          "ap_ic95": [
+            0.08306,
+            0.159376
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.687838,
+              "fpr_real": 0.009998,
+              "recall": 0.058387,
+              "precision": 0.172431
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.874767,
+              "fpr_real": 0.049996,
+              "recall": 0.254494,
+              "precision": 0.153701
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.118484,
+          "ap_ic95": [
+            0.089995,
+            0.183175
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.202909,
+              "fpr_real": 0.009992,
+              "recall": 0.009317,
+              "precision": 0.041109
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.590545,
+              "fpr_real": 0.05,
+              "recall": 0.235753,
+              "precision": 0.178156
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.062527,
+          "ap_ic95": [
+            0.039146,
+            0.099614
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.953756,
+              "fpr_real": 0.009992,
+              "recall": 0.062845,
+              "precision": 0.115776
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.691028,
+              "fpr_real": 0.049989,
+              "recall": 0.224448,
+              "precision": 0.085481
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r0_filtracion": {
+      "descripcion": "Comparación: etiquetas sin retraso (filtración en producción).",
+      "esquema": "realista",
+      "retraso": 0,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.681453,
+          "ap_ic95": [
+            0.648513,
+            0.709712
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.451474,
+              "fpr_real": 0.009998,
+              "recall": 0.634504,
+              "precision": 0.693653
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.563829,
+              "fpr_real": 0.049996,
+              "recall": 0.789708,
+              "precision": 0.360434
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.602846,
+          "ap_ic95": [
+            0.577717,
+            0.628198
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.031493,
+              "fpr_real": 0.009992,
+              "recall": 0.505742,
+              "precision": 0.699431
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.202759,
+              "fpr_real": 0.05,
+              "recall": 0.692091,
+              "precision": 0.388896
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.886012,
+          "ap_ic95": [
+            0.807813,
+            0.942459
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.905776,
+              "fpr_real": 0.009992,
+              "recall": 0.961326,
+              "precision": 0.666986
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -4.411012,
+              "fpr_real": 0.049989,
+              "recall": 0.987569,
+              "precision": 0.29142
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r30_todas_las_etiquetas": {
+      "descripcion": "Comparación: entrena y valida con todas las etiquetas de desarrollo.",
+      "esquema": "todas_las_etiquetas",
+      "retraso": 30,
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.381536,
+          "ap_ic95": [
+            0.347249,
+            0.421434
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.02522,
+              "fpr_real": 0.009998,
+              "recall": 0.294574,
+              "precision": 0.512482
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.92763,
+              "fpr_real": 0.049996,
+              "recall": 0.487877,
+              "precision": 0.25825
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.210417,
+          "ap_ic95": [
+            0.177233,
+            0.238251
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.889848,
+              "fpr_real": 0.009992,
+              "recall": 0.137161,
+              "precision": 0.386919
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.672757,
+              "fpr_real": 0.05,
+              "recall": 0.313109,
+              "precision": 0.223546
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.782713,
+          "ap_ic95": [
+            0.720088,
+            0.827191
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.937897,
+              "fpr_real": 0.009992,
+              "recall": 0.786602,
+              "precision": 0.621047
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -3.595362,
+              "fpr_real": 0.049989,
+              "recall": 0.936464,
+              "precision": 0.280571
+            }
+          ]
+        }
+      }
+    }
+  },
+  "curvas_pr": [
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.02,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.04,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.06,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.08,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.1,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.12,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.14,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.16,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.18,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.2,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.22,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.24,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.26,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.28,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.3,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.32,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.34,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.36,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.38,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.4,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.42,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.44,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.46,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.48,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.5,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.52,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.54,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.56,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.58,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.6,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.62,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.64,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.66,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.68,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.7,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.72,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.74,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.76,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.78,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.8,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.82,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.84,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.86,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.88,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.9,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.92,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.94,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.96,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 0.98,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "nuevos",
+      "recall": 1.0,
+      "precision": 0.043954
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.02,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.04,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.06,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.08,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.1,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.12,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.14,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.16,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.18,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.2,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.22,
+      "precision": 0.779343
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.24,
+      "precision": 0.778626
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.26,
+      "precision": 0.778626
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.28,
+      "precision": 0.778626
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.3,
+      "precision": 0.746644
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.32,
+      "precision": 0.746224
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.34,
+      "precision": 0.746224
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.36,
+      "precision": 0.728883
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.38,
+      "precision": 0.7162
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.4,
+      "precision": 0.7162
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.42,
+      "precision": 0.697091
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.44,
+      "precision": 0.697091
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.46,
+      "precision": 0.697091
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.48,
+      "precision": 0.641463
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.5,
+      "precision": 0.641463
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.52,
+      "precision": 0.641463
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.54,
+      "precision": 0.641463
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.56,
+      "precision": 0.579618
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.58,
+      "precision": 0.579618
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.6,
+      "precision": 0.579618
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.62,
+      "precision": 0.579618
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.64,
+      "precision": 0.482182
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.66,
+      "precision": 0.482182
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.68,
+      "precision": 0.482182
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.7,
+      "precision": 0.482182
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.72,
+      "precision": 0.482182
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.74,
+      "precision": 0.482182
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.76,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.78,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.8,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.82,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.84,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.86,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.88,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.9,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.92,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.94,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.96,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 0.98,
+      "precision": 0.020394
+    },
+    {
+      "variante": "regla_cliente_fraude_r30",
+      "clientes": "vistos",
+      "recall": 1.0,
+      "precision": 0.020394
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.02,
+      "precision": 0.194724
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.04,
+      "precision": 0.194724
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.06,
+      "precision": 0.194724
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.08,
+      "precision": 0.194724
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.1,
+      "precision": 0.194724
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.12,
+      "precision": 0.194724
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.14,
+      "precision": 0.194724
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.16,
+      "precision": 0.19227
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.18,
+      "precision": 0.188137
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.2,
+      "precision": 0.185155
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.22,
+      "precision": 0.182487
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.24,
+      "precision": 0.174769
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.26,
+      "precision": 0.168871
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.28,
+      "precision": 0.16424
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.3,
+      "precision": 0.159384
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.32,
+      "precision": 0.155619
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.34,
+      "precision": 0.15073
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.36,
+      "precision": 0.148805
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.38,
+      "precision": 0.145091
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.4,
+      "precision": 0.142285
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.42,
+      "precision": 0.137342
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.44,
+      "precision": 0.134979
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.46,
+      "precision": 0.13225
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.48,
+      "precision": 0.128469
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.5,
+      "precision": 0.125762
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.52,
+      "precision": 0.122958
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.54,
+      "precision": 0.119804
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.56,
+      "precision": 0.115531
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.58,
+      "precision": 0.111709
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.6,
+      "precision": 0.10781
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.62,
+      "precision": 0.103891
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.64,
+      "precision": 0.100034
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.66,
+      "precision": 0.095322
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.68,
+      "precision": 0.092421
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.7,
+      "precision": 0.089133
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.72,
+      "precision": 0.085797
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.74,
+      "precision": 0.08264
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.76,
+      "precision": 0.080311
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.78,
+      "precision": 0.076464
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.8,
+      "precision": 0.074004
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.82,
+      "precision": 0.070407
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.84,
+      "precision": 0.066551
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.86,
+      "precision": 0.062944
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.88,
+      "precision": 0.059682
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.9,
+      "precision": 0.057029
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.92,
+      "precision": 0.054326
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.94,
+      "precision": 0.051809
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.96,
+      "precision": 0.049307
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 0.98,
+      "precision": 0.046861
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "nuevos",
+      "recall": 1.0,
+      "precision": 0.044001
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.02,
+      "precision": 0.163043
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.04,
+      "precision": 0.127159
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.06,
+      "precision": 0.123506
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.08,
+      "precision": 0.121429
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.1,
+      "precision": 0.12107
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.12,
+      "precision": 0.12107
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.14,
+      "precision": 0.111965
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.16,
+      "precision": 0.106867
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.18,
+      "precision": 0.098643
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.2,
+      "precision": 0.089474
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.22,
+      "precision": 0.087599
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.24,
+      "precision": 0.080147
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.26,
+      "precision": 0.075355
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.28,
+      "precision": 0.072011
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.3,
+      "precision": 0.068515
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.32,
+      "precision": 0.066238
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.34,
+      "precision": 0.061754
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.36,
+      "precision": 0.06094
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.38,
+      "precision": 0.060119
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.4,
+      "precision": 0.058233
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.42,
+      "precision": 0.056291
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.44,
+      "precision": 0.054905
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.46,
+      "precision": 0.052991
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.48,
+      "precision": 0.050976
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.5,
+      "precision": 0.049893
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.52,
+      "precision": 0.049145
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.54,
+      "precision": 0.047811
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.56,
+      "precision": 0.046069
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.58,
+      "precision": 0.045255
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.6,
+      "precision": 0.044165
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.62,
+      "precision": 0.042533
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.64,
+      "precision": 0.041768
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.66,
+      "precision": 0.040139
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.68,
+      "precision": 0.038917
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.7,
+      "precision": 0.037508
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.72,
+      "precision": 0.036245
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.74,
+      "precision": 0.034794
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.76,
+      "precision": 0.033626
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.78,
+      "precision": 0.031936
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.8,
+      "precision": 0.030729
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.82,
+      "precision": 0.029373
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.84,
+      "precision": 0.027745
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.86,
+      "precision": 0.026806
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.88,
+      "precision": 0.025133
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.9,
+      "precision": 0.024347
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.92,
+      "precision": 0.023357
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.94,
+      "precision": 0.022538
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.96,
+      "precision": 0.02187
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 0.98,
+      "precision": 0.0211
+    },
+    {
+      "variante": "vecindario_sin_etiquetas",
+      "clientes": "vistos",
+      "recall": 1.0,
+      "precision": 0.020454
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.02,
+      "precision": 0.636986
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.04,
+      "precision": 0.55102
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.06,
+      "precision": 0.477891
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.08,
+      "precision": 0.379877
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.1,
+      "precision": 0.322626
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.12,
+      "precision": 0.284687
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.14,
+      "precision": 0.259259
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.16,
+      "precision": 0.253074
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.18,
+      "precision": 0.244209
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.2,
+      "precision": 0.235579
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.22,
+      "precision": 0.223789
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.24,
+      "precision": 0.212393
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.26,
+      "precision": 0.208442
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.28,
+      "precision": 0.203443
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.3,
+      "precision": 0.196172
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.32,
+      "precision": 0.188961
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.34,
+      "precision": 0.183005
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.36,
+      "precision": 0.175132
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.38,
+      "precision": 0.172228
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.4,
+      "precision": 0.168625
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.42,
+      "precision": 0.163183
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.44,
+      "precision": 0.157446
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.46,
+      "precision": 0.152479
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.48,
+      "precision": 0.146507
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.5,
+      "precision": 0.142672
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.52,
+      "precision": 0.137145
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.54,
+      "precision": 0.132004
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.56,
+      "precision": 0.127824
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.58,
+      "precision": 0.123148
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.6,
+      "precision": 0.117865
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.62,
+      "precision": 0.11387
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.64,
+      "precision": 0.109553
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.66,
+      "precision": 0.105996
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.68,
+      "precision": 0.10283
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.7,
+      "precision": 0.09971
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.72,
+      "precision": 0.095128
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.74,
+      "precision": 0.092095
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.76,
+      "precision": 0.088101
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.78,
+      "precision": 0.084901
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.8,
+      "precision": 0.081814
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.82,
+      "precision": 0.077665
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.84,
+      "precision": 0.074228
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.86,
+      "precision": 0.070575
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.88,
+      "precision": 0.06742
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.9,
+      "precision": 0.063089
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.92,
+      "precision": 0.059277
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.94,
+      "precision": 0.055205
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.96,
+      "precision": 0.051582
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 0.98,
+      "precision": 0.048962
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "nuevos",
+      "recall": 1.0,
+      "precision": 0.044059
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.02,
+      "precision": 1.0
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.04,
+      "precision": 0.983051
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.06,
+      "precision": 0.983051
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.08,
+      "precision": 0.983051
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.1,
+      "precision": 0.97351
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.12,
+      "precision": 0.957447
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.14,
+      "precision": 0.945946
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.16,
+      "precision": 0.933492
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.18,
+      "precision": 0.933492
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.2,
+      "precision": 0.933492
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.22,
+      "precision": 0.933492
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.24,
+      "precision": 0.933492
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.26,
+      "precision": 0.933492
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.28,
+      "precision": 0.931193
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.3,
+      "precision": 0.924437
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.32,
+      "precision": 0.924437
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.34,
+      "precision": 0.924437
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.36,
+      "precision": 0.924437
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.38,
+      "precision": 0.924437
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.4,
+      "precision": 0.922591
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.42,
+      "precision": 0.921331
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.44,
+      "precision": 0.916667
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.46,
+      "precision": 0.914169
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.48,
+      "precision": 0.909922
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.5,
+      "precision": 0.905119
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.52,
+      "precision": 0.900955
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.54,
+      "precision": 0.898967
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.56,
+      "precision": 0.898361
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.58,
+      "precision": 0.89557
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.6,
+      "precision": 0.889002
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.62,
+      "precision": 0.87781
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.64,
+      "precision": 0.859129
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.66,
+      "precision": 0.846154
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.68,
+      "precision": 0.824268
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.7,
+      "precision": 0.790335
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.72,
+      "precision": 0.7509
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.74,
+      "precision": 0.723835
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.76,
+      "precision": 0.661261
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.78,
+      "precision": 0.612134
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.8,
+      "precision": 0.585945
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.82,
+      "precision": 0.544916
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.84,
+      "precision": 0.515023
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.86,
+      "precision": 0.482946
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.88,
+      "precision": 0.448786
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.9,
+      "precision": 0.396232
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.92,
+      "precision": 0.331675
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.94,
+      "precision": 0.26421
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.96,
+      "precision": 0.178815
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 0.98,
+      "precision": 0.084564
+    },
+    {
+      "variante": "vecindario_r30",
+      "clientes": "vistos",
+      "recall": 1.0,
+      "precision": 0.024946
+    }
+  ]
+}

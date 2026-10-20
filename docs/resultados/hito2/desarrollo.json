@@ -1,0 +1,773 @@
+{
+  "grafo": [
+    {
+      "tipo": "cliente",
+      "entidades": 217850,
+      "transacciones_con_entidad": 590540,
+      "mediana_clientes": 1.0,
+      "p99_clientes": 1.0,
+      "max_clientes": 1
+    },
+    {
+      "tipo": "tarjeta_direccion",
+      "entidades": 39974,
+      "transacciones_con_entidad": 590540,
+      "mediana_clientes": 1.0,
+      "p99_clientes": 75.0,
+      "max_clientes": 505
+    },
+    {
+      "tipo": "tarjeta",
+      "entidades": 14893,
+      "transacciones_con_entidad": 590540,
+      "mediana_clientes": 2.0,
+      "p99_clientes": 258.0,
+      "max_clientes": 3306
+    },
+    {
+      "tipo": "huella",
+      "entidades": 55160,
+      "transacciones_con_entidad": 118666,
+      "mediana_clientes": 1.0,
+      "p99_clientes": 10.0,
+      "max_clientes": 776
+    },
+    {
+      "tipo": "direccion",
+      "entidades": 437,
+      "transacciones_con_entidad": 524834,
+      "mediana_clientes": 2.0,
+      "p99_clientes": 9134.84,
+      "max_clientes": 15804
+    },
+    {
+      "tipo": "correo",
+      "entidades": 59,
+      "transacciones_con_entidad": 496084,
+      "mediana_clientes": 154.0,
+      "p99_clientes": 69792.12,
+      "max_clientes": 101220
+    }
+  ],
+  "componente_gigante_clientes": 13047,
+  "validacion_por_variante": {
+    "regla_cliente_fraude_r30": {
+      "ap_por_C": {},
+      "validacion": {
+        "todos": {
+          "transacciones": 92189,
+          "fraudes": 3724,
+          "prevalencia": 0.040395,
+          "ap": 0.121409,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.0,
+              "fpr_real": 0.004092,
+              "recall": 0.130236,
+              "precision": 0.572609
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.0,
+              "fpr_real": 0.004092,
+              "recall": 0.130236,
+              "precision": 0.572609
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 56144,
+          "fraudes": 2932,
+          "prevalencia": 0.052223,
+          "ap": 0.052223,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.0,
+              "fpr_real": 0.0,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.0,
+              "fpr_real": 0.0,
+              "recall": 0.0,
+              "precision": 0.0
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 36045,
+          "fraudes": 792,
+          "prevalencia": 0.021973,
+          "ap": 0.414183,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 1.0,
+              "fpr_real": 0.005815,
+              "recall": 0.465909,
+              "precision": 0.642857
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.0,
+              "fpr_real": 0.010269,
+              "recall": 0.612374,
+              "precision": 0.572609
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_sin_etiquetas": {
+      "ap_por_C": {
+        "0.001": 0.150664,
+        "0.01": 0.152645,
+        "0.1": 0.156935,
+        "1.0": 0.155212
+      },
+      "validacion": {
+        "todos": {
+          "transacciones": 92189,
+          "fraudes": 3724,
+          "prevalencia": 0.040395,
+          "ap": 0.156935,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.253044,
+              "fpr_real": 0.009993,
+              "recall": 0.106337,
+              "precision": 0.309375
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.068072,
+              "fpr_real": 0.049997,
+              "recall": 0.260204,
+              "precision": 0.179711
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 56144,
+          "fraudes": 2932,
+          "prevalencia": 0.052223,
+          "ap": 0.177016,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.047863,
+              "fpr_real": 0.009998,
+              "recall": 0.095498,
+              "precision": 0.344828
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.870477,
+              "fpr_real": 0.049989,
+              "recall": 0.249659,
+              "precision": 0.215802
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 36045,
+          "fraudes": 792,
+          "prevalencia": 0.021973,
+          "ap": 0.078289,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.814466,
+              "fpr_real": 0.009985,
+              "recall": 0.060606,
+              "precision": 0.12
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.695239,
+              "fpr_real": 0.049982,
+              "recall": 0.290404,
+              "precision": 0.115462
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r30": {
+      "ap_por_C": {
+        "0.001": 0.300689,
+        "0.01": 0.322148,
+        "0.1": 0.32625,
+        "1.0": 0.325116
+      },
+      "validacion": {
+        "todos": {
+          "transacciones": 92189,
+          "fraudes": 3724,
+          "prevalencia": 0.040395,
+          "ap": 0.32625,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.969101,
+              "fpr_real": 0.009993,
+              "recall": 0.219656,
+              "precision": 0.480611
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.870964,
+              "fpr_real": 0.049997,
+              "recall": 0.410311,
+              "precision": 0.256764
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 56144,
+          "fraudes": 2932,
+          "prevalencia": 0.052223,
+          "ap": 0.186833,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.858668,
+              "fpr_real": 0.009998,
+              "recall": 0.096521,
+              "precision": 0.347239
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.642145,
+              "fpr_real": 0.049989,
+              "recall": 0.265007,
+              "precision": 0.226069
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 36045,
+          "fraudes": 792,
+          "prevalencia": 0.021973,
+          "ap": 0.704116,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.576454,
+              "fpr_real": 0.009985,
+              "recall": 0.646465,
+              "precision": 0.592593
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -3.047807,
+              "fpr_real": 0.049982,
+              "recall": 0.832071,
+              "precision": 0.272202
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r15": {
+      "ap_por_C": {
+        "0.001": 0.36621,
+        "0.01": 0.387,
+        "0.1": 0.389158,
+        "1.0": 0.390438
+      },
+      "validacion": {
+        "todos": {
+          "transacciones": 92189,
+          "fraudes": 3724,
+          "prevalencia": 0.040395,
+          "ap": 0.390438,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.798339,
+              "fpr_real": 0.009993,
+              "recall": 0.273362,
+              "precision": 0.535226
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.734724,
+              "fpr_real": 0.049997,
+              "recall": 0.470462,
+              "precision": 0.283725
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 56144,
+          "fraudes": 2932,
+          "prevalencia": 0.052223,
+          "ap": 0.216354,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.734087,
+              "fpr_real": 0.009998,
+              "recall": 0.122783,
+              "precision": 0.403587
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.500554,
+              "fpr_real": 0.049989,
+              "recall": 0.293315,
+              "precision": 0.244318
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 36045,
+          "fraudes": 792,
+          "prevalencia": 0.021973,
+          "ap": 0.847552,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.521471,
+              "fpr_real": 0.009985,
+              "recall": 0.832071,
+              "precision": 0.65183
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -3.59913,
+              "fpr_real": 0.049982,
+              "recall": 0.94697,
+              "precision": 0.298567
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r60": {
+      "ap_por_C": {
+        "0.001": 0.150382,
+        "0.01": 0.153043,
+        "0.1": 0.156436,
+        "1.0": 0.155754
+      },
+      "validacion": {
+        "todos": {
+          "transacciones": 92189,
+          "fraudes": 3724,
+          "prevalencia": 0.040395,
+          "ap": 0.156436,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.255966,
+              "fpr_real": 0.009993,
+              "recall": 0.1058,
+              "precision": 0.308294
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.071812,
+              "fpr_real": 0.049997,
+              "recall": 0.258593,
+              "precision": 0.178797
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 56144,
+          "fraudes": 2932,
+          "prevalencia": 0.052223,
+          "ap": 0.176271,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.051889,
+              "fpr_real": 0.009998,
+              "recall": 0.095498,
+              "precision": 0.344828
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.875003,
+              "fpr_real": 0.049989,
+              "recall": 0.248295,
+              "precision": 0.214876
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 36045,
+          "fraudes": 792,
+          "prevalencia": 0.021973,
+          "ap": 0.07826,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.815854,
+              "fpr_real": 0.009985,
+              "recall": 0.060606,
+              "precision": 0.12
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.695697,
+              "fpr_real": 0.049982,
+              "recall": 0.291667,
+              "precision": 0.115906
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r90": {
+      "ap_por_C": {
+        "0.001": 0.150382,
+        "0.01": 0.153043,
+        "0.1": 0.156436,
+        "1.0": 0.155754
+      },
+      "validacion": {
+        "todos": {
+          "transacciones": 92189,
+          "fraudes": 3724,
+          "prevalencia": 0.040395,
+          "ap": 0.156436,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.255966,
+              "fpr_real": 0.009993,
+              "recall": 0.1058,
+              "precision": 0.308294
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.071812,
+              "fpr_real": 0.049997,
+              "recall": 0.258593,
+              "precision": 0.178797
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 56144,
+          "fraudes": 2932,
+          "prevalencia": 0.052223,
+          "ap": 0.176271,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.051889,
+              "fpr_real": 0.009998,
+              "recall": 0.095498,
+              "precision": 0.344828
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.875003,
+              "fpr_real": 0.049989,
+              "recall": 0.248295,
+              "precision": 0.214876
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 36045,
+          "fraudes": 792,
+          "prevalencia": 0.021973,
+          "ap": 0.07826,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.815854,
+              "fpr_real": 0.009985,
+              "recall": 0.060606,
+              "precision": 0.12
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.695697,
+              "fpr_real": 0.049982,
+              "recall": 0.291667,
+              "precision": 0.115906
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r0_filtracion": {
+      "ap_por_C": {
+        "0.001": 0.668795,
+        "0.01": 0.695596,
+        "0.1": 0.700389,
+        "1.0": 0.701124
+      },
+      "validacion": {
+        "todos": {
+          "transacciones": 92189,
+          "fraudes": 3724,
+          "prevalencia": 0.040395,
+          "ap": 0.701124,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.564307,
+              "fpr_real": 0.009993,
+              "recall": 0.615736,
+              "precision": 0.72175
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.696189,
+              "fpr_real": 0.049997,
+              "recall": 0.781418,
+              "precision": 0.396836
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 56144,
+          "fraudes": 2932,
+          "prevalencia": 0.052223,
+          "ap": 0.626519,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.087831,
+              "fpr_real": 0.009998,
+              "recall": 0.502046,
+              "precision": 0.734531
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -2.314773,
+              "fpr_real": 0.049989,
+              "recall": 0.69236,
+              "precision": 0.432836
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 36045,
+          "fraudes": 792,
+          "prevalencia": 0.021973,
+          "ap": 0.928607,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -2.173982,
+              "fpr_real": 0.009985,
+              "recall": 0.953283,
+              "precision": 0.682023
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -4.306356,
+              "fpr_real": 0.049982,
+              "recall": 0.97601,
+              "precision": 0.304931
+            }
+          ]
+        }
+      }
+    },
+    "vecindario_r30_todas_las_etiquetas": {
+      "ap_por_C": {
+        "0.001": 0.313799,
+        "0.01": 0.327827,
+        "0.1": 0.329723,
+        "1.0": 0.331054
+      },
+      "validacion": {
+        "todos": {
+          "transacciones": 98615,
+          "fraudes": 3898,
+          "prevalencia": 0.039527,
+          "ap": 0.331054,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.870436,
+              "fpr_real": 0.009998,
+              "recall": 0.223448,
+              "precision": 0.479098
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.889916,
+              "fpr_real": 0.049991,
+              "recall": 0.425859,
+              "precision": 0.259578
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 59836,
+          "fraudes": 3109,
+          "prevalencia": 0.051959,
+          "ap": 0.194472,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -0.754427,
+              "fpr_real": 0.009995,
+              "recall": 0.101962,
+              "precision": 0.358597
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -1.644895,
+              "fpr_real": 0.049994,
+              "recall": 0.276938,
+              "precision": 0.232892
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 38779,
+          "fraudes": 789,
+          "prevalencia": 0.020346,
+          "ap": 0.697566,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": -1.531104,
+              "fpr_real": 0.009976,
+              "recall": 0.66033,
+              "precision": 0.578889
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": -3.010498,
+              "fpr_real": 0.049987,
+              "recall": 0.806084,
+              "precision": 0.250888
+            }
+          ]
+        }
+      }
+    }
+  },
+  "ap_univariada_validacion_realista": {
+    "huella_tx_24h": 0.122057,
+    "cliente_fraudes_r30": 0.121409,
+    "cliente_clientes_fraude_r30": 0.109709,
+    "huella_tx_7d": 0.103142,
+    "huella_tx_previas": 0.085864,
+    "huella_clientes_previos": 0.085089,
+    "huella_fraudes_r30": 0.073122,
+    "huella_clientes_fraude_r30": 0.072783,
+    "huella_etiquetadas_r30": 0.071804,
+    "huella_dias_desde_primera": 0.071733,
+    "cliente_tx_7d": 0.070849,
+    "huella_cliente_nuevo": 0.070315,
+    "cliente_tx_24h": 0.066957,
+    "tarjeta_direccion_clientes_fraude_r30": 0.062656,
+    "tarjeta_direccion_fraudes_r30": 0.061028,
+    "componente_clientes_fraude_r30": 0.06045,
+    "cliente_huellas_previas": 0.059772,
+    "componente_fraudes_r30": 0.058703,
+    "componente_clientes": 0.055727,
+    "tarjeta_clientes_fraude_r30": 0.055484,
+    "tarjeta_fraudes_r30": 0.052489,
+    "cliente_tx_previas": 0.049379,
+    "tarjeta_direccion_tx_24h": 0.049319,
+    "tarjeta_direccion_tx_7d": 0.047791,
+    "correo_tx_24h": 0.04629,
+    "cliente_correos_previos": 0.045796,
+    "tarjeta_direccion_tx_previas": 0.043724,
+    "correo_tx_7d": 0.043559,
+    "tarjeta_direccion_etiquetadas_r30": 0.042426,
+    "correo_clientes_fraude_r30": 0.042364,
+    "correo_fraudes_r30": 0.042218,
+    "cliente_tarjetas_previas": 0.042139,
+    "correo_tx_previas": 0.041655,
+    "correo_clientes_previos": 0.041652,
+    "correo_etiquetadas_r30": 0.041649,
+    "tarjeta_direccion_clientes_previos": 0.040656,
+    "tarjeta_tx_24h": 0.04019,
+    "correo_cliente_nuevo": 0.039896,
+    "tarjeta_etiquetadas_r30": 0.039754,
+    "tarjeta_tx_previas": 0.039316,
+    "tarjeta_tx_7d": 0.039109,
+    "tarjeta_dias_desde_primera": 0.039037,
+    "correo_dias_desde_primera": 0.039007,
+    "tarjeta_direccion_cliente_nuevo": 0.038879,
+    "cliente_etiquetadas_r30": 0.038729,
+    "tarjeta_direccion_dias_desde_primera": 0.038682,
+    "tarjeta_clientes_previos": 0.038674,
+    "tarjeta_cliente_nuevo": 0.038607,
+    "direccion_tx_previas": 0.034361,
+    "direccion_clientes_previos": 0.034331,
+    "direccion_fraudes_r30": 0.034318,
+    "direccion_etiquetadas_r30": 0.034313,
+    "direccion_clientes_fraude_r30": 0.034165,
+    "direccion_tx_24h": 0.033408,
+    "direccion_dias_desde_primera": 0.033375,
+    "direccion_tx_7d": 0.0333,
+    "direccion_cliente_nuevo": 0.032765,
+    "cliente_dias_desde_primera": 0.032043
+  },
+  "prevalencia_por_tamano_componente": [
+    {
+      "clientes": "1",
+      "transacciones": 71283,
+      "p_fraude": 0.033332
+    },
+    {
+      "clientes": "2",
+      "transacciones": 3426,
+      "p_fraude": 0.059545
+    },
+    {
+      "clientes": "3-5",
+      "transacciones": 8680,
+      "p_fraude": 0.042742
+    },
+    {
+      "clientes": "6-20",
+      "transacciones": 2512,
+      "p_fraude": 0.07086
+    },
+    {
+      "clientes": "21-100",
+      "transacciones": 295,
+      "p_fraude": 0.071186
+    },
+    {
+      "clientes": "más de 100",
+      "transacciones": 5993,
+      "p_fraude": 0.095778
+    }
+  ],
+  "prevalencia_por_clientes_con_fraude_en_componente_r30": [
+    {
+      "clientes_con_fraude": "0",
+      "transacciones": 85021,
+      "p_fraude": 0.032027
+    },
+    {
+      "clientes_con_fraude": "1",
+      "transacciones": 1014,
+      "p_fraude": 0.400394
+    },
+    {
+      "clientes_con_fraude": "2-5",
+      "transacciones": 201,
+      "p_fraude": 0.114428
+    },
+    {
+      "clientes_con_fraude": "más de 5",
+      "transacciones": 5953,
+      "p_fraude": 0.096086
+    }
+  ],
+  "nota": "Cifras de validación: se usaron para elegir, son optimistas."
+}
