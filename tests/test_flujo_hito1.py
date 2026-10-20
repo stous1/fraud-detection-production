@@ -14,6 +14,8 @@ QUIEN_LEE_ETIQUETAS = {
     "exploracion.py",  # solo sobre la vista desarrollo
     "sospechas.py",  # propagación, solo sobre desarrollo
     "flujo_hito1.py",  # pasa a sospechas la vista desarrollo
+    "vecindario.py",  # etiquetas pasadas, solo con retraso (tests/test_vecindario.py)
+    "flujo_hito2.py",  # desarrollo para elegir; prueba solo tras el tag de congelamiento
 }
 
 
