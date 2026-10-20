@@ -1,0 +1,2667 @@
+{
+  "costo_fp_supuesto": 10.0,
+  "versiones": {
+    "1.0.0": {
+      "variante": "completo",
+      "estado": "retirado",
+      "umbral": 0.039841,
+      "tasa_alertas_esperada": 0.14,
+      "ap_validacion_nuevos": 0.64201,
+      "semanas": [
+        {
+          "transacciones": 22969,
+          "psi_variables": {
+            "card6": 0.001615,
+            "TransactionAmt": 0.002648,
+            "C1": 0.00644,
+            "C14": 0.007819,
+            "C13": 0.018686,
+            "C11": 0.046186,
+            "M4": 0.004881,
+            "V91": 0.015743,
+            "direccion_dias_desde_primera": 6.348877,
+            "id_31": 0.166424,
+            "cliente_dias_desde_primera": 0.122493,
+            "D2": 0.02006,
+            "V70": 0.012437,
+            "V258": 0.00149,
+            "V30": 0.01127,
+            "D15": 0.022957,
+            "card2": 0.006463,
+            "tarjeta_dias_desde_primera": 4.111664,
+            "C4": 0.000382,
+            "M5": 0.002299
+          },
+          "psi_puntaje": 0.017721,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.546458,
+              "cambio": -0.007127
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.437298,
+              "cambio": 0.002085
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.89519,
+              "cambio": 0.009272
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.34027,
+              "cambio": -0.031
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.489573,
+              "cambio": 0.004555
+            }
+          },
+          "tasa_alertas": 0.12691,
+          "tasa_alertas_relativa": 0.906501,
+          "semana": 1,
+          "dias": [
+            121,
+            127
+          ],
+          "etiquetas_maduras_hasta_dia": 97,
+          "alertas": [
+            {
+              "semana": 1,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.348877
+            },
+            {
+              "semana": 1,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.166424
+            },
+            {
+              "semana": 1,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.122493
+            },
+            {
+              "semana": 1,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 4.111664
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 2,
+            "critica": 2
+          }
+        },
+        {
+          "transacciones": 18860,
+          "psi_variables": {
+            "card6": 0.000521,
+            "TransactionAmt": 0.003428,
+            "C1": 0.002897,
+            "C14": 0.002767,
+            "C13": 0.014517,
+            "C11": 0.048836,
+            "M4": 0.000727,
+            "V91": 0.351597,
+            "direccion_dias_desde_primera": 6.687711,
+            "id_31": 0.189239,
+            "cliente_dias_desde_primera": 0.154501,
+            "D2": 0.019185,
+            "V70": 0.007353,
+            "V258": 0.003529,
+            "V30": 0.04971,
+            "D15": 0.413179,
+            "card2": 0.003833,
+            "tarjeta_dias_desde_primera": 4.693114,
+            "C4": 0.0,
+            "M5": 5.2e-05
+          },
+          "psi_puntaje": 0.004906,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.617027,
+              "cambio": 0.063442
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.47746,
+              "cambio": 0.042247
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.887309,
+              "cambio": 0.00139
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.356557,
+              "cambio": -0.014713
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.490907,
+              "cambio": 0.005889
+            }
+          },
+          "tasa_alertas": 0.144645,
+          "tasa_alertas_relativa": 1.033177,
+          "semana": 2,
+          "dias": [
+            128,
+            134
+          ],
+          "etiquetas_maduras_hasta_dia": 104,
+          "alertas": [
+            {
+              "semana": 2,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "V91",
+              "valor": 0.351597
+            },
+            {
+              "semana": 2,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.687711
+            },
+            {
+              "semana": 2,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.189239
+            },
+            {
+              "semana": 2,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.154501
+            },
+            {
+              "semana": 2,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "D15",
+              "valor": 0.413179
+            },
+            {
+              "semana": 2,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 4.693114
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 2,
+            "critica": 4
+          }
+        },
+        {
+          "transacciones": 18635,
+          "psi_variables": {
+            "card6": 0.0009,
+            "TransactionAmt": 0.004926,
+            "C1": 0.005659,
+            "C14": 0.006451,
+            "C13": 0.015113,
+            "C11": 0.061402,
+            "M4": 0.0024,
+            "V91": 0.042608,
+            "direccion_dias_desde_primera": 6.751286,
+            "id_31": 0.197549,
+            "cliente_dias_desde_primera": 0.170449,
+            "D2": 0.021896,
+            "V70": 0.004069,
+            "V258": 0.003952,
+            "V30": 0.015375,
+            "D15": 0.070145,
+            "card2": 0.00601,
+            "tarjeta_dias_desde_primera": 5.164901,
+            "C4": 0.000103,
+            "M5": 0.001018
+          },
+          "psi_puntaje": 0.009377,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.573026,
+              "cambio": 0.019441
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.449519,
+              "cambio": 0.014306
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.884557,
+              "cambio": -0.001361
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.389273,
+              "cambio": 0.018004
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.485806,
+              "cambio": 0.000789
+            }
+          },
+          "tasa_alertas": 0.127878,
+          "tasa_alertas_relativa": 0.913412,
+          "semana": 3,
+          "dias": [
+            135,
+            141
+          ],
+          "etiquetas_maduras_hasta_dia": 111,
+          "alertas": [
+            {
+              "semana": 3,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.751286
+            },
+            {
+              "semana": 3,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.197549
+            },
+            {
+              "semana": 3,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.170449
+            },
+            {
+              "semana": 3,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 5.164901
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 2,
+            "critica": 2
+          }
+        },
+        {
+          "transacciones": 18609,
+          "psi_variables": {
+            "card6": 0.001074,
+            "TransactionAmt": 0.000574,
+            "C1": 0.00119,
+            "C14": 0.002085,
+            "C13": 0.01201,
+            "C11": 0.054518,
+            "M4": 0.006399,
+            "V91": 0.004979,
+            "direccion_dias_desde_primera": 6.94705,
+            "id_31": 0.168966,
+            "cliente_dias_desde_primera": 0.171544,
+            "D2": 0.01758,
+            "V70": 0.009328,
+            "V258": 0.002002,
+            "V30": 0.010296,
+            "D15": 0.019577,
+            "card2": 0.008835,
+            "tarjeta_dias_desde_primera": 5.503155,
+            "C4": 0.000148,
+            "M5": 0.00014
+          },
+          "psi_puntaje": 0.011503,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.555573,
+              "cambio": 0.001988
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.438154,
+              "cambio": 0.002941
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.88939,
+              "cambio": 0.003471
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.380145,
+              "cambio": 0.008875
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.493283,
+              "cambio": 0.008265
+            }
+          },
+          "tasa_alertas": 0.133538,
+          "tasa_alertas_relativa": 0.95384,
+          "semana": 4,
+          "dias": [
+            142,
+            148
+          ],
+          "etiquetas_maduras_hasta_dia": 118,
+          "alertas": [
+            {
+              "semana": 4,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.94705
+            },
+            {
+              "semana": 4,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.168966
+            },
+            {
+              "semana": 4,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.171544
+            },
+            {
+              "semana": 4,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 5.503155
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 2,
+            "critica": 2
+          }
+        },
+        {
+          "transacciones": 21735,
+          "psi_variables": {
+            "card6": 0.00262,
+            "TransactionAmt": 0.001587,
+            "C1": 0.00739,
+            "C14": 0.006285,
+            "C13": 0.024497,
+            "C11": 0.053849,
+            "M4": 0.010621,
+            "V91": 0.014162,
+            "direccion_dias_desde_primera": 6.967311,
+            "id_31": 0.189578,
+            "cliente_dias_desde_primera": 0.212172,
+            "D2": 0.037265,
+            "V70": 0.013732,
+            "V258": 0.003388,
+            "V30": 0.012441,
+            "D15": 0.042265,
+            "card2": 0.009346,
+            "tarjeta_dias_desde_primera": 5.862834,
+            "C4": 0.003424,
+            "M5": 0.000474
+          },
+          "psi_puntaje": 0.027865,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.550636,
+              "cambio": -0.002949
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.441352,
+              "cambio": 0.006139
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.898468,
+              "cambio": 0.012549
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.329085,
+              "cambio": -0.042185
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.512215,
+              "cambio": 0.027198
+            }
+          },
+          "tasa_alertas": 0.131217,
+          "tasa_alertas_relativa": 0.937264,
+          "semana": 5,
+          "dias": [
+            149,
+            155
+          ],
+          "etiquetas_maduras_hasta_dia": 125,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 16583,
+              "fraudes": 550,
+              "ap": 0.739979,
+              "recall_al_umbral": 0.861818,
+              "precision_al_umbral": 0.224858
+            },
+            "nuevos": {
+              "transacciones": 7760,
+              "fraudes": 338,
+              "ap": 0.741837,
+              "recall_al_umbral": 0.849112,
+              "precision_al_umbral": 0.193657
+            },
+            "vistos": {
+              "transacciones": 8823,
+              "fraudes": 212,
+              "ap": 0.748534,
+              "recall_al_umbral": 0.882075,
+              "precision_al_umbral": 0.298722
+            }
+          },
+          "alertas": [
+            {
+              "semana": 5,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.967311
+            },
+            {
+              "semana": 5,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.189578
+            },
+            {
+              "semana": 5,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.212172
+            },
+            {
+              "semana": 5,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 5.862834
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 2,
+            "critica": 2
+          }
+        },
+        {
+          "transacciones": 19692,
+          "psi_variables": {
+            "card6": 0.214312,
+            "TransactionAmt": 0.003444,
+            "C1": 0.002725,
+            "C14": 0.002198,
+            "C13": 0.006377,
+            "C11": 0.041475,
+            "M4": 0.002592,
+            "V91": 0.002621,
+            "direccion_dias_desde_primera": 6.860702,
+            "id_31": 0.292083,
+            "cliente_dias_desde_primera": 0.186063,
+            "D2": 0.012976,
+            "V70": 0.0128,
+            "V258": 0.001608,
+            "V30": 0.015208,
+            "D15": 0.02334,
+            "card2": 0.070631,
+            "tarjeta_dias_desde_primera": 5.559017,
+            "C4": 0.003832,
+            "M5": 0.001442
+          },
+          "psi_puntaje": 0.006824,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.554303,
+              "cambio": 0.000718
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.432312,
+              "cambio": -0.002901
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.871612,
+              "cambio": -0.014307
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.360045,
+              "cambio": -0.011225
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.481185,
+              "cambio": -0.003832
+            }
+          },
+          "tasa_alertas": 0.1461,
+          "tasa_alertas_relativa": 1.043571,
+          "semana": 6,
+          "dias": [
+            156,
+            162
+          ],
+          "etiquetas_maduras_hasta_dia": 132,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 36205,
+              "fraudes": 1243,
+              "ap": 0.684894,
+              "recall_al_umbral": 0.856798,
+              "precision_al_umbral": 0.21986
+            },
+            "nuevos": {
+              "transacciones": 17836,
+              "fraudes": 796,
+              "ap": 0.650068,
+              "recall_al_umbral": 0.839196,
+              "precision_al_umbral": 0.183769
+            },
+            "vistos": {
+              "transacciones": 18369,
+              "fraudes": 447,
+              "ap": 0.763274,
+              "recall_al_umbral": 0.888143,
+              "precision_al_umbral": 0.328371
+            }
+          },
+          "alertas": [
+            {
+              "semana": 6,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "card6",
+              "valor": 0.214312
+            },
+            {
+              "semana": 6,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.860702
+            },
+            {
+              "semana": 6,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.292083
+            },
+            {
+              "semana": 6,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.186063
+            },
+            {
+              "semana": 6,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 5.559017
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 2,
+            "critica": 3
+          }
+        },
+        {
+          "transacciones": 20996,
+          "psi_variables": {
+            "card6": 0.00885,
+            "TransactionAmt": 0.008163,
+            "C1": 0.004528,
+            "C14": 0.003024,
+            "C13": 0.00594,
+            "C11": 0.0482,
+            "M4": 0.004199,
+            "V91": 0.008654,
+            "direccion_dias_desde_primera": 6.748731,
+            "id_31": 0.494948,
+            "cliente_dias_desde_primera": 0.17961,
+            "D2": 0.010919,
+            "V70": 0.021197,
+            "V258": 0.023026,
+            "V30": 0.021258,
+            "D15": 0.025356,
+            "card2": 0.014535,
+            "tarjeta_dias_desde_primera": 5.65743,
+            "C4": 0.028105,
+            "M5": 0.003141
+          },
+          "psi_puntaje": 0.004256,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.545523,
+              "cambio": -0.008062
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.416956,
+              "cambio": -0.018257
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.841022,
+              "cambio": -0.044897
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.395742,
+              "cambio": 0.024472
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.461707,
+              "cambio": -0.023311
+            }
+          },
+          "tasa_alertas": 0.15322,
+          "tasa_alertas_relativa": 1.094426,
+          "semana": 7,
+          "dias": [
+            163,
+            169
+          ],
+          "etiquetas_maduras_hasta_dia": 139,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 54835,
+              "fraudes": 1887,
+              "ap": 0.670786,
+              "recall_al_umbral": 0.851086,
+              "precision_al_umbral": 0.222376
+            },
+            "nuevos": {
+              "transacciones": 27845,
+              "fraudes": 1239,
+              "ap": 0.61539,
+              "recall_al_umbral": 0.829701,
+              "precision_al_umbral": 0.182756
+            },
+            "vistos": {
+              "transacciones": 26990,
+              "fraudes": 648,
+              "ap": 0.786244,
+              "recall_al_umbral": 0.891975,
+              "precision_al_umbral": 0.361929
+            }
+          },
+          "alertas": [
+            {
+              "semana": 7,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.748731
+            },
+            {
+              "semana": 7,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.494948
+            },
+            {
+              "semana": 7,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.17961
+            },
+            {
+              "semana": 7,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 5.65743
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 3
+          }
+        },
+        {
+          "transacciones": 19782,
+          "psi_variables": {
+            "card6": 0.018772,
+            "TransactionAmt": 0.005192,
+            "C1": 0.018412,
+            "C14": 0.013246,
+            "C13": 0.03341,
+            "C11": 0.033273,
+            "M4": 0.004562,
+            "V91": 0.012441,
+            "direccion_dias_desde_primera": 6.985453,
+            "id_31": 0.458941,
+            "cliente_dias_desde_primera": 0.186409,
+            "D2": 0.045981,
+            "V70": 0.003181,
+            "V258": 7.9e-05,
+            "V30": 0.00366,
+            "D15": 0.042445,
+            "card2": 0.037456,
+            "tarjeta_dias_desde_primera": 5.670047,
+            "C4": 0.012899,
+            "M5": 0.001183
+          },
+          "psi_puntaje": 0.007934,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.536521,
+              "cambio": -0.017064
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.424696,
+              "cambio": -0.010517
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.85165,
+              "cambio": -0.034268
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.381963,
+              "cambio": 0.010694
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.489763,
+              "cambio": 0.004746
+            }
+          },
+          "tasa_alertas": 0.140481,
+          "tasa_alertas_relativa": 1.003437,
+          "semana": 8,
+          "dias": [
+            170,
+            176
+          ],
+          "etiquetas_maduras_hasta_dia": 146,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 73295,
+              "fraudes": 2550,
+              "ap": 0.643281,
+              "recall_al_umbral": 0.838431,
+              "precision_al_umbral": 0.222778
+            },
+            "nuevos": {
+              "transacciones": 38253,
+              "fraudes": 1731,
+              "ap": 0.577471,
+              "recall_al_umbral": 0.812825,
+              "precision_al_umbral": 0.183562
+            },
+            "vistos": {
+              "transacciones": 35042,
+              "fraudes": 819,
+              "ap": 0.788133,
+              "recall_al_umbral": 0.892552,
+              "precision_al_umbral": 0.378364
+            }
+          },
+          "alertas": [
+            {
+              "semana": 8,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.985453
+            },
+            {
+              "semana": 8,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.458941
+            },
+            {
+              "semana": 8,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.186409
+            },
+            {
+              "semana": 8,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 5.670047
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 3
+          }
+        },
+        {
+          "transacciones": 14720,
+          "psi_variables": {
+            "card6": 0.003166,
+            "TransactionAmt": 0.002115,
+            "C1": 0.00438,
+            "C14": 0.002543,
+            "C13": 0.016468,
+            "C11": 0.05058,
+            "M4": 0.003139,
+            "V91": 0.001448,
+            "direccion_dias_desde_primera": 6.971051,
+            "id_31": 0.439312,
+            "cliente_dias_desde_primera": 0.22008,
+            "D2": 0.023468,
+            "V70": 0.006298,
+            "V258": 0.000189,
+            "V30": 0.00824,
+            "D15": 0.046204,
+            "card2": 0.014654,
+            "tarjeta_dias_desde_primera": 5.559974,
+            "C4": 0.000136,
+            "M5": 0.001633
+          },
+          "psi_puntaje": 0.016855,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.547283,
+              "cambio": -0.006303
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.435169,
+              "cambio": -4.4e-05
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.885506,
+              "cambio": -0.000413
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.329778,
+              "cambio": -0.041492
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.491984,
+              "cambio": 0.006966
+            }
+          },
+          "tasa_alertas": 0.153465,
+          "tasa_alertas_relativa": 1.096176,
+          "semana": 9,
+          "dias": [
+            177,
+            182
+          ],
+          "etiquetas_maduras_hasta_dia": 152,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 90568,
+              "fraudes": 3069,
+              "ap": 0.633011,
+              "recall_al_umbral": 0.833496,
+              "precision_al_umbral": 0.21322
+            },
+            "nuevos": {
+              "transacciones": 48268,
+              "fraudes": 2115,
+              "ap": 0.558141,
+              "recall_al_umbral": 0.804255,
+              "precision_al_umbral": 0.173112
+            },
+            "vistos": {
+              "transacciones": 42300,
+              "fraudes": 954,
+              "ap": 0.802274,
+              "recall_al_umbral": 0.898323,
+              "precision_al_umbral": 0.394749
+            }
+          },
+          "alertas": [
+            {
+              "semana": 9,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "direccion_dias_desde_primera",
+              "valor": 6.971051
+            },
+            {
+              "semana": 9,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.439312
+            },
+            {
+              "semana": 9,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "cliente_dias_desde_primera",
+              "valor": 0.22008
+            },
+            {
+              "semana": 9,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "tarjeta_dias_desde_primera",
+              "valor": 5.559974
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 3
+          }
+        }
+      ]
+    },
+    "1.1.0": {
+      "variante": "sin_vecindario",
+      "estado": "produccion",
+      "umbral": 0.03111,
+      "tasa_alertas_esperada": 0.14,
+      "ap_validacion_nuevos": 0.640237,
+      "semanas": [
+        {
+          "transacciones": 22969,
+          "psi_variables": {
+            "card6": 0.001615,
+            "TransactionAmt": 0.002648,
+            "C1": 0.00644,
+            "C14": 0.007819,
+            "C13": 0.018686,
+            "C11": 0.046186,
+            "M4": 0.004881,
+            "V91": 0.015743,
+            "id_31": 0.166424,
+            "D2": 0.02006,
+            "V70": 0.012437,
+            "V258": 0.00149,
+            "V30": 0.01127,
+            "D15": 0.022957,
+            "card2": 0.006463,
+            "C4": 0.000382,
+            "M5": 0.002299
+          },
+          "psi_puntaje": 0.019794,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.546458,
+              "cambio": -0.007127
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.437298,
+              "cambio": 0.002085
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.89519,
+              "cambio": 0.009272
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.34027,
+              "cambio": -0.031
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.489573,
+              "cambio": 0.004555
+            }
+          },
+          "tasa_alertas": 0.126039,
+          "tasa_alertas_relativa": 0.900282,
+          "semana": 1,
+          "dias": [
+            121,
+            127
+          ],
+          "etiquetas_maduras_hasta_dia": 97,
+          "alertas": [
+            {
+              "semana": 1,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.166424
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 18860,
+          "psi_variables": {
+            "card6": 0.000521,
+            "TransactionAmt": 0.003428,
+            "C1": 0.002897,
+            "C14": 0.002767,
+            "C13": 0.014517,
+            "C11": 0.048836,
+            "M4": 0.000727,
+            "V91": 0.351597,
+            "id_31": 0.189239,
+            "D2": 0.019185,
+            "V70": 0.007353,
+            "V258": 0.003529,
+            "V30": 0.04971,
+            "D15": 0.413179,
+            "card2": 0.003833,
+            "C4": 0.0,
+            "M5": 5.2e-05
+          },
+          "psi_puntaje": 0.003987,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.617027,
+              "cambio": 0.063442
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.47746,
+              "cambio": 0.042247
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.887309,
+              "cambio": 0.00139
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.356557,
+              "cambio": -0.014713
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.490907,
+              "cambio": 0.005889
+            }
+          },
+          "tasa_alertas": 0.147508,
+          "tasa_alertas_relativa": 1.053628,
+          "semana": 2,
+          "dias": [
+            128,
+            134
+          ],
+          "etiquetas_maduras_hasta_dia": 104,
+          "alertas": [
+            {
+              "semana": 2,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "V91",
+              "valor": 0.351597
+            },
+            {
+              "semana": 2,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.189239
+            },
+            {
+              "semana": 2,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "D15",
+              "valor": 0.413179
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 2
+          }
+        },
+        {
+          "transacciones": 18635,
+          "psi_variables": {
+            "card6": 0.0009,
+            "TransactionAmt": 0.004926,
+            "C1": 0.005659,
+            "C14": 0.006451,
+            "C13": 0.015113,
+            "C11": 0.061402,
+            "M4": 0.0024,
+            "V91": 0.042608,
+            "id_31": 0.197549,
+            "D2": 0.021896,
+            "V70": 0.004069,
+            "V258": 0.003952,
+            "V30": 0.015375,
+            "D15": 0.070145,
+            "card2": 0.00601,
+            "C4": 0.000103,
+            "M5": 0.001018
+          },
+          "psi_puntaje": 0.010425,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.573026,
+              "cambio": 0.019441
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.449519,
+              "cambio": 0.014306
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.884557,
+              "cambio": -0.001361
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.389273,
+              "cambio": 0.018004
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.485806,
+              "cambio": 0.000789
+            }
+          },
+          "tasa_alertas": 0.131205,
+          "tasa_alertas_relativa": 0.937177,
+          "semana": 3,
+          "dias": [
+            135,
+            141
+          ],
+          "etiquetas_maduras_hasta_dia": 111,
+          "alertas": [
+            {
+              "semana": 3,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.197549
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 18609,
+          "psi_variables": {
+            "card6": 0.001074,
+            "TransactionAmt": 0.000574,
+            "C1": 0.00119,
+            "C14": 0.002085,
+            "C13": 0.01201,
+            "C11": 0.054518,
+            "M4": 0.006399,
+            "V91": 0.004979,
+            "id_31": 0.168966,
+            "D2": 0.01758,
+            "V70": 0.009328,
+            "V258": 0.002002,
+            "V30": 0.010296,
+            "D15": 0.019577,
+            "card2": 0.008835,
+            "C4": 0.000148,
+            "M5": 0.00014
+          },
+          "psi_puntaje": 0.012696,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.555573,
+              "cambio": 0.001988
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.438154,
+              "cambio": 0.002941
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.88939,
+              "cambio": 0.003471
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.380145,
+              "cambio": 0.008875
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.493283,
+              "cambio": 0.008265
+            }
+          },
+          "tasa_alertas": 0.133054,
+          "tasa_alertas_relativa": 0.950385,
+          "semana": 4,
+          "dias": [
+            142,
+            148
+          ],
+          "etiquetas_maduras_hasta_dia": 118,
+          "alertas": [
+            {
+              "semana": 4,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.168966
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 21735,
+          "psi_variables": {
+            "card6": 0.00262,
+            "TransactionAmt": 0.001587,
+            "C1": 0.00739,
+            "C14": 0.006285,
+            "C13": 0.024497,
+            "C11": 0.053849,
+            "M4": 0.010621,
+            "V91": 0.014162,
+            "id_31": 0.189578,
+            "D2": 0.037265,
+            "V70": 0.013732,
+            "V258": 0.003388,
+            "V30": 0.012441,
+            "D15": 0.042265,
+            "card2": 0.009346,
+            "C4": 0.003424,
+            "M5": 0.000474
+          },
+          "psi_puntaje": 0.033892,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.550636,
+              "cambio": -0.002949
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.441352,
+              "cambio": 0.006139
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.898468,
+              "cambio": 0.012549
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.329085,
+              "cambio": -0.042185
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.512215,
+              "cambio": 0.027198
+            }
+          },
+          "tasa_alertas": 0.127766,
+          "tasa_alertas_relativa": 0.912616,
+          "semana": 5,
+          "dias": [
+            149,
+            155
+          ],
+          "etiquetas_maduras_hasta_dia": 125,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 16583,
+              "fraudes": 550,
+              "ap": 0.742564,
+              "recall_al_umbral": 0.850909,
+              "precision_al_umbral": 0.226415
+            },
+            "nuevos": {
+              "transacciones": 7760,
+              "fraudes": 338,
+              "ap": 0.739156,
+              "recall_al_umbral": 0.843195,
+              "precision_al_umbral": 0.197505
+            },
+            "vistos": {
+              "transacciones": 8823,
+              "fraudes": 212,
+              "ap": 0.751249,
+              "recall_al_umbral": 0.863208,
+              "precision_al_umbral": 0.293269
+            }
+          },
+          "alertas": [
+            {
+              "semana": 5,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.189578
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 19692,
+          "psi_variables": {
+            "card6": 0.214312,
+            "TransactionAmt": 0.003444,
+            "C1": 0.002725,
+            "C14": 0.002198,
+            "C13": 0.006377,
+            "C11": 0.041475,
+            "M4": 0.002592,
+            "V91": 0.002621,
+            "id_31": 0.292083,
+            "D2": 0.012976,
+            "V70": 0.0128,
+            "V258": 0.001608,
+            "V30": 0.015208,
+            "D15": 0.02334,
+            "card2": 0.070631,
+            "C4": 0.003832,
+            "M5": 0.001442
+          },
+          "psi_puntaje": 0.008126,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.554303,
+              "cambio": 0.000718
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.432312,
+              "cambio": -0.002901
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.871612,
+              "cambio": -0.014307
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.360045,
+              "cambio": -0.011225
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.481185,
+              "cambio": -0.003832
+            }
+          },
+          "tasa_alertas": 0.145186,
+          "tasa_alertas_relativa": 1.037042,
+          "semana": 6,
+          "dias": [
+            156,
+            162
+          ],
+          "etiquetas_maduras_hasta_dia": 132,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 36205,
+              "fraudes": 1243,
+              "ap": 0.678127,
+              "recall_al_umbral": 0.860016,
+              "precision_al_umbral": 0.220503
+            },
+            "nuevos": {
+              "transacciones": 17836,
+              "fraudes": 796,
+              "ap": 0.645216,
+              "recall_al_umbral": 0.842965,
+              "precision_al_umbral": 0.187221
+            },
+            "vistos": {
+              "transacciones": 18369,
+              "fraudes": 447,
+              "ap": 0.750914,
+              "recall_al_umbral": 0.89038,
+              "precision_al_umbral": 0.314873
+            }
+          },
+          "alertas": [
+            {
+              "semana": 6,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "card6",
+              "valor": 0.214312
+            },
+            {
+              "semana": 6,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.292083
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 1
+          }
+        },
+        {
+          "transacciones": 20996,
+          "psi_variables": {
+            "card6": 0.00885,
+            "TransactionAmt": 0.008163,
+            "C1": 0.004528,
+            "C14": 0.003024,
+            "C13": 0.00594,
+            "C11": 0.0482,
+            "M4": 0.004199,
+            "V91": 0.008654,
+            "id_31": 0.494948,
+            "D2": 0.010919,
+            "V70": 0.021197,
+            "V258": 0.023026,
+            "V30": 0.021258,
+            "D15": 0.025356,
+            "card2": 0.014535,
+            "C4": 0.028105,
+            "M5": 0.003141
+          },
+          "psi_puntaje": 0.004758,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.545523,
+              "cambio": -0.008062
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.416956,
+              "cambio": -0.018257
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.841022,
+              "cambio": -0.044897
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.395742,
+              "cambio": 0.024472
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.461707,
+              "cambio": -0.023311
+            }
+          },
+          "tasa_alertas": 0.158078,
+          "tasa_alertas_relativa": 1.129127,
+          "semana": 7,
+          "dias": [
+            163,
+            169
+          ],
+          "etiquetas_maduras_hasta_dia": 139,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 54835,
+              "fraudes": 1887,
+              "ap": 0.667313,
+              "recall_al_umbral": 0.856916,
+              "precision_al_umbral": 0.2203
+            },
+            "nuevos": {
+              "transacciones": 27845,
+              "fraudes": 1239,
+              "ap": 0.616083,
+              "recall_al_umbral": 0.830508,
+              "precision_al_umbral": 0.182674
+            },
+            "vistos": {
+              "transacciones": 26990,
+              "fraudes": 648,
+              "ap": 0.77419,
+              "recall_al_umbral": 0.907407,
+              "precision_al_umbral": 0.344464
+            }
+          },
+          "alertas": [
+            {
+              "semana": 7,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.494948
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 1
+          }
+        },
+        {
+          "transacciones": 19782,
+          "psi_variables": {
+            "card6": 0.018772,
+            "TransactionAmt": 0.005192,
+            "C1": 0.018412,
+            "C14": 0.013246,
+            "C13": 0.03341,
+            "C11": 0.033273,
+            "M4": 0.004562,
+            "V91": 0.012441,
+            "id_31": 0.458941,
+            "D2": 0.045981,
+            "V70": 0.003181,
+            "V258": 7.9e-05,
+            "V30": 0.00366,
+            "D15": 0.042445,
+            "card2": 0.037456,
+            "C4": 0.012899,
+            "M5": 0.001183
+          },
+          "psi_puntaje": 0.00962,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.536521,
+              "cambio": -0.017064
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.424696,
+              "cambio": -0.010517
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.85165,
+              "cambio": -0.034268
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.381963,
+              "cambio": 0.010694
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.489763,
+              "cambio": 0.004746
+            }
+          },
+          "tasa_alertas": 0.143615,
+          "tasa_alertas_relativa": 1.025824,
+          "semana": 8,
+          "dias": [
+            170,
+            176
+          ],
+          "etiquetas_maduras_hasta_dia": 146,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 73295,
+              "fraudes": 2550,
+              "ap": 0.647478,
+              "recall_al_umbral": 0.84902,
+              "precision_al_umbral": 0.223403
+            },
+            "nuevos": {
+              "transacciones": 38253,
+              "fraudes": 1731,
+              "ap": 0.586571,
+              "recall_al_umbral": 0.823224,
+              "precision_al_umbral": 0.187155
+            },
+            "vistos": {
+              "transacciones": 35042,
+              "fraudes": 819,
+              "ap": 0.78257,
+              "recall_al_umbral": 0.903541,
+              "precision_al_umbral": 0.356283
+            }
+          },
+          "alertas": [
+            {
+              "semana": 8,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.458941
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 1
+          }
+        },
+        {
+          "transacciones": 14720,
+          "psi_variables": {
+            "card6": 0.003166,
+            "TransactionAmt": 0.002115,
+            "C1": 0.00438,
+            "C14": 0.002543,
+            "C13": 0.016468,
+            "C11": 0.05058,
+            "M4": 0.003139,
+            "V91": 0.001448,
+            "id_31": 0.439312,
+            "D2": 0.023468,
+            "V70": 0.006298,
+            "V258": 0.000189,
+            "V30": 0.00824,
+            "D15": 0.046204,
+            "card2": 0.014654,
+            "C4": 0.000136,
+            "M5": 0.001633
+          },
+          "psi_puntaje": 0.018321,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.547283,
+              "cambio": -0.006303
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.435169,
+              "cambio": -4.4e-05
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.885506,
+              "cambio": -0.000413
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.329778,
+              "cambio": -0.041492
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.491984,
+              "cambio": 0.006966
+            }
+          },
+          "tasa_alertas": 0.154755,
+          "tasa_alertas_relativa": 1.105396,
+          "semana": 9,
+          "dias": [
+            177,
+            182
+          ],
+          "etiquetas_maduras_hasta_dia": 152,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 90568,
+              "fraudes": 3069,
+              "ap": 0.640912,
+              "recall_al_umbral": 0.842946,
+              "precision_al_umbral": 0.214707
+            },
+            "nuevos": {
+              "transacciones": 48268,
+              "fraudes": 2115,
+              "ap": 0.57154,
+              "recall_al_umbral": 0.814657,
+              "precision_al_umbral": 0.177336
+            },
+            "vistos": {
+              "transacciones": 42300,
+              "fraudes": 954,
+              "ap": 0.796613,
+              "recall_al_umbral": 0.90566,
+              "precision_al_umbral": 0.370339
+            }
+          },
+          "alertas": [
+            {
+              "semana": 9,
+              "nivel": "critica",
+              "regla": "psi_variable",
+              "objeto": "id_31",
+              "valor": 0.439312
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 1
+          }
+        }
+      ]
+    },
+    "1.1.0-respaldo": {
+      "variante": "solo_transaccion",
+      "estado": "respaldo",
+      "umbral": 0.048884,
+      "tasa_alertas_esperada": 0.14,
+      "ap_validacion_nuevos": 0.301085,
+      "semanas": [
+        {
+          "transacciones": 22969,
+          "psi_variables": {
+            "card6": 0.001615,
+            "TransactionAmt": 0.002648,
+            "M4": 0.004881,
+            "card2": 0.006463,
+            "M5": 0.002299
+          },
+          "psi_puntaje": 0.010477,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.546458,
+              "cambio": -0.007127
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.437298,
+              "cambio": 0.002085
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.89519,
+              "cambio": 0.009272
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.34027,
+              "cambio": -0.031
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.489573,
+              "cambio": 0.004555
+            }
+          },
+          "tasa_alertas": 0.11964,
+          "tasa_alertas_relativa": 0.854568,
+          "semana": 1,
+          "dias": [
+            121,
+            127
+          ],
+          "etiquetas_maduras_hasta_dia": 97,
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 18860,
+          "psi_variables": {
+            "card6": 0.000521,
+            "TransactionAmt": 0.003428,
+            "M4": 0.000727,
+            "card2": 0.003833,
+            "M5": 5.2e-05
+          },
+          "psi_puntaje": 0.004449,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.617027,
+              "cambio": 0.063442
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.47746,
+              "cambio": 0.042247
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.887309,
+              "cambio": 0.00139
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.356557,
+              "cambio": -0.014713
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.490907,
+              "cambio": 0.005889
+            }
+          },
+          "tasa_alertas": 0.122906,
+          "tasa_alertas_relativa": 0.877897,
+          "semana": 2,
+          "dias": [
+            128,
+            134
+          ],
+          "etiquetas_maduras_hasta_dia": 104,
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 18635,
+          "psi_variables": {
+            "card6": 0.0009,
+            "TransactionAmt": 0.004926,
+            "M4": 0.0024,
+            "card2": 0.00601,
+            "M5": 0.001018
+          },
+          "psi_puntaje": 0.003021,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.573026,
+              "cambio": 0.019441
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.449519,
+              "cambio": 0.014306
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.884557,
+              "cambio": -0.001361
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.389273,
+              "cambio": 0.018004
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.485806,
+              "cambio": 0.000789
+            }
+          },
+          "tasa_alertas": 0.125624,
+          "tasa_alertas_relativa": 0.897313,
+          "semana": 3,
+          "dias": [
+            135,
+            141
+          ],
+          "etiquetas_maduras_hasta_dia": 111,
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 18609,
+          "psi_variables": {
+            "card6": 0.001074,
+            "TransactionAmt": 0.000574,
+            "M4": 0.006399,
+            "card2": 0.008835,
+            "M5": 0.00014
+          },
+          "psi_puntaje": 0.007565,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.555573,
+              "cambio": 0.001988
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.438154,
+              "cambio": 0.002941
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.88939,
+              "cambio": 0.003471
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.380145,
+              "cambio": 0.008875
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.493283,
+              "cambio": 0.008265
+            }
+          },
+          "tasa_alertas": 0.11387,
+          "tasa_alertas_relativa": 0.813355,
+          "semana": 4,
+          "dias": [
+            142,
+            148
+          ],
+          "etiquetas_maduras_hasta_dia": 118,
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 21735,
+          "psi_variables": {
+            "card6": 0.00262,
+            "TransactionAmt": 0.001587,
+            "M4": 0.010621,
+            "card2": 0.009346,
+            "M5": 0.000474
+          },
+          "psi_puntaje": 0.012944,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.550636,
+              "cambio": -0.002949
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.441352,
+              "cambio": 0.006139
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.898468,
+              "cambio": 0.012549
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.329085,
+              "cambio": -0.042185
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.512215,
+              "cambio": 0.027198
+            }
+          },
+          "tasa_alertas": 0.112399,
+          "tasa_alertas_relativa": 0.802853,
+          "semana": 5,
+          "dias": [
+            149,
+            155
+          ],
+          "etiquetas_maduras_hasta_dia": 125,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 16583,
+              "fraudes": 550,
+              "ap": 0.302321,
+              "recall_al_umbral": 0.623636,
+              "precision_al_umbral": 0.175358
+            },
+            "nuevos": {
+              "transacciones": 7760,
+              "fraudes": 338,
+              "ap": 0.335391,
+              "recall_al_umbral": 0.715976,
+              "precision_al_umbral": 0.183195
+            },
+            "vistos": {
+              "transacciones": 8823,
+              "fraudes": 212,
+              "ap": 0.250087,
+              "recall_al_umbral": 0.476415,
+              "precision_al_umbral": 0.159055
+            }
+          },
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 19692,
+          "psi_variables": {
+            "card6": 0.214312,
+            "TransactionAmt": 0.003444,
+            "M4": 0.002592,
+            "card2": 0.070631,
+            "M5": 0.001442
+          },
+          "psi_puntaje": 0.002931,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.554303,
+              "cambio": 0.000718
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.432312,
+              "cambio": -0.002901
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.871612,
+              "cambio": -0.014307
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.360045,
+              "cambio": -0.011225
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.481185,
+              "cambio": -0.003832
+            }
+          },
+          "tasa_alertas": 0.130408,
+          "tasa_alertas_relativa": 0.931488,
+          "semana": 6,
+          "dias": [
+            156,
+            162
+          ],
+          "etiquetas_maduras_hasta_dia": 132,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 36205,
+              "fraudes": 1243,
+              "ap": 0.258898,
+              "recall_al_umbral": 0.584875,
+              "precision_al_umbral": 0.168131
+            },
+            "nuevos": {
+              "transacciones": 17836,
+              "fraudes": 796,
+              "ap": 0.274371,
+              "recall_al_umbral": 0.649497,
+              "precision_al_umbral": 0.17597
+            },
+            "vistos": {
+              "transacciones": 18369,
+              "fraudes": 447,
+              "ap": 0.230018,
+              "recall_al_umbral": 0.469799,
+              "precision_al_umbral": 0.151515
+            }
+          },
+          "alertas": [
+            {
+              "semana": 6,
+              "nivel": "aviso",
+              "regla": "psi_variable",
+              "objeto": "card6",
+              "valor": 0.214312
+            }
+          ],
+          "alertas_resumen": {
+            "aviso": 1,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 20996,
+          "psi_variables": {
+            "card6": 0.00885,
+            "TransactionAmt": 0.008163,
+            "M4": 0.004199,
+            "card2": 0.014535,
+            "M5": 0.003141
+          },
+          "psi_puntaje": 0.009699,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.545523,
+              "cambio": -0.008062
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.416956,
+              "cambio": -0.018257
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.841022,
+              "cambio": -0.044897
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.395742,
+              "cambio": 0.024472
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.461707,
+              "cambio": -0.023311
+            }
+          },
+          "tasa_alertas": 0.144504,
+          "tasa_alertas_relativa": 1.032169,
+          "semana": 7,
+          "dias": [
+            163,
+            169
+          ],
+          "etiquetas_maduras_hasta_dia": 139,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 54835,
+              "fraudes": 1887,
+              "ap": 0.253459,
+              "recall_al_umbral": 0.571807,
+              "precision_al_umbral": 0.163262
+            },
+            "nuevos": {
+              "transacciones": 27845,
+              "fraudes": 1239,
+              "ap": 0.256053,
+              "recall_al_umbral": 0.611784,
+              "precision_al_umbral": 0.166887
+            },
+            "vistos": {
+              "transacciones": 26990,
+              "fraudes": 648,
+              "ap": 0.244673,
+              "recall_al_umbral": 0.49537,
+              "precision_al_umbral": 0.155298
+            }
+          },
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 19782,
+          "psi_variables": {
+            "card6": 0.018772,
+            "TransactionAmt": 0.005192,
+            "M4": 0.004562,
+            "card2": 0.037456,
+            "M5": 0.001183
+          },
+          "psi_puntaje": 0.024381,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.536521,
+              "cambio": -0.017064
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.424696,
+              "cambio": -0.010517
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.85165,
+              "cambio": -0.034268
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.381963,
+              "cambio": 0.010694
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.489763,
+              "cambio": 0.004746
+            }
+          },
+          "tasa_alertas": 0.125619,
+          "tasa_alertas_relativa": 0.89728,
+          "semana": 8,
+          "dias": [
+            170,
+            176
+          ],
+          "etiquetas_maduras_hasta_dia": 146,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 73295,
+              "fraudes": 2550,
+              "ap": 0.251378,
+              "recall_al_umbral": 0.571765,
+              "precision_al_umbral": 0.16661
+            },
+            "nuevos": {
+              "transacciones": 38253,
+              "fraudes": 1731,
+              "ap": 0.262812,
+              "recall_al_umbral": 0.613518,
+              "precision_al_umbral": 0.17407
+            },
+            "vistos": {
+              "transacciones": 35042,
+              "fraudes": 819,
+              "ap": 0.221411,
+              "recall_al_umbral": 0.483516,
+              "precision_al_umbral": 0.149434
+            }
+          },
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        },
+        {
+          "transacciones": 14720,
+          "psi_variables": {
+            "card6": 0.003166,
+            "TransactionAmt": 0.002115,
+            "M4": 0.003139,
+            "card2": 0.014654,
+            "M5": 0.001633
+          },
+          "psi_puntaje": 0.00457,
+          "faltantes": {
+            "C": {
+              "referencia": 0.0,
+              "actual": 0.0,
+              "cambio": 0.0
+            },
+            "D": {
+              "referencia": 0.553585,
+              "actual": 0.547283,
+              "cambio": -0.006303
+            },
+            "V": {
+              "referencia": 0.435213,
+              "actual": 0.435169,
+              "cambio": -4.4e-05
+            },
+            "identidad": {
+              "referencia": 0.885919,
+              "actual": 0.885506,
+              "cambio": -0.000413
+            },
+            "M": {
+              "referencia": 0.37127,
+              "actual": 0.329778,
+              "cambio": -0.041492
+            },
+            "correo": {
+              "referencia": 0.485017,
+              "actual": 0.491984,
+              "cambio": 0.006966
+            }
+          },
+          "tasa_alertas": 0.128193,
+          "tasa_alertas_relativa": 0.915664,
+          "semana": 9,
+          "dias": [
+            177,
+            182
+          ],
+          "etiquetas_maduras_hasta_dia": 152,
+          "rendimiento_maduro": {
+            "todos": {
+              "transacciones": 90568,
+              "fraudes": 3069,
+              "ap": 0.246449,
+              "recall_al_umbral": 0.566634,
+              "precision_al_umbral": 0.161587
+            },
+            "nuevos": {
+              "transacciones": 48268,
+              "fraudes": 2115,
+              "ap": 0.260689,
+              "recall_al_umbral": 0.605674,
+              "precision_al_umbral": 0.168044
+            },
+            "vistos": {
+              "transacciones": 42300,
+              "fraudes": 954,
+              "ap": 0.211145,
+              "recall_al_umbral": 0.480084,
+              "precision_al_umbral": 0.145906
+            }
+          },
+          "alertas": [],
+          "alertas_resumen": {
+            "aviso": 0,
+            "critica": 0
+          }
+        }
+      ]
+    }
+  },
+  "relojes_encubiertos": {
+    "umbral": 0.8,
+    "variables": {
+      "correo_dias_desde_primera": 0.99991,
+      "direccion_dias_desde_primera": 0.994713,
+      "tarjeta_dias_desde_primera": 0.939032,
+      "correo_etiquetadas_r60": 0.876123,
+      "direccion_etiquetadas_r60": 0.872806,
+      "tarjeta_direccion_dias_desde_primera": 0.86683,
+      "direccion_fraudes_r60": 0.860938,
+      "direccion_clientes_fraude_r60": 0.858937,
+      "correo_fraudes_r60": 0.858698,
+      "correo_clientes_fraude_r60": 0.857184,
+      "direccion_fraudes_r30": 0.854701,
+      "direccion_etiquetadas_r30": 0.852675,
+      "correo_etiquetadas_r30": 0.846785,
+      "direccion_clientes_fraude_r30": 0.846745,
+      "correo_fraudes_r30": 0.829684,
+      "correo_clientes_fraude_r30": 0.821787,
+      "tarjeta_etiquetadas_r60": 0.812663
+    },
+    "en_cada_version": {
+      "1.0.0": [
+        "tarjeta_direccion_dias_desde_primera",
+        "tarjeta_dias_desde_primera",
+        "direccion_dias_desde_primera",
+        "correo_dias_desde_primera",
+        "direccion_etiquetadas_r30",
+        "direccion_fraudes_r30",
+        "direccion_clientes_fraude_r30",
+        "correo_etiquetadas_r30",
+        "correo_fraudes_r30",
+        "correo_clientes_fraude_r30"
+      ],
+      "1.1.0": [],
+      "1.1.0-respaldo": []
+    }
+  },
+  "alertas_produccion": [
+    {
+      "semana": 1,
+      "nivel": "aviso",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.166424
+    },
+    {
+      "semana": 2,
+      "nivel": "critica",
+      "regla": "psi_variable",
+      "objeto": "V91",
+      "valor": 0.351597
+    },
+    {
+      "semana": 2,
+      "nivel": "aviso",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.189239
+    },
+    {
+      "semana": 2,
+      "nivel": "critica",
+      "regla": "psi_variable",
+      "objeto": "D15",
+      "valor": 0.413179
+    },
+    {
+      "semana": 3,
+      "nivel": "aviso",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.197549
+    },
+    {
+      "semana": 4,
+      "nivel": "aviso",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.168966
+    },
+    {
+      "semana": 5,
+      "nivel": "aviso",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.189578
+    },
+    {
+      "semana": 6,
+      "nivel": "aviso",
+      "regla": "psi_variable",
+      "objeto": "card6",
+      "valor": 0.214312
+    },
+    {
+      "semana": 6,
+      "nivel": "critica",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.292083
+    },
+    {
+      "semana": 7,
+      "nivel": "critica",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.494948
+    },
+    {
+      "semana": 8,
+      "nivel": "critica",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.458941
+    },
+    {
+      "semana": 9,
+      "nivel": "critica",
+      "regla": "psi_variable",
+      "objeto": "id_31",
+      "valor": 0.439312
+    }
+  ],
+  "reglas": {
+    "psi_variable": {
+      "aviso": 0.1,
+      "critica": 0.25
+    },
+    "psi_puntaje": {
+      "aviso": 0.1,
+      "critica": 0.25
+    },
+    "faltantes_grupo": {
+      "aviso": 0.1,
+      "critica": 0.2
+    },
+    "tasa_alertas": {
+      "aviso": [
+        0.7,
+        1.3
+      ],
+      "critica": [
+        0.5,
+        1.5
+      ]
+    },
+    "ap_madura_nuevos": {
+      "aviso": 0.85,
+      "critica": 0.7
+    }
+  }
+}

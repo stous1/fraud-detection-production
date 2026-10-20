@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"mark": {"type": "line", "point": {"size": 36}, "strokeWidth": 2}, "encoding": {"color": {"value": "#2f6db5"}, "tooltip": [{"field": "semana", "type": "quantitative"}, {"field": "tasa", "format": ".0%", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "semana", "title": "Semana de prueba", "type": "ordinal"}, "y": {"axis": {"format": ".0%", "tickCount": 6}, "field": "tasa", "scale": {"zero": true}, "title": "Transacciones marcadas", "type": "quantitative"}}}], "data": {"name": "data-232a7e277acb53d308b347a1b3a9e36e"}, "height": 240, "title": "Tasa de alertas por semana (esperada 14%)", "width": 560, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-232a7e277acb53d308b347a1b3a9e36e": [{"semana": 1, "tasa": 0.126039}, {"semana": 2, "tasa": 0.147508}, {"semana": 3, "tasa": 0.131205}, {"semana": 4, "tasa": 0.133054}, {"semana": 5, "tasa": 0.127766}, {"semana": 6, "tasa": 0.145186}, {"semana": 7, "tasa": 0.158078}, {"semana": 8, "tasa": 0.143615}, {"semana": 9, "tasa": 0.154755}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

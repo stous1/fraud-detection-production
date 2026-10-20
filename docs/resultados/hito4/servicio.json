@@ -1,0 +1,21 @@
+{
+  "url": "http://localhost:8000",
+  "version": "1.1.0",
+  "variante": "sin_vecindario",
+  "transacciones": 3000,
+  "diferencia_max_con_lotes": 0.0,
+  "iguales_a_1e-6": true,
+  "latencia_ms_cliente": {
+    "p50": 65.5275,
+    "p95": 85.20343,
+    "p99": 122.300674
+  },
+  "metricas_servicio": {
+    "puntuadas": 3000,
+    "alertas": 384,
+    "tasa_alertas": 0.128,
+    "latencia_ms_p50": 62.952604,
+    "latencia_ms_p95": 77.429498,
+    "contracargos_recibidos": 14720
+  }
+}

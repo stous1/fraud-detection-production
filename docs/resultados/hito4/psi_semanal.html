@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"data": {"name": "data-58c765061f7027098fa4f999ea367c95"}, "mark": {"type": "line", "point": true, "strokeWidth": 2}, "encoding": {"color": {"field": "variable", "scale": {"range": ["#2f6db5", "#d9822b", "#7b5ea7", "#2e9e6b", "#8a8f98"]}, "title": null, "type": "nominal"}, "tooltip": [{"field": "variable", "type": "nominal"}, {"field": "semana", "type": "quantitative"}, {"field": "psi", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "semana", "title": "Semana de prueba", "type": "ordinal"}, "y": {"field": "psi", "title": "PSI contra los d\u00edas 91 a 120", "type": "quantitative"}}}, {"data": {"name": "data-801b1c040445e02a3dec429d4b508b4f"}, "mark": {"type": "rule", "color": "#8a8f98", "strokeDash": [4, 3]}, "encoding": {"y": {"field": "y", "type": "quantitative"}}}], "height": 260, "title": "Deriva de las cinco variables que m\u00e1s cambiaron (versi\u00f3n en producci\u00f3n)", "width": 560, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-58c765061f7027098fa4f999ea367c95": [{"semana": 1, "variable": "card6", "psi": 0.001615}, {"semana": 1, "variable": "V91", "psi": 0.015743}, {"semana": 1, "variable": "id_31", "psi": 0.166424}, {"semana": 1, "variable": "D15", "psi": 0.022957}, {"semana": 1, "variable": "card2", "psi": 0.006463}, {"semana": 2, "variable": "card6", "psi": 0.000521}, {"semana": 2, "variable": "V91", "psi": 0.351597}, {"semana": 2, "variable": "id_31", "psi": 0.189239}, {"semana": 2, "variable": "D15", "psi": 0.413179}, {"semana": 2, "variable": "card2", "psi": 0.003833}, {"semana": 3, "variable": "card6", "psi": 0.0009}, {"semana": 3, "variable": "V91", "psi": 0.042608}, {"semana": 3, "variable": "id_31", "psi": 0.197549}, {"semana": 3, "variable": "D15", "psi": 0.070145}, {"semana": 3, "variable": "card2", "psi": 0.00601}, {"semana": 4, "variable": "card6", "psi": 0.001074}, {"semana": 4, "variable": "V91", "psi": 0.004979}, {"semana": 4, "variable": "id_31", "psi": 0.168966}, {"semana": 4, "variable": "D15", "psi": 0.019577}, {"semana": 4, "variable": "card2", "psi": 0.008835}, {"semana": 5, "variable": "card6", "psi": 0.00262}, {"semana": 5, "variable": "V91", "psi": 0.014162}, {"semana": 5, "variable": "id_31", "psi": 0.189578}, {"semana": 5, "variable": "D15", "psi": 0.042265}, {"semana": 5, "variable": "card2", "psi": 0.009346}, {"semana": 6, "variable": "card6", "psi": 0.214312}, {"semana": 6, "variable": "V91", "psi": 0.002621}, {"semana": 6, "variable": "id_31", "psi": 0.292083}, {"semana": 6, "variable": "D15", "psi": 0.02334}, {"semana": 6, "variable": "card2", "psi": 0.070631}, {"semana": 7, "variable": "card6", "psi": 0.00885}, {"semana": 7, "variable": "V91", "psi": 0.008654}, {"semana": 7, "variable": "id_31", "psi": 0.494948}, {"semana": 7, "variable": "D15", "psi": 0.025356}, {"semana": 7, "variable": "card2", "psi": 0.014535}, {"semana": 8, "variable": "card6", "psi": 0.018772}, {"semana": 8, "variable": "V91", "psi": 0.012441}, {"semana": 8, "variable": "id_31", "psi": 0.458941}, {"semana": 8, "variable": "D15", "psi": 0.042445}, {"semana": 8, "variable": "card2", "psi": 0.037456}, {"semana": 9, "variable": "card6", "psi": 0.003166}, {"semana": 9, "variable": "V91", "psi": 0.001448}, {"semana": 9, "variable": "id_31", "psi": 0.439312}, {"semana": 9, "variable": "D15", "psi": 0.046204}, {"semana": 9, "variable": "card2", "psi": 0.014654}], "data-801b1c040445e02a3dec429d4b508b4f": [{"y": 0.1, "nivel": "aviso"}, {"y": 0.25, "nivel": "cr\u00edtica"}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

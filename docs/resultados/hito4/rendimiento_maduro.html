@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"mark": {"type": "line", "point": {"size": 36}, "strokeWidth": 2}, "encoding": {"color": {"field": "version", "scale": {"range": ["#2f6db5", "#d9822b", "#7b5ea7", "#2e9e6b", "#8a8f98"]}, "title": null, "type": "nominal"}, "tooltip": [{"field": "version", "type": "nominal"}, {"field": "semana", "type": "quantitative"}, {"field": "ap", "format": ".2f", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "semana", "title": "Semana de prueba", "type": "ordinal"}, "y": {"axis": {"format": ".2f", "tickCount": 6}, "field": "ap", "scale": {"zero": true}, "title": "AP en nuevos", "type": "quantitative"}}}], "data": {"name": "data-2f635add15d37a4ca42a6da451be2c69"}, "height": 240, "title": "AP en clientes nuevos con las etiquetas ya maduras (acumulada)", "width": 560, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-2f635add15d37a4ca42a6da451be2c69": [{"semana": 5, "version": "completo", "ap": 0.741837}, {"semana": 6, "version": "completo", "ap": 0.650068}, {"semana": 7, "version": "completo", "ap": 0.61539}, {"semana": 8, "version": "completo", "ap": 0.577471}, {"semana": 9, "version": "completo", "ap": 0.558141}, {"semana": 5, "version": "sin_vecindario", "ap": 0.739156}, {"semana": 6, "version": "sin_vecindario", "ap": 0.645216}, {"semana": 7, "version": "sin_vecindario", "ap": 0.616083}, {"semana": 8, "version": "sin_vecindario", "ap": 0.586571}, {"semana": 9, "version": "sin_vecindario", "ap": 0.57154}, {"semana": 5, "version": "solo_transaccion", "ap": 0.335391}, {"semana": 6, "version": "solo_transaccion", "ap": 0.274371}, {"semana": 7, "version": "solo_transaccion", "ap": 0.256053}, {"semana": 8, "version": "solo_transaccion", "ap": 0.262812}, {"semana": 9, "version": "solo_transaccion", "ap": 0.260689}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
