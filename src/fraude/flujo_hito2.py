@@ -353,8 +353,17 @@ def _graficos_evaluacion(resultados: dict, curvas: pd.DataFrame, salida: Path) -
         graficos.guardar(g, salida / "curvas_pr_prueba")
 
 
+def graficos_evaluacion(salida: Path = SALIDA) -> None:
+    """Rehace los gráficos de prueba desde ``evaluacion.json``, sin volver a medir."""
+    import json
+
+    e = json.loads((salida / "evaluacion.json").read_text(encoding="utf-8"))
+    _graficos_evaluacion(e["variantes"], pd.DataFrame(e["curvas_pr"]), salida)
+
+
 PASOS: dict[str, Callable[[], None]] = {
     "preparar": preparar,
     "desarrollar": desarrollar,
     "evaluar": evaluar,
+    "graficos": graficos_evaluacion,
 }

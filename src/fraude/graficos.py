@@ -104,7 +104,7 @@ def barras_agrupadas(
 ) -> alt.FacetChart:
     """Un panel de barras horizontales por valor de ``grupo`` (en lugar de colores)."""
     base = alt.Chart(df).encode(
-        y=alt.Y(f"{y}:N", sort=orden_y, title=None),
+        y=alt.Y(f"{y}:N", sort=orden_y, title=None, axis=alt.Axis(labelLimit=360)),
         x=alt.X(f"{x}:Q", title=eje_x, axis=_eje(formato_x)),
         tooltip=[grupo, y, alt.Tooltip(f"{x}:Q", format=formato_x or ",.3f")],
     )
