@@ -1,0 +1,50 @@
+# Integración continua: lint y pruebas rápidas en cada push; integración aparte, solo en main.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pruebas:
+    name: Lint y pruebas rápidas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0  # historia y tags: las pruebas verifican los parámetros congelados
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          enable-cache: true
+      - name: Instalar dependencias
+        run: uv sync --locked
+      - name: Ruff
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: Pruebas rápidas
+        run: uv run pytest -q -p no:logging -m "not integracion"
+
+  integracion:
+    name: Pruebas de integración
+    needs: pruebas
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          enable-cache: true
+      - name: Instalar dependencias
+        run: uv sync --locked
+      - name: Pruebas de integración
+        run: uv run pytest -q -p no:logging -m integracion

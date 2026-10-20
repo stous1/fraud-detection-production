@@ -1,0 +1,14 @@
+# Saltos de línea LF en el repositorio y en el árbol de trabajo, en cualquier sistema.
+* text=auto eol=lf
+
+# Archivos de Windows que necesitan CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binarios: sin conversión ni diff de texto.
+*.png binary
+*.jpg binary
+*.parquet binary
+*.duckdb binary
+*.pt binary

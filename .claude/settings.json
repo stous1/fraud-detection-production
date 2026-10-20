@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv *)",
+      "Bash(pytest *)",
+      "Bash(ruff *)",
+      "Bash(playwright *)",
+      "Bash(python *)",
+      "Bash(duckdb *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(docker *)",
+      "PowerShell(uv *)",
+      "PowerShell(pytest *)",
+      "PowerShell(ruff *)",
+      "PowerShell(playwright *)",
+      "PowerShell(python *)",
+      "PowerShell(duckdb *)",
+      "PowerShell(git add *)",
+      "PowerShell(git commit *)",
+      "PowerShell(git status)",
+      "PowerShell(git status *)",
+      "PowerShell(git diff)",
+      "PowerShell(git diff *)",
+      "PowerShell(git push)",
+      "PowerShell(git push *)",
+      "PowerShell(docker *)"
+    ]
+  }
+}

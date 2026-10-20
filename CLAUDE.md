@@ -1,0 +1,153 @@
+# CLAUDE.md
+
+Guía para trabajar en este repositorio.
+
+## Objetivo
+
+Caso de uso 3 del portafolio de ciencia de datos aplicado a banca: **detección de fraude con
+desbalance extremo, llevada a producción con monitoreo y gobierno**. Sobre IEEE-CIS (Vesta),
+el proyecto reconstruye al cliente detrás de las transacciones, arma un grafo de
+identificadores compartidos, entrena un modelo con umbral elegido por costo y lo sirve en un
+servicio local con monitoreo de deriva y una ficha del modelo.
+
+Hitos:
+
+1. Ingesta, exploración, sospechas de filtración y reconstrucción del cliente (tarjeta,
+   dirección y fechas), con Splink como referencia fuera de línea.
+2. Grafo de identidad compartida (tarjeta, correo, dispositivo, dirección) y variables de
+   vecindario sin información del futuro.
+3. Modelo: XGBoost en GPU como base, frente a una referencia simple y a una red sobre el grafo
+   si aporta; umbral por costo y SHAP.
+4. Producción: FastAPI en Docker, registro de versiones, monitoreo de deriva y rendimiento
+   con las semanas de prueba llegando una a una, alertas y ficha del modelo.
+5. Página interactiva (estilo `../causal-customer-analytics/docs/demo.html`), README final,
+   verificación de cifras y tag v1.0.
+
+## Stack
+
+- Python 3.12, manejado por **uv** (`.python-version` fija 3.12).
+- **DuckDB** local (`data/fraude.duckdb`), limitado a 24 GB con desborde a `data/tmp/`
+  (`fraude.base.conectar`). Sin servicios externos.
+- pandas, numpy, Splink 5 (sobre DuckDB); Altair + vl-convert para gráficos HTML y PNG.
+- **pytest** para pruebas y **ruff** para lint y formato.
+- **GPU (RTX 4080 SUPER, 16 GB), cuando entren XGBoost y PyTorch:**
+  - XGBoost con `device="cuda"` es el modelo base, y la búsqueda de hiperparámetros corre en
+    GPU. CatBoost en GPU vale como comparación.
+  - Una red sobre el grafo usa PyTorch Geometric en GPU. torch en dos grupos de uv
+    excluyentes, como en `../aml-graph-detection`: `cpu` (predeterminado, CI) y `gpu`
+    (`uv sync --no-group cpu --group gpu` y después `uv run --no-sync ...`).
+  - Siempre hay respaldo en CPU para la CI. **La evaluación carga los pesos congelados y
+    puntúa en CPU**, para que las cifras se reproduzcan exactas. Las pruebas fuerzan CPU.
+
+## Comandos
+
+```bash
+uv sync                                       # crea .venv e instala dependencias (incluye dev)
+uv run pytest                                 # todas las pruebas (mini-IEEE sintético)
+uv run pytest -m "not integracion"            # solo pruebas rápidas
+uv run ruff check . && uv run ruff format .   # lint y formato
+uv run python scripts/hito1.py preparar       # CSV de train -> data/fraude.duckdb (~15 s)
+uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/resultados/hitoN
+```
+
+## Datos
+
+- `data/raw/train_transaction.csv` y `data/raw/train_identity.csv` de IEEE-CIS. **No se
+  versionan.** Los `test_*.csv` y `sample_submission.csv` de la competencia no traen etiqueta
+  y **no se usan**: `ingesta.verificar_origen` los rechaza y una prueba verifica que el código
+  no los nombre.
+- 590.540 transacciones, 144.233 con identidad (24 %). `TransactionID` crece con el tiempo.
+- `dia = TransactionDT // 86400` (1 a 182). La fecha de calendario es desconocida: no se
+  inventa.
+- El esquema se fija en `esquema.py` (no se infiere); sirve de contrato para el servicio.
+
+## Estructura
+
+- `src/fraude/`: toda la lógica, como funciones reutilizables.
+  - `rutas.py`: rutas del proyecto. **Toda ruta se obtiene de aquí.**
+  - `base.py`: conexión a DuckDB con memoria limitada, desborde a disco y UTC.
+  - `esquema.py`, `ingesta.py`: CSV a DuckDB (`transacciones`, `identidad`).
+  - `particion.py`: cortes fijos y vistas `tiempo` y `desarrollo`.
+  - `sintetico.py`: mini-IEEE con clientes plantados, para pruebas y CI.
+- `scripts/`: puntos de entrada delgados que orquestan funciones de `src/`.
+- `notebooks/`: solo exploración. Nada en `src/` ni `scripts/` importa de notebooks.
+- `tests/`: pytest. Las lentas se marcan con `@pytest.mark.integracion`. Todas corren sobre el
+  mini-IEEE: CI no necesita los datos reales.
+- `data/` y `reports/` (ignoradas): datos, base DuckDB y salidas de trabajo.
+- `docs/`: fuente de GitHub Pages (rama `main`, carpeta `/docs`). `docs/resultados/` se
+  versiona y solo se actualiza con `scripts/publicar_resultados.py`.
+- `README.md` es la puerta de entrada corta; el detalle con todas las cifras está en
+  `INFORME_TECNICO.md`.
+
+## Convenciones
+
+- La lógica vive en `src/` como funciones reutilizables **con type hints**.
+- Las pruebas no dependen de internet ni de `data/raw`.
+- **Las pruebas son deterministas**: semillas fijas y nada que dependa del reloj ni de la
+  zona horaria. La conexión fija `TimeZone = 'UTC'`; el tiempo es `TransactionDT` en
+  segundos, sin zona.
+- Documentación, docstrings y mensajes de commit **en español**.
+- Rutas centralizadas en `fraude.rutas`; **nunca rutas absolutas** en el código.
+- Commits pequeños y enfocados. En modo autónomo no se pide confirmación antes de cada commit:
+  al cerrar cada hito se hace push y se entrega un resumen de lo subido.
+
+## Regla de evaluación
+
+- **Partición temporal** fija (`particion.py`, tag `particion-fijada`, decidida antes de mirar
+  etiquetas): desarrollo = días 1 a 120 (entrenamiento 1 a 90, validación 91 a 120); prueba =
+  días 121 a 182 (ocho semanas y una novena de seis días).
+- Toda decisión que mire etiquetas (variables, hiperparámetros, umbral) se toma en
+  **desarrollo**. De prueba, antes de congelar, solo se miran volúmenes y faltantes, nunca
+  `isFraud`. El modelo se congela con un tag y la prueba se mide **una sola vez**. Cifras de
+  desarrollo se presentan marcadas como optimistas.
+- Métricas: curva precisión-recall, **AP**, **recall a una tasa fija de falsas alarmas** y
+  **costo total esperado según el umbral** (un falso positivo también cuesta). **Nunca
+  exactitud.** Siempre contra una **referencia simple**.
+- **Retraso del contracargo:** la etiqueta de una transacción se conoce 30 días después
+  (supuesto base), con sensibilidad a 15, 60 y 90. Toda variable que use etiquetas pasadas, y
+  el monitoreo de rendimiento, respetan ese retraso.
+- **Propagación de etiquetas por cliente:** tras un contracargo, la competencia marcó como
+  fraude transacciones posteriores ligadas a la misma cuenta, correo o dirección. El modelo
+  puede memorizar clientes: en prueba se reporta aparte para clientes nuevos y ya vistos, y se
+  hace ablación de las variables de identidad.
+- **Variables sospechosas** (pueden usar el futuro o depender de cómo se armó la
+  competencia): C1-C14, D1-D15, V1-V339 y las de identidad. Se diagnostican en el hito 1, se
+  declaran con o sin sospecha y cada modelo se reporta con y sin ellas.
+
+## Regla de pruebas antes de un commit (para Claude y cualquier subagente)
+
+- **Nunca encadenar pytest (ni ruff) con tuberías que oculten el código de salida**, como
+  `uv run pytest | tail -1 && git commit`: el código que ve `&&` es el de `tail`.
+- Antes de cada commit, ejecutar las pruebas sin tubería (o redirigir a un archivo) y
+  **verificar el código de salida real** (`echo $?` en bash, `$LASTEXITCODE` en PowerShell).
+  Solo se hace el commit si es 0.
+
+## Regla de procesos (para Claude y cualquier subagente)
+
+- **Nunca terminar procesos que no hayas iniciado tú.** Nada de `taskkill /IM`, `pkill`,
+  `killall` ni `kill` generales por nombre.
+- Si un comando se traba, termina solo ese proceso por su identificador.
+- Al delegar en un subagente, incluye esta regla en sus instrucciones.
+
+## Regla de credenciales (para Claude y cualquier subagente)
+
+- Las credenciales guardadas en la máquina solo se usan para `git push`. Para cualquier otra
+  cosa (leer logs de CI, llamar la API de GitHub, activar Pages) hay que preguntarle antes al
+  usuario.
+
+## Regla de git
+
+- Nunca `git push --force`, borrar ramas o tags ni reescribir la historia.
+
+## Regla dura de datos
+
+- **Nunca usar datos reales de clientes.** Solo datasets públicos (IEEE-CIS) o sintéticos.
+- **Tampoco** código, reglas ni ideas de proyectos internos de ningún banco.
+- Los repositorios hermanos (`../identity-resolution`, `../aml-graph-detection`,
+  `../causal-customer-analytics`) son solo de referencia: no se modifican desde aquí ni se
+  corre git en ellos.
+
+## Docker
+
+Se usa en el hito 4 para el servicio de puntuación (FastAPI). Hasta entonces, todo corre local
+con DuckDB.
