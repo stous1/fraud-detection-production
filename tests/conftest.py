@@ -10,7 +10,7 @@ from fraude import base, ingesta, particion, sintetico
 
 @pytest.fixture(scope="session")
 def mini() -> sintetico.Mini:
-    return sintetico.generar(n_clientes=300, semilla=7)
+    return sintetico.generar(n_clientes=600, semilla=7)
 
 
 @pytest.fixture(scope="session")
