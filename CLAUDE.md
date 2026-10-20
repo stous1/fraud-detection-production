@@ -201,6 +201,10 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
   usuario. Nunca con credenciales: sin `gh`, sin cabecera `Authorization`, sin tokens.
 - GitHub Pages está activo (rama `main`, carpeta `/docs`): se verifica con peticiones a las
   URL públicas (`https://stous1.github.io/fraud-detection-production/...`), sin credenciales.
+  Tras cada push que toque `docs/`, correr `uv run python scripts/verificar_pages.py`
+  (compara cada archivo con su versión pública por SHA-256). En el hito 3, GitHub no lanzó
+  la compilación de Pages tras un push y el sitio quedó en la versión anterior sin aviso; si
+  vuelve a pasar, revisar las ejecuciones con la API pública y hacer un nuevo push.
 
 ## Regla de git
 
