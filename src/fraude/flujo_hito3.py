@@ -85,6 +85,26 @@ VARIANTES: tuple[Variante, ...] = (
         descripcion="Todo menos el vecindario del grafo.",
     ),
     Variante(
+        "sin_C",
+        ("transaccion", "D", "V", "identidad", "vecindario", "historia"),
+        descripcion="Todo menos las C.",
+    ),
+    Variante(
+        "sin_D",
+        ("transaccion", "C", "V", "identidad", "vecindario", "historia"),
+        descripcion="Todo menos las D.",
+    ),
+    Variante(
+        "sin_V",
+        ("transaccion", "C", "D", "identidad", "vecindario", "historia"),
+        descripcion="Todo menos las V.",
+    ),
+    Variante(
+        "sin_identidad",
+        ("transaccion", "C", "D", "V", "vecindario", "historia"),
+        descripcion="Todo menos la identidad (id_01 a id_38, dispositivo).",
+    ),
+    Variante(
         "transaccion_vecindario",
         ("transaccion", "vecindario"),
         descripcion="Sin sospechosas ni historia: lo más defendible fuera de IEEE-CIS.",
@@ -106,6 +126,40 @@ def _tramo(df: pd.DataFrame, tramo: tuple[int, int]) -> pd.DataFrame:
 def visto_antes(df: pd.DataFrame, filas: pd.DataFrame, dia_inicio: int) -> np.ndarray:
     previos = set(df.loc[df["dia"] < dia_inicio, "cliente"])
     return filas["cliente"].isin(previos).to_numpy()
+
+
+PRODUCTOS: tuple[str, ...] = ("W", "C", "R", "H", "S")
+
+
+def cortes_nuevos(df: pd.DataFrame, filas: pd.DataFrame, dia_inicio: int) -> dict[str, np.ndarray]:
+    """Máscaras de los cortes de clientes nuevos (declarados antes de medir en prueba).
+
+    - ``nuevos``: el ``uid`` no tuvo transacciones antes de ``dia_inicio``;
+    - ``nuevos_estrictos``: además, su ``card1 + addr1`` tampoco (descarta fragmentos de un
+      ``uid`` ya visto, por ejemplo días con ``D1 = 0``);
+    - ``nuevos_{producto}``: nuevos de cada producto. En el hito 3 se vio, en validación, que
+      W (la mayoría) se comporta muy distinto de C, R, H y S.
+    """
+    nuevos = ~visto_antes(df, filas, dia_inicio)
+    previas = set(df.loc[df["dia"] < dia_inicio, "id_tarjeta_direccion"])
+    td_vista = filas["id_tarjeta_direccion"].isin(previas).to_numpy()
+    salida = {"nuevos": nuevos, "nuevos_estrictos": nuevos & ~td_vista, "vistos": ~nuevos}
+    for pr in PRODUCTOS:
+        salida[f"nuevos_{pr}"] = nuevos & (filas["ProductCD"] == pr).to_numpy()
+    return salida
+
+
+def metricas_cortes(
+    y: np.ndarray, s: np.ndarray, cortes: dict[str, np.ndarray], grupos: np.ndarray | None = None
+) -> dict[str, dict[str, object]]:
+    """Métricas por corte (``nuevos`` y ``vistos`` ya están en ``por_segmento``)."""
+    return {
+        k: evaluacion.metricas(
+            y[m], s[m], None if grupos is None else grupos[m], intervalo=grupos is not None
+        )
+        for k, m in cortes.items()
+        if k not in ("nuevos", "vistos")
+    }
 
 
 def columnas_de(df: pd.DataFrame, grupos_variante: tuple[str, ...]) -> list[str]:
@@ -183,16 +237,26 @@ def _importancia_grupos(
 ) -> dict[str, object]:
     abs_medio = contrib.drop(columns="sesgo").abs().mean()
     total = float(abs_medio.sum())
-    por_grupo = {
-        g: float(abs_medio[[c for c in cols if c in abs_medio.index]].sum()) / total
-        for g, cols in grupos.items()
-    }
+
+    def fraccion(nombres: tuple[str, ...]) -> dict[str, float]:
+        return {
+            g: float(abs_medio[[c for c in grupos[g] if c in abs_medio.index]].sum()) / total
+            for g in nombres
+        }
+
     top = abs_medio.sort_values(ascending=False).head(25)
-    grupo_de = {c: g for g, cols in grupos.items() for c in cols}
+    grupo_de = {c: g for g in variables.PRINCIPALES for c in grupos[g]}
+    sub_de = {c: g for g in variables.SUBGRUPOS_SOSPECHOSAS for c in grupos[g]}
     return {
-        "fraccion_por_grupo": por_grupo,
+        "fraccion_por_grupo": fraccion(variables.PRINCIPALES),
+        "fraccion_por_subgrupo_sospechosas": fraccion(tuple(variables.SUBGRUPOS_SOSPECHOSAS)),
         "variables": [
-            {"variable": c, "grupo": grupo_de.get(c), "shap_abs_medio": float(v)}
+            {
+                "variable": c,
+                "grupo": grupo_de.get(c),
+                "subgrupo": sub_de.get(c),
+                "shap_abs_medio": float(v),
+            }
             for c, v in top.items()
         ],
     }
@@ -257,8 +321,10 @@ def desarrollar(
             "modelo": ruta.name,
             "sha256": sha,
         }
+        cortes_val = cortes_nuevos(df, p["val"], particion.ESQUEMAS[v.esquema]["validacion"][0])
         dev: dict[str, object] = {
-            "validacion": evaluacion.por_segmento(y_val, s_val, ~nuevos, intervalo=False)
+            "validacion": evaluacion.por_segmento(y_val, s_val, ~nuevos, intervalo=False),
+            "validacion_cortes": metricas_cortes(y_val, s_val, cortes_val),
         }
         if v.nombre == PRINCIPAL:
             # Umbral por costo: tasa de alertas elegida en validación, convertida en umbral
@@ -332,6 +398,7 @@ def evaluar(
     monto = prueba["TransactionAmt"].to_numpy()
     grupos_cliente = prueba["cliente"].to_numpy()
     grupos = {g: tuple(c) for g, c in parametros["grupos"].items()}
+    cortes = cortes_nuevos(df, prueba, particion.PRUEBA[0])
     resultados = {}
     curvas = []
     for nombre, p in parametros["variantes"].items():
@@ -344,6 +411,9 @@ def evaluar(
             "grupos": p["grupos"],
             "esquema": p["esquema"],
             "prueba": evaluacion.por_segmento(y, s, visto, grupos_cliente),
+            "prueba_cortes": metricas_cortes(
+                y, s, cortes, grupos_cliente if nombre == PRINCIPAL else None
+            ),
         }
         if nombre == PRINCIPAL:
             r["costo"] = {}
@@ -378,28 +448,43 @@ def evaluar(
         resultados[nombre] = r
         print(nombre, r["prueba"]["nuevos"]["ap"], flush=True)
 
-    ap = {n: r["prueba"]["nuevos"]["ap"] for n, r in resultados.items()}
-    aportes = {
-        "dejar_uno_fuera": {
-            "transaccion": ap[PRINCIPAL] - ap["sin_transaccion"],
-            "sospechosas": ap[PRINCIPAL] - ap["sin_sospechosas"],
-            "vecindario": ap[PRINCIPAL] - ap["sin_vecindario"],
-            "historia": ap[PRINCIPAL] - ap["sin_historia"],
-        },
-        "incremental": [
-            {"paso": "transaccion", "ap_nuevos": ap["solo_transaccion"]},
-            {"paso": "+ sospechosas", "ap_nuevos": ap["transaccion_sospechosas"]},
-            {"paso": "+ vecindario", "ap_nuevos": ap["sin_historia"]},
-            {"paso": "+ historia", "ap_nuevos": ap[PRINCIPAL]},
-        ],
-    }
+    def aportes_en(corte: str) -> dict[str, object]:
+        def ap(n: str) -> float:
+            r = resultados[n]
+            return (
+                r["prueba"][corte]["ap"] if corte == "nuevos" else r["prueba_cortes"][corte]["ap"]
+            )
+
+        return {
+            "dejar_uno_fuera": {
+                g: ap(PRINCIPAL) - ap(f"sin_{g}")
+                for g in (
+                    "transaccion",
+                    "sospechosas",
+                    "vecindario",
+                    "historia",
+                    "C",
+                    "D",
+                    "V",
+                    "identidad",
+                )
+            },
+            "incremental": [
+                {"paso": "transaccion", "ap": ap("solo_transaccion")},
+                {"paso": "+ sospechosas", "ap": ap("transaccion_sospechosas")},
+                {"paso": "+ vecindario", "ap": ap("sin_historia")},
+                {"paso": "+ historia", "ap": ap(PRINCIPAL)},
+            ],
+        }
+
+    aportes = {c: aportes_en(c) for c in ("nuevos", "nuevos_estrictos", "nuevos_W")}
     salida_json = {
         "prueba_dias": list(particion.PRUEBA),
         "cifra_principal": "AP en clientes nuevos",
         "fraccion_tx_cliente_visto": float(visto.mean()),
         "evaluado_en": "cpu",
         "variantes": resultados,
-        "aportes_por_grupo_en_nuevos": aportes,
+        "aportes_por_grupo": aportes,
         "curvas_pr": curvas,
     }
     util.escribir_json(salida_json, salida / "evaluacion.json")
@@ -414,6 +499,10 @@ NOMBRES = {
     "sin_transaccion": "Sin transacción",
     "sin_sospechosas": "Sin sospechosas (C, D, V, identidad)",
     "sin_vecindario": "Sin vecindario",
+    "sin_C": "Sin C",
+    "sin_D": "Sin D",
+    "sin_V": "Sin V",
+    "sin_identidad": "Sin identidad",
     "transaccion_vecindario": "Transacción + vecindario",
     "completo_todas_las_etiquetas": "Completo, todas las etiquetas",
 }
@@ -441,11 +530,11 @@ def graficos_evaluacion(salida: Path = SALIDA) -> None:
         ),
         salida / "ap_prueba",
     )
-    inc = pd.DataFrame(e["aportes_por_grupo_en_nuevos"]["incremental"])
+    inc = pd.DataFrame(e["aportes_por_grupo"]["nuevos"]["incremental"])
     graficos.guardar(
         graficos.barras_h(
             inc,
-            "ap_nuevos",
+            "ap",
             "paso",
             titulo="AP en clientes nuevos al sumar grupos de variables (prueba)",
             eje_x="AP en clientes nuevos",
@@ -453,6 +542,48 @@ def graficos_evaluacion(salida: Path = SALIDA) -> None:
             orden=list(inc["paso"]),
         ),
         salida / "aporte_incremental_nuevos",
+    )
+    filas = []
+    for corte, a in e["aportes_por_grupo"].items():
+        for g, d in a["dejar_uno_fuera"].items():
+            filas.append({"corte": corte.replace("_", " "), "grupo": f"sin {g}", "caida_ap": d})
+    graficos.guardar(
+        graficos.barras_agrupadas(
+            pd.DataFrame(filas),
+            "caida_ap",
+            "grupo",
+            "corte",
+            titulo="Cuánto cae la AP al quitar cada grupo (prueba, clientes nuevos)",
+            eje_x="AP del modelo completo menos AP sin el grupo",
+            formato_x=".3f",
+            orden_y=[f"sin {g}" for g in e["aportes_por_grupo"]["nuevos"]["dejar_uno_fuera"]],
+            orden_grupo=["nuevos", "nuevos estrictos", "nuevos W"],
+        ),
+        salida / "aporte_dejar_uno_fuera",
+    )
+    cortes = e["variantes"][PRINCIPAL]["prueba_cortes"]
+    prod = pd.DataFrame(
+        [
+            {
+                "corte": f"nuevos {pr}",
+                "ap": cortes[f"nuevos_{pr}"]["ap"],
+                "transacciones": cortes[f"nuevos_{pr}"]["transacciones"],
+            }
+            for pr in PRODUCTOS
+        ]
+    )
+    graficos.guardar(
+        graficos.barras_h(
+            prod,
+            "ap",
+            "corte",
+            titulo="AP del modelo principal en clientes nuevos, por producto (prueba)",
+            eje_x="AP",
+            formato_x=".3f",
+            orden=list(prod["corte"]),
+            tooltip=["corte", "transacciones", graficos_tooltip("ap")],
+        ),
+        salida / "ap_nuevos_producto",
     )
     shap = e["variantes"][PRINCIPAL]["shap_prueba_nuevos"]
     tabla = pd.DataFrame(shap["variables"]).head(20)

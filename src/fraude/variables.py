@@ -59,14 +59,28 @@ CATEGORICAS: tuple[str, ...] = tuple(
 )
 
 
+SUBGRUPOS_SOSPECHOSAS: dict[str, tuple[str, ...]] = {
+    "C": tuple(f"C{i}" for i in range(1, 15)),
+    "D": tuple(f"D{i}" for i in range(1, 16)),
+    "V": tuple(f"V{i}" for i in range(1, 340)),
+    "identidad": tuple(c for c in esquema.COLUMNAS_ID if c != "TransactionID"),
+}
+PRINCIPALES: tuple[str, ...] = ("transaccion", "sospechosas", "vecindario", "historia")
+
+
 def grupos(columnas_vecindario: list[str]) -> dict[str, tuple[str, ...]]:
-    """Grupos de variables; ``columnas_vecindario`` = columnas de la tabla ``vecindario``."""
+    """Grupos de variables; ``columnas_vecindario`` = columnas de la tabla ``vecindario``.
+
+    Incluye los cuatro grupos principales (``PRINCIPALES``) y, además, los subgrupos de las
+    sospechosas (C, D, V, identidad), que se solapan con ``sospechosas``.
+    """
     vec = [c for c in vecindario.columnas(columnas_vecindario, RETRASO) if c not in HISTORIA]
     return {
         "transaccion": TRANSACCION,
         "sospechosas": SOSPECHOSAS,
         "vecindario": tuple(vec),
         "historia": HISTORIA,
+        **SUBGRUPOS_SOSPECHOSAS,
     }
 
 
@@ -82,9 +96,11 @@ def cargar(con: duckdb.DuckDBPyConnection, hasta_dia: int) -> pd.DataFrame:
     tx = ", ".join(f't."{c}"' for c in esquema.COLUMNAS_TX if c not in ("TransactionID",))
     df = con.execute(
         f"""
-        SELECT t.TransactionID, t.dia, c.uid AS cliente, {tx}, {ident}, {vec}
+        SELECT t.TransactionID, t.dia, c.uid AS cliente,
+               e.tarjeta_direccion AS id_tarjeta_direccion, {tx}, {ident}, {vec}
         FROM transacciones t
         JOIN clientes c USING (TransactionID)
+        JOIN entidades e USING (TransactionID)
         JOIN vecindario v USING (TransactionID)
         LEFT JOIN identidad i USING (TransactionID)
         WHERE t.dia <= {int(hasta_dia)}
@@ -134,6 +150,14 @@ class Codificador:
 
 def matriz(df: pd.DataFrame, columnas: list[str], codificador: Codificador) -> pd.DataFrame:
     """Variables en ``float32``, en el orden de ``columnas``."""
-    prohibidas = {"dia", "TransactionDT", "isFraud", "cliente", "TransactionID", "D1n"}
+    prohibidas = {
+        "dia",
+        "TransactionDT",
+        "isFraud",
+        "cliente",
+        "TransactionID",
+        "D1n",
+        "id_tarjeta_direccion",
+    }
     assert not set(columnas) & prohibidas, set(columnas) & prohibidas
     return codificador.aplicar(df[columnas]).astype("float32")

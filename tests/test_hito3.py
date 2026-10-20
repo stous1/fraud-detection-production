@@ -102,7 +102,8 @@ def test_flujo_completo(con, tmp_path):
     flujo_hito3.evaluar(con, tmp_path, tmp_path / "parametros.json", tmp_path / "modelos", tag=None)
     ev = json.loads((tmp_path / "evaluacion.json").read_text(encoding="utf-8"))
     assert set(ev["variantes"]) == {v.nombre for v in flujo_hito3.VARIANTES}
-    assert set(ev["aportes_por_grupo_en_nuevos"]["dejar_uno_fuera"]) == set(flujo_hito3.TODOS)
+    assert set(ev["aportes_por_grupo"]["nuevos"]["dejar_uno_fuera"]) >= set(flujo_hito3.TODOS)
+    assert "nuevos_W" in ev["variantes"]["completo"]["prueba_cortes"]
     p = json.loads((tmp_path / "parametros.json").read_text(encoding="utf-8"))
     for v in p["variantes"].values():
         assert not set(v["columnas"]) & {"isFraud", "dia", "TransactionDT", "cliente"}
