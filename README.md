@@ -5,8 +5,26 @@ Caso 3 del portafolio de ciencia de datos aplicado a banca, sobre **IEEE-CIS Fra
 transacciones, grafo de identificadores compartidos, modelo con umbral elegido por costo y un
 servicio local con monitoreo de deriva y ficha del modelo.
 
-**Estado:** hitos 1 y 2 de 5 terminados (datos, cliente, sospechas, grafo y vecindario).
-El detalle con todas las cifras está en [INFORME_TECNICO.md](INFORME_TECNICO.md).
+**Estado:** hitos 1 a 3 de 5 terminados (datos, cliente, grafo y modelo). El detalle con
+todas las cifras está en [INFORME_TECNICO.md](INFORME_TECNICO.md).
+
+## La cifra principal
+
+**AP 0,551 [0,526–0,574] en clientes nuevos**, en prueba (días 121 a 182, medida una vez con
+XGBoost congelado; el azar da 0,044). Con 1 % de falsas alarmas, detecta el 44,6 % de los
+fraudes de clientes nuevos. Con un costo supuesto de 10 US$ por falsa alarma, el umbral
+elegido en validación reduce el costo total en 62 % frente a no tener modelo.
+
+**Por qué clientes nuevos y no todos.** IEEE-CIS etiquetó por propagación: tras un
+contracargo, marcó como fraude lo que siguió en la misma cuenta, correo o dirección. Un
+modelo que reconoce a un cliente ya marcado se ve muy bien en los datos (AP 0,831 en clientes
+ya vistos) y no serviría en un banco, donde la tarjeta se bloquea tras el contracargo. Esa
+cifra se reporta aparte y no se presenta como rendimiento.
+
+**Y un matiz más.** El 71 % de las transacciones de clientes nuevos son del producto W, y ahí
+la AP es 0,161. En los demás productos (C, R, H, S) llega a 0,58-0,80, probablemente porque
+las variables opacas de Vesta (C, V) agregan por identificadores de cuenta que IEEE-CIS no
+publica, por los que también se propagó la etiqueta. La cifra de W es la cota conservadora.
 
 ## Lo que dejó el hito 1
 
@@ -39,6 +57,19 @@ El detalle con todas las cifras está en [INFORME_TECNICO.md](INFORME_TECNICO.md
   Sin retraso de etiquetas daría 0,681 (filtración); con todas las etiquetas de desarrollo,
   0,382.
 
+## Lo que dejó el hito 3
+
+- **XGBoost en GPU** (RTX 4080 SUPER), búsqueda de 40 configuraciones elegida por AP en
+  clientes nuevos de la validación, y **evaluación en CPU con los pesos congelados** (tag
+  `hito3-congelado`, huellas SHA-256).
+- **Cuánto aporta cada grupo en clientes nuevos** (AP del completo menos AP sin el grupo):
+  variables sospechosas C/D/V/identidad +0,250, transacción +0,021, historia de fraude del
+  cliente +0,002 y vecindario del grafo −0,008. Sin las sospechosas, el mejor modelo llega a
+  0,300. La red sobre el grafo no se entrenó: la regla declarada exigía que el vecindario
+  aportara al menos 0,01 en validación, y aportó 0,002.
+- **SHAP** (TreeSHAP de XGBoost): en clientes nuevos, las sospechosas son el 57 % del peso;
+  las variables principales son el tipo de tarjeta, el monto y las C1, C13 y C14.
+
 ## Cómo correrlo
 
 Requiere [uv](https://docs.astral.sh/uv/) y los CSV de train de IEEE-CIS en `data/raw/`.
@@ -51,6 +82,9 @@ uv run python scripts/hito1.py todo        # exploración, clientes y sospechas 
 uv run python scripts/hito2.py preparar    # grafo y vecindario
 uv run python scripts/hito2.py desarrollar # variantes en desarrollo
 uv run python scripts/hito2.py evaluar     # prueba, con los parámetros congelados
+uv run python scripts/hito3.py buscar      # hiperparámetros (GPU si hay)
+uv run python scripts/hito3.py desarrollar # variantes, umbral por costo, SHAP
+uv run python scripts/hito3.py evaluar     # prueba, en CPU, con los modelos congelados
 ```
 
 Guía de trabajo y reglas de evaluación: [CLAUDE.md](CLAUDE.md). Licencia MIT.

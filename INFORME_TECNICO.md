@@ -7,6 +7,7 @@ Detalle de cada hito, con todas las cifras. Cada número sale de un JSON en
 |---|---|---|
 | [1. Datos y cliente](#hito-1-ingesta-exploración-sospechas-y-reconstrucción-del-cliente) | Ingesta, partición, exploración, sospechas y cliente | El cliente es `card1 + addr1 + D1n` exacto. **La etiqueta se propaga por cliente:** con un fraude conocido 30 días antes, el 58 % de las transacciones siguientes del mismo cliente son fraude (16 veces la prevalencia) |
 | [2. Grafo y vecindario](#hito-2-grafo-de-identidad-compartida-y-variables-de-vecindario) | Seis entidades, 139 variables solo con pasado, ocho variantes medidas una vez en prueba | Con el esquema realista (etiquetas hasta el día 90), una logística de vecindario llega a **AP 0,360** en prueba: **0,182 en clientes nuevos y 0,784 en ya vistos**. Sin retraso de etiquetas daría 0,681 |
+| [3. Modelo](#hito-3-xgboost-en-gpu-ablaciones-por-grupo-umbral-por-costo-y-shap) | XGBoost en GPU, 13 variantes congeladas, evaluación en CPU | **Cifra principal: AP 0,551 en clientes nuevos** (azar 0,044; hito 2: 0,182). Las variables sospechosas C/D/V cargan la señal (+0,250); el vecindario no aporta sobre XGBoost. En nuevos de W, la mayoría, solo 0,161. Ya vistos, 0,831 (inflada por la propagación) |
 
 ---
 
@@ -344,3 +345,161 @@ Lectura:
   del cliente, y siempre clientes nuevos y ya vistos por separado.
 - Red sobre el grafo (PyTorch Geometric en GPU) solo si aporta sobre XGBoost en clientes
   nuevos, que es donde el grafo tiene algo que decir.
+
+---
+
+## Hito 3: XGBoost en GPU, ablaciones por grupo, umbral por costo y SHAP
+
+### La cifra principal: AP en clientes nuevos
+
+**La cifra principal del proyecto es la AP en clientes nuevos**: transacciones de clientes
+(`uid`) sin ninguna transacción antes del periodo medido. El rendimiento en clientes ya vistos
+se reporta aparte porque **está inflado por la regla de etiquetado de la competencia**: tras
+un contracargo, IEEE-CIS marcó como fraude las transacciones posteriores ligadas a la misma
+cuenta, correo o dirección (hito 1: con un fraude ya conocido del cliente, el 58 % de lo que
+sigue es fraude). En un banco real, la tarjeta se bloquea tras el contracargo y esas
+transacciones no llegan a puntuarse; un modelo que "reconoce" al cliente ya marcado se ve muy
+bien aquí y no aportaría nada en producción.
+
+### Método
+
+- **Variables** (`variables.py`), en cuatro grupos para las ablaciones:
+  - **transacción** (26 variables): monto, producto, tarjeta, dirección, distancias,
+    dominios de correo, M, hora, día de la semana y decimales del monto;
+  - **sospechosas** (408): C (14), D (15), V (339) e identidad (40), opacas o dependientes de la recolección;
+  - **vecindario** (55): las del grafo del hito 2 con retraso de 30 días;
+  - **historia** (3): fraudes ya conocidos del propio cliente, con retraso de 30 días.
+  Nunca entran el día ni `TransactionDT`, ni la etiqueta, ni `D1n`. Las categorías se
+  codifican con un mapa por frecuencia ajustado en el periodo de entrenamiento y congelado.
+- **Esquema realista** del hito 2: entrenamiento 1 a 60, validación 61 a 90, reajuste 1 a 90.
+- **XGBoost en GPU** (`device="cuda"`, RTX 4080 SUPER; `xgboost` con CUDA en Windows y
+  `xgboost-cpu` en la CI, misma versión 3.4.1). **Búsqueda aleatoria de 40 configuraciones
+  en GPU**; la parada temprana y la elección usan la **AP en clientes nuevos** de la
+  validación ([busqueda.json](docs/resultados/hito3/busqueda.json)). Mejor: profundidad 8,
+  tasa 0,03, 453 árboles, `colsample_bytree` 0,3. Las ablaciones usan los mismos
+  hiperparámetros con su propia parada temprana. Al repetir el entrenamiento en GPU se
+  obtuvo exactamente la misma AP de validación (0,64201).
+- **Evaluación en CPU con los pesos congelados.** Los 13 modelos se guardan en UBJ con su
+  SHA-256 en [parametros.json](docs/resultados/hito3/parametros.json), congelado en el tag
+  **`hito3-congelado`**; `evaluar` se niega a correr si el archivo cambió o si un modelo no
+  coincide con su huella, y puntúa en CPU. El modelo principal está versionado en
+  `docs/resultados/hito3/modelos/completo.ubj` (lo usará el servicio del hito 4).
+- **Cortes declarados antes de medir en prueba**, además de nuevos y vistos: nuevos por
+  producto (en validación se vio que W se comporta muy distinto) y **nuevos estrictos**
+  (tampoco su `card1 + addr1` apareció antes: descarta fragmentos de un `uid` ya visto).
+
+### Resultados en prueba (días 121 a 182, medidos una vez)
+
+[evaluacion.json](docs/resultados/hito3/evaluacion.json) · 104.995 transacciones de clientes
+nuevos (4,40 % de fraude) y 71.003 de ya vistos (2,04 %).
+
+| Modelo | **AP clientes nuevos** | Recall al 1 % de falsas alarmas (nuevos) | AP ya vistos (inflada) |
+|---|---|---|---|
+| Azar | 0,044 | 1 % | 0,020 |
+| Hito 2: logística de vecindario | 0,182 [0,145–0,222] | 10,2 % | 0,784 |
+| XGBoost, solo transacción | 0,235 [0,215–0,257] | 14,8 % | 0,188 |
+| XGBoost, transacción + vecindario (sin sospechosas ni historia) | 0,298 [0,275–0,325] | 20,2 % | 0,732 |
+| **XGBoost completo (principal)** | **0,551 [0,526–0,574]** | **44,6 %** | 0,831 |
+| XGBoost completo, todas las etiquetas (comparación) | 0,585 [0,560–0,608] | 48,1 % | 0,887 |
+
+- **AP en todas las transacciones:** 0,621 (principal). Validación (optimista): 0,642 en
+  nuevos; la caída a 0,551 en prueba es la deriva entre periodos.
+- **Esquema con todas las etiquetas:** infla la AP en nuevos en 0,034 (0,585 contra 0,551).
+
+![AP en prueba](docs/resultados/hito3/ap_prueba.png)
+![Curvas precisión-recall](docs/resultados/hito3/curvas_pr_prueba.png)
+
+### Cuánto aporta cada grupo, en clientes nuevos
+
+Dejar uno fuera: AP del modelo completo menos AP sin el grupo (prueba).
+
+| Grupo quitado | Nuevos | Nuevos estrictos | Nuevos de W |
+|---|---|---|---|
+| Transacción | +0,021 | +0,034 | +0,024 |
+| **Sospechosas (C, D, V, identidad)** | **+0,250** | **+0,247** | +0,035 |
+| — C | +0,033 | +0,050 | +0,013 |
+| — D | +0,000 | +0,008 | +0,005 |
+| — V | +0,017 | +0,037 | +0,000 |
+| — identidad | −0,002 | −0,019 | −0,003 |
+| Vecindario | −0,008 | −0,005 | −0,016 |
+| Historia de fraude del cliente | +0,002 | +0,010 | +0,007 |
+
+Sumando grupos (AP en nuevos): solo transacción 0,235 → + sospechosas 0,553 → + vecindario
+0,549 → + historia 0,551.
+
+![Dejar uno fuera](docs/resultados/hito3/aporte_dejar_uno_fuera.png)
+
+Lectura:
+
+1. **Las sospechosas cargan casi toda la señal en clientes nuevos**: sin ellas, la AP cae de
+   0,551 a 0,300. Cada subgrupo por separado aporta poco (C +0,033, V +0,017) porque se
+   sustituyen entre sí: la señal es redundante entre C, V e identidad.
+2. **El vecindario no aporta sobre XGBoost** (−0,008; en validación, +0,002). Lo que el grafo
+   sabía en el hito 2 ya está en las C y las V, que Vesta calculó con identificadores que
+   nosotros no vemos (por ejemplo, la dirección de correo completa).
+3. **La historia del cliente casi no aporta en nuevos** (+0,002), como se esperaba: su efecto
+   está en los ya vistos (0,769 sin ella contra 0,831 con ella).
+4. **La regla declarada para la red sobre el grafo no se cumplió.** Se entrenaría solo si el
+   vecindario aportaba al menos 0,01 de AP en nuevos en validación; aportó 0,0018. No se
+   entrenó una red con PyTorch Geometric.
+
+### El matiz por producto: W contra C, R, H y S
+
+| Clientes nuevos (prueba) | Transacciones | AP principal |
+|---|---|---|
+| W | 74.351 (2,26 % de fraude) | **0,161 [0,121–0,207]** |
+| C | 15.553 (13,67 %) | 0,753 [0,718–0,790] |
+| R | 7.171 (4,95 %) | 0,795 [0,752–0,830] |
+| H | 4.724 (6,27 %) | 0,607 [0,535–0,677] |
+| S | 3.196 (4,88 %) | 0,577 [0,474–0,707] |
+| Nuevos estrictos (`card1 + addr1` nunca vista) | 8.211 (4,18 %) | 0,541 [0,473–0,599] |
+
+![AP por producto](docs/resultados/hito3/ap_nuevos_producto.png)
+
+**El 71 % de las transacciones de clientes nuevos son de W, y ahí la AP es 0,161**; sin las
+sospechosas, 0,126. En C, R, H y S, los productos con identidad y conteos de Vesta, el modelo
+llega a 0,58-0,80 en clientes "nuevos". No se debe a fragmentos de un `uid` ya visto (los
+nuevos estrictos dan 0,541). La explicación más probable: las C y V agregan a nivel de
+cuenta, correo o dispositivo de Vesta, justo los identificadores por los que la competencia
+propagó las etiquetas y que IEEE-CIS no publica. Para esos productos, un `uid` "nuevo" puede
+ser una cuenta ya marcada, y parte de su AP también estaría inflada. **No se puede separar
+con estos datos**; por eso la cifra de W es la estimación más conservadora del rendimiento
+en clientes realmente nuevos.
+
+### Explicaciones (SHAP)
+
+TreeSHAP exacto de XGBoost sobre 20.000 transacciones de clientes nuevos de prueba
+(log-odds). Peso por grupo: sospechosas 57 % (V 29 %, C 16 %, D 6 %, identidad 6 %),
+transacción 22 %, vecindario 18 % e historia 3 %. Las variables con más peso: tipo de tarjeta
+(`card6`), monto, C1, C14, C13, C11 y M4.
+
+![SHAP en nuevos](docs/resultados/hito3/shap_nuevos.png)
+
+### Umbral por costo
+
+Costo = montos de fraudes no detectados + `costo_fp` por cada alerta sobre una legítima
+(supuesto base: **10 US$** por revisión y fricción; sensibilidad 5, 25 y 50). El umbral se
+eligió en validación como tasa de alertas y se convirtió en umbral con los puntajes del
+modelo reajustado sobre los días 91 a 120 (sin etiqueta, disponibles el día 121).
+
+| Costo por falsa alarma | Tasa de alertas elegida | Costo con modelo | Sin modelo | Ahorro | Recall | Precisión |
+|---|---|---|---|---|---|---|
+| 5 US$ | 17,0 % | 259.321 | 950.010 | 72,7 % | 86,4 % | 17,7 % |
+| **10 US$ (base)** | **14,0 %** | **360.822** | **950.010** | **62,0 %** | **83,5 %** | **20,7 %** |
+| 25 US$ | 6,0 % | 525.374 | 950.010 | 44,7 % | 68,9 % | 38,6 % |
+| 50 US$ | 3,5 % | 628.004 | 950.010 | 33,9 % | 59,3 % | 56,2 % |
+
+En prueba, la tasa de alertas real con el umbral base fue 13,9 %, la elegida (14 %): la
+conversión con días sin etiqueta funcionó. **En clientes nuevos**, con el costo base, el
+ahorro es 55,5 % (328.671 contra 738.408 US$). Con fraudes de monto alto y falsas alarmas
+baratas, el óptimo marca muchas transacciones; si una falsa alarma cuesta 25 US$ o más, la
+tasa baja a 6 % o menos.
+
+### Limitaciones
+
+- La AP en clientes nuevos de C, R, H y S puede estar inflada por la propagación a través de
+  identificadores que no vemos (ver arriba); la de W es la cota conservadora.
+- Los costos son supuestos; el umbral cambia mucho con el costo de una falsa alarma.
+- Las ablaciones usan los hiperparámetros del modelo completo.
+- La prueba (días 121 a 182) ya se miró en el hito 2 con otros modelos; este hito la mide
+  una vez con sus parámetros congelados.

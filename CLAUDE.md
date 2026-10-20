@@ -56,6 +56,11 @@ uv run python scripts/hito2.py desarrollar    # variantes en desarrollo -> repor
 uv run python scripts/publicar_resultados.py --hito 2 --solo-parametros   # congelar (+ tag)
 uv run python scripts/hito2.py evaluar        # prueba, una vez; se niega sin el tag hito2-congelado
 uv run python scripts/hito2.py graficos       # rehace los gráficos desde evaluacion.json
+uv run python scripts/hito3.py buscar         # 40 configuraciones en GPU (~10 min)
+uv run python scripts/hito3.py desarrollar    # 13 variantes en GPU, umbral por costo, SHAP (~5 min)
+uv run python scripts/publicar_resultados.py --hito 3 --solo-parametros   # congelar (+ tag)
+uv run python scripts/hito3.py publicar-modelo  # modelo principal -> docs/resultados/hito3/modelos
+uv run python scripts/hito3.py evaluar        # prueba, una vez, en CPU; exige hito3-congelado
 uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/resultados/hitoN
 ```
 
@@ -102,6 +107,14 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
     `modelo_lineal.py` (logística con parámetros en JSON), `congelados.py` (verifica un
     archivo contra un tag) y `flujo_hito2.py` (`VARIANTES` declaradas). Congelado en
     `hito2-congelado` con `docs/resultados/hito2/parametros.json`.
+  - Hito 3: `variables.py` (matriz, grupos `transaccion`, `sospechosas` con subgrupos C, D,
+    V, identidad, `vecindario` e `historia`; `Codificador` de categorías congelado),
+    `modelo_xgb.py` (entrenar en GPU o CPU, búsqueda aleatoria, guardar UBJ con SHA-256,
+    puntuar y TreeSHAP siempre en CPU), `costos.py` (costo total y umbral como tasa de
+    alertas) y `flujo_hito3.py` (`VARIANTES`, cortes de nuevos por producto y estrictos).
+    Congelado en `hito3-congelado`; el modelo principal se versiona en
+    `docs/resultados/hito3/modelos/completo.ubj`, las ablaciones quedan en
+    `reports/hito3/modelos/` con su huella en `parametros.json`.
   - **Pasado = `TransactionID` menor.** `vecindario.columnas` nunca devuelve la etiqueta ni
     identificadores (en el hito 2 se coló `isFraud` antes de congelar; hay pruebas).
 - `scripts/`: puntos de entrada delgados que orquestan funciones de `src/`.
@@ -136,6 +149,10 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
   validación 61 a 90 (regularización, hiperparámetros, umbral), reajuste 1 a 90. Los días 91
   a 120 son historia sin etiqueta. `todas_las_etiquetas` (entrena 1 a 90, valida 91 a 120,
   reajusta 1 a 120) se reporta **solo como comparación**, para medir cuánto infla.
+- **Cifra principal: AP en clientes nuevos.** El rendimiento en ya vistos está inflado por la
+  propagación de etiquetas de la competencia (en un banco real la tarjeta se bloquea tras un
+  contracargo): se reporta aparte, nunca como rendimiento. Los hiperparámetros se eligen por
+  AP en nuevos de la validación. En nuevos, W (la mayoría) es la cota conservadora.
 - **Siempre por separado: clientes nuevos y ya vistos** (con transacciones antes del periodo;
   en prueba, en desarrollo).
 - Toda decisión que mire etiquetas (variables, hiperparámetros, umbral) se toma en
