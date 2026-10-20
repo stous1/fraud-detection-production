@@ -1,0 +1,5354 @@
+{
+  "prueba_dias": [
+    121,
+    182
+  ],
+  "cifra_principal": "AP en clientes nuevos",
+  "fraccion_tx_cliente_visto": 0.403431,
+  "evaluado_en": "cpu",
+  "variantes": {
+    "completo": {
+      "descripcion": "Principal: los cuatro grupos.",
+      "grupos": [
+        "transaccion",
+        "sospechosas",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.620973,
+          "ap_ic95": [
+            0.594971,
+            0.644598
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.293387,
+              "fpr_real": 0.009998,
+              "recall": 0.54379,
+              "precision": 0.659928
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.08701,
+              "fpr_real": 0.049996,
+              "recall": 0.719941,
+              "precision": 0.339398
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.550688,
+          "ap_ic95": [
+            0.526041,
+            0.574288
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.355729,
+              "fpr_real": 0.009992,
+              "recall": 0.446154,
+              "precision": 0.672436
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.122808,
+              "fpr_real": 0.05,
+              "recall": 0.621235,
+              "precision": 0.363556
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.830824,
+          "ap_ic95": [
+            0.782816,
+            0.872409
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.111359,
+              "fpr_real": 0.009992,
+              "recall": 0.828039,
+              "precision": 0.633052
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.017899,
+              "fpr_real": 0.049989,
+              "recall": 0.950276,
+              "precision": 0.283536
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.540969,
+          "ap_ic95": [
+            0.473152,
+            0.598882
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.472305,
+              "fpr_real": 0.009914,
+              "recall": 0.408163,
+              "precision": 0.642202
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.159567,
+              "fpr_real": 0.049949,
+              "recall": 0.650146,
+              "precision": 0.362013
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.161226,
+          "ap_ic95": [
+            0.121441,
+            0.207391
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.21323,
+              "fpr_real": 0.009991,
+              "recall": 0.139715,
+              "precision": 0.244537
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.08778,
+              "fpr_real": 0.049994,
+              "recall": 0.388823,
+              "precision": 0.152554
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.752506,
+          "ap_ic95": [
+            0.717514,
+            0.789827
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.853558,
+              "fpr_real": 0.00998,
+              "recall": 0.413923,
+              "precision": 0.86785
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.305857,
+              "fpr_real": 0.049974,
+              "recall": 0.716369,
+              "precision": 0.694166
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.795028,
+          "ap_ic95": [
+            0.751513,
+            0.830424
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.441762,
+              "fpr_real": 0.009977,
+              "recall": 0.673239,
+              "precision": 0.778502
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.193018,
+              "fpr_real": 0.049883,
+              "recall": 0.819718,
+              "precision": 0.461173
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.607039,
+          "ap_ic95": [
+            0.535239,
+            0.676942
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.565104,
+              "fpr_real": 0.009937,
+              "recall": 0.422297,
+              "precision": 0.739645
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.242081,
+              "fpr_real": 0.04991,
+              "recall": 0.652027,
+              "precision": 0.466184
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.576947,
+          "ap_ic95": [
+            0.473858,
+            0.706835
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.331795,
+              "fpr_real": 0.009868,
+              "recall": 0.416667,
+              "precision": 0.684211
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.146119,
+              "fpr_real": 0.05,
+              "recall": 0.602564,
+              "precision": 0.382114
+            }
+          ]
+        }
+      },
+      "costo": {
+        "5.0": {
+          "umbral_congelado": {
+            "tasa_alertas": 0.17,
+            "umbral": 0.031583
+          },
+          "todos": {
+            "modelo": {
+              "costo_total": 259320.885,
+              "monto_perdido": 137765.885,
+              "falsos_positivos": 24311,
+              "verdaderos_positivos": 5241,
+              "alertas": 29552,
+              "tasa_alertas": 0.167911,
+              "recall": 0.864424,
+              "precision": 0.177348,
+              "recall_monto": 0.854985
+            },
+            "sin_modelo": {
+              "costo_total": 950009.788,
+              "monto_perdido": 950009.788,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "nuevos": {
+            "modelo": {
+              "costo_total": 237558.292,
+              "monto_perdido": 126783.292,
+              "falsos_positivos": 22155,
+              "verdaderos_positivos": 3900,
+              "alertas": 26055,
+              "tasa_alertas": 0.248155,
+              "recall": 0.84507,
+              "precision": 0.149683,
+              "recall_monto": 0.828302
+            },
+            "sin_modelo": {
+              "costo_total": 738408.078,
+              "monto_perdido": 738408.078,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "vistos": {
+            "modelo": {
+              "costo_total": 21762.593,
+              "monto_perdido": 10982.593,
+              "falsos_positivos": 2156,
+              "verdaderos_positivos": 1341,
+              "alertas": 3497,
+              "tasa_alertas": 0.049251,
+              "recall": 0.926105,
+              "precision": 0.383472,
+              "recall_monto": 0.948098
+            },
+            "sin_modelo": {
+              "costo_total": 211601.71,
+              "monto_perdido": 211601.71,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          }
+        },
+        "10.0": {
+          "umbral_congelado": {
+            "tasa_alertas": 0.14,
+            "umbral": 0.039841
+          },
+          "todos": {
+            "modelo": {
+              "costo_total": 360821.956,
+              "monto_perdido": 166471.956,
+              "falsos_positivos": 19435,
+              "verdaderos_positivos": 5060,
+              "alertas": 24495,
+              "tasa_alertas": 0.139178,
+              "recall": 0.83457,
+              "precision": 0.206573,
+              "recall_monto": 0.824768
+            },
+            "sin_modelo": {
+              "costo_total": 950009.788,
+              "monto_perdido": 950009.788,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "nuevos": {
+            "modelo": {
+              "costo_total": 328671.066,
+              "monto_perdido": 151961.066,
+              "falsos_positivos": 17671,
+              "verdaderos_positivos": 3745,
+              "alertas": 21416,
+              "tasa_alertas": 0.203972,
+              "recall": 0.811484,
+              "precision": 0.174869,
+              "recall_monto": 0.794204
+            },
+            "sin_modelo": {
+              "costo_total": 738408.078,
+              "monto_perdido": 738408.078,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "vistos": {
+            "modelo": {
+              "costo_total": 32150.89,
+              "monto_perdido": 14510.89,
+              "falsos_positivos": 1764,
+              "verdaderos_positivos": 1315,
+              "alertas": 3079,
+              "tasa_alertas": 0.043364,
+              "recall": 0.908149,
+              "precision": 0.427087,
+              "recall_monto": 0.931424
+            },
+            "sin_modelo": {
+              "costo_total": 211601.71,
+              "monto_perdido": 211601.71,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          }
+        },
+        "25.0": {
+          "umbral_congelado": {
+            "tasa_alertas": 0.06,
+            "umbral": 0.106914
+          },
+          "todos": {
+            "modelo": {
+              "costo_total": 525373.589,
+              "monto_perdido": 359173.589,
+              "falsos_positivos": 6648,
+              "verdaderos_positivos": 4178,
+              "alertas": 10826,
+              "tasa_alertas": 0.061512,
+              "recall": 0.689098,
+              "precision": 0.385923,
+              "recall_monto": 0.621926
+            },
+            "sin_modelo": {
+              "costo_total": 950009.788,
+              "monto_perdido": 950009.788,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "nuevos": {
+            "modelo": {
+              "costo_total": 470963.933,
+              "monto_perdido": 322838.933,
+              "falsos_positivos": 5925,
+              "verdaderos_positivos": 2974,
+              "alertas": 8899,
+              "tasa_alertas": 0.084756,
+              "recall": 0.64442,
+              "precision": 0.334195,
+              "recall_monto": 0.562791
+            },
+            "sin_modelo": {
+              "costo_total": 738408.078,
+              "monto_perdido": 738408.078,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "vistos": {
+            "modelo": {
+              "costo_total": 54409.656,
+              "monto_perdido": 36334.656,
+              "falsos_positivos": 723,
+              "verdaderos_positivos": 1204,
+              "alertas": 1927,
+              "tasa_alertas": 0.02714,
+              "recall": 0.831492,
+              "precision": 0.624805,
+              "recall_monto": 0.828288
+            },
+            "sin_modelo": {
+              "costo_total": 211601.71,
+              "monto_perdido": 211601.71,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          }
+        },
+        "50.0": {
+          "umbral_congelado": {
+            "tasa_alertas": 0.035,
+            "umbral": 0.207872
+          },
+          "todos": {
+            "modelo": {
+              "costo_total": 628003.988,
+              "monto_perdido": 488053.988,
+              "falsos_positivos": 2799,
+              "verdaderos_positivos": 3597,
+              "alertas": 6396,
+              "tasa_alertas": 0.036341,
+              "recall": 0.593271,
+              "precision": 0.562383,
+              "recall_monto": 0.486264
+            },
+            "sin_modelo": {
+              "costo_total": 950009.788,
+              "monto_perdido": 950009.788,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "nuevos": {
+            "modelo": {
+              "costo_total": 556507.36,
+              "monto_perdido": 436857.36,
+              "falsos_positivos": 2393,
+              "verdaderos_positivos": 2451,
+              "alertas": 4844,
+              "tasa_alertas": 0.046136,
+              "recall": 0.531094,
+              "precision": 0.505987,
+              "recall_monto": 0.408379
+            },
+            "sin_modelo": {
+              "costo_total": 738408.078,
+              "monto_perdido": 738408.078,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          },
+          "vistos": {
+            "modelo": {
+              "costo_total": 71496.628,
+              "monto_perdido": 51196.628,
+              "falsos_positivos": 406,
+              "verdaderos_positivos": 1146,
+              "alertas": 1552,
+              "tasa_alertas": 0.021858,
+              "recall": 0.791436,
+              "precision": 0.738402,
+              "recall_monto": 0.758052
+            },
+            "sin_modelo": {
+              "costo_total": 211601.71,
+              "monto_perdido": 211601.71,
+              "falsos_positivos": 0,
+              "verdaderos_positivos": 0,
+              "alertas": 0,
+              "tasa_alertas": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "recall_monto": 0.0
+            }
+          }
+        }
+      },
+      "shap_prueba_nuevos": {
+        "fraccion_por_grupo": {
+          "transaccion": 0.220923,
+          "sospechosas": 0.573815,
+          "vecindario": 0.180406,
+          "historia": 0.024856
+        },
+        "fraccion_por_subgrupo_sospechosas": {
+          "C": 0.162398,
+          "D": 0.06342,
+          "V": 0.285142,
+          "identidad": 0.062855
+        },
+        "variables": [
+          {
+            "variable": "card6",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.203729
+          },
+          {
+            "variable": "TransactionAmt",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.196007
+          },
+          {
+            "variable": "C1",
+            "grupo": "sospechosas",
+            "subgrupo": "C",
+            "shap_abs_medio": 0.148309
+          },
+          {
+            "variable": "C14",
+            "grupo": "sospechosas",
+            "subgrupo": "C",
+            "shap_abs_medio": 0.138356
+          },
+          {
+            "variable": "C13",
+            "grupo": "sospechosas",
+            "subgrupo": "C",
+            "shap_abs_medio": 0.136875
+          },
+          {
+            "variable": "C11",
+            "grupo": "sospechosas",
+            "subgrupo": "C",
+            "shap_abs_medio": 0.092352
+          },
+          {
+            "variable": "M4",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.085549
+          },
+          {
+            "variable": "V91",
+            "grupo": "sospechosas",
+            "subgrupo": "V",
+            "shap_abs_medio": 0.075089
+          },
+          {
+            "variable": "direccion_dias_desde_primera",
+            "grupo": "vecindario",
+            "subgrupo": null,
+            "shap_abs_medio": 0.074185
+          },
+          {
+            "variable": "id_31",
+            "grupo": "sospechosas",
+            "subgrupo": "identidad",
+            "shap_abs_medio": 0.071779
+          },
+          {
+            "variable": "cliente_dias_desde_primera",
+            "grupo": "vecindario",
+            "subgrupo": null,
+            "shap_abs_medio": 0.067902
+          },
+          {
+            "variable": "D2",
+            "grupo": "sospechosas",
+            "subgrupo": "D",
+            "shap_abs_medio": 0.066218
+          },
+          {
+            "variable": "V70",
+            "grupo": "sospechosas",
+            "subgrupo": "V",
+            "shap_abs_medio": 0.062952
+          },
+          {
+            "variable": "V258",
+            "grupo": "sospechosas",
+            "subgrupo": "V",
+            "shap_abs_medio": 0.062583
+          },
+          {
+            "variable": "V30",
+            "grupo": "sospechosas",
+            "subgrupo": "V",
+            "shap_abs_medio": 0.061173
+          },
+          {
+            "variable": "D15",
+            "grupo": "sospechosas",
+            "subgrupo": "D",
+            "shap_abs_medio": 0.059521
+          },
+          {
+            "variable": "card2",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.05764
+          },
+          {
+            "variable": "tarjeta_dias_desde_primera",
+            "grupo": "vecindario",
+            "subgrupo": null,
+            "shap_abs_medio": 0.057038
+          },
+          {
+            "variable": "C4",
+            "grupo": "sospechosas",
+            "subgrupo": "C",
+            "shap_abs_medio": 0.055049
+          },
+          {
+            "variable": "M5",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.0534
+          },
+          {
+            "variable": "cliente_etiquetadas_r30",
+            "grupo": "historia",
+            "subgrupo": null,
+            "shap_abs_medio": 0.052117
+          },
+          {
+            "variable": "M3",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.051302
+          },
+          {
+            "variable": "M6",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.05074
+          },
+          {
+            "variable": "card5",
+            "grupo": "transaccion",
+            "subgrupo": null,
+            "shap_abs_medio": 0.050611
+          },
+          {
+            "variable": "C6",
+            "grupo": "sospechosas",
+            "subgrupo": "C",
+            "shap_abs_medio": 0.049371
+          }
+        ]
+      }
+    },
+    "solo_transaccion": {
+      "descripcion": "Solo datos de la transacción.",
+      "grupos": [
+        "transaccion"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.224207,
+          "ap_ic95": [
+            0.205523,
+            0.245039
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.22904,
+              "fpr_real": 0.00998,
+              "recall": 0.168728,
+              "precision": 0.376241
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.091278,
+              "fpr_real": 0.049996,
+              "recall": 0.406564,
+              "precision": 0.224888
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.235201,
+          "ap_ic95": [
+            0.215416,
+            0.257239
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.263256,
+              "fpr_real": 0.009992,
+              "recall": 0.147996,
+              "precision": 0.405101
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.112889,
+              "fpr_real": 0.05,
+              "recall": 0.373564,
+              "precision": 0.255673
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.187635,
+          "ap_ic95": [
+            0.143245,
+            0.246954
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.139961,
+              "fpr_real": 0.009992,
+              "recall": 0.214088,
+              "precision": 0.308458
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.057907,
+              "fpr_real": 0.049989,
+              "recall": 0.435083,
+              "precision": 0.153397
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.202998,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.189573,
+              "fpr_real": 0.009914,
+              "recall": 0.131195,
+              "precision": 0.365854
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.078603,
+              "fpr_real": 0.049949,
+              "recall": 0.338192,
+              "precision": 0.227898
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.076527,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.125676,
+              "fpr_real": 0.009991,
+              "recall": 0.085018,
+              "precision": 0.164557
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.057233,
+              "fpr_real": 0.049994,
+              "recall": 0.212842,
+              "precision": 0.089702
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.331882,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.429091,
+              "fpr_real": 0.00998,
+              "recall": 0.060677,
+              "precision": 0.490494
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.274068,
+              "fpr_real": 0.049974,
+              "recall": 0.233772,
+              "precision": 0.425514
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.348841,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.222112,
+              "fpr_real": 0.009977,
+              "recall": 0.225352,
+              "precision": 0.540541
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.110665,
+              "fpr_real": 0.049883,
+              "recall": 0.442254,
+              "precision": 0.315895
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.246749,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.336737,
+              "fpr_real": 0.009937,
+              "recall": 0.097973,
+              "precision": 0.39726
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.145637,
+              "fpr_real": 0.04991,
+              "recall": 0.307432,
+              "precision": 0.291667
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.119933,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.147054,
+              "fpr_real": 0.009868,
+              "recall": 0.044872,
+              "precision": 0.189189
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.081305,
+              "fpr_real": 0.05,
+              "recall": 0.198718,
+              "precision": 0.169399
+            }
+          ]
+        }
+      }
+    },
+    "transaccion_sospechosas": {
+      "descripcion": "Transacción + C, D, V e identidad.",
+      "grupos": [
+        "transaccion",
+        "sospechosas"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.50584,
+          "ap_ic95": [
+            0.477984,
+            0.528723
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.227696,
+              "fpr_real": 0.009998,
+              "recall": 0.423058,
+              "precision": 0.601548
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.065645,
+              "fpr_real": 0.049996,
+              "recall": 0.618836,
+              "precision": 0.306336
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.552991,
+          "ap_ic95": [
+            0.527714,
+            0.576254
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.299344,
+              "fpr_real": 0.009992,
+              "recall": 0.453738,
+              "precision": 0.676138
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.091844,
+              "fpr_real": 0.05,
+              "recall": 0.632069,
+              "precision": 0.367566
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.365948,
+          "ap_ic95": [
+            0.310711,
+            0.432999
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.084225,
+              "fpr_real": 0.009992,
+              "recall": 0.342541,
+              "precision": 0.416457
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.030194,
+              "fpr_real": 0.049989,
+              "recall": 0.587017,
+              "precision": 0.196441
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.531493,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.326312,
+              "fpr_real": 0.009914,
+              "recall": 0.431487,
+              "precision": 0.654867
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.105845,
+              "fpr_real": 0.049949,
+              "recall": 0.670554,
+              "precision": 0.369181
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.14012,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.17141,
+              "fpr_real": 0.009991,
+              "recall": 0.133769,
+              "precision": 0.236593
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.066429,
+              "fpr_real": 0.049994,
+              "recall": 0.398335,
+              "precision": 0.155705
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.747722,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.860912,
+              "fpr_real": 0.00998,
+              "recall": 0.388523,
+              "precision": 0.860417
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.300873,
+              "fpr_real": 0.049974,
+              "recall": 0.731421,
+              "precision": 0.698562
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.796061,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.279691,
+              "fpr_real": 0.009977,
+              "recall": 0.692958,
+              "precision": 0.783439
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.100228,
+              "fpr_real": 0.049883,
+              "recall": 0.802817,
+              "precision": 0.456
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.626379,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.444664,
+              "fpr_real": 0.009937,
+              "recall": 0.442568,
+              "precision": 0.748571
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.173044,
+              "fpr_real": 0.04991,
+              "recall": 0.625,
+              "precision": 0.455665
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.59508,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.241074,
+              "fpr_real": 0.009868,
+              "recall": 0.423077,
+              "precision": 0.6875
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.086419,
+              "fpr_real": 0.05,
+              "recall": 0.621795,
+              "precision": 0.389558
+            }
+          ]
+        }
+      }
+    },
+    "sin_historia": {
+      "descripcion": "Todo menos la historia de fraude del cliente.",
+      "grupos": [
+        "transaccion",
+        "sospechosas",
+        "vecindario"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.599171,
+          "ap_ic95": [
+            0.573387,
+            0.625348
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.308299,
+              "fpr_real": 0.009998,
+              "recall": 0.525977,
+              "precision": 0.652414
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.090828,
+              "fpr_real": 0.049996,
+              "recall": 0.712683,
+              "precision": 0.33713
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.549031,
+          "ap_ic95": [
+            0.523554,
+            0.57283
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.363696,
+              "fpr_real": 0.009992,
+              "recall": 0.448104,
+              "precision": 0.673396
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.123053,
+              "fpr_real": 0.05,
+              "recall": 0.623402,
+              "precision": 0.364362
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.76884,
+          "ap_ic95": [
+            0.706498,
+            0.819946
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.195142,
+              "fpr_real": 0.009992,
+              "recall": 0.758978,
+              "precision": 0.612598
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.02613,
+              "fpr_real": 0.049989,
+              "recall": 0.926796,
+              "precision": 0.278481
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.531174,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.458438,
+              "fpr_real": 0.009914,
+              "recall": 0.405248,
+              "precision": 0.640553
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.152502,
+              "fpr_real": 0.049949,
+              "recall": 0.653061,
+              "precision": 0.363047
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.154033,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.215174,
+              "fpr_real": 0.009991,
+              "recall": 0.143282,
+              "precision": 0.249224
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.090395,
+              "fpr_real": 0.049994,
+              "recall": 0.386445,
+              "precision": 0.151763
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.752538,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.851204,
+              "fpr_real": 0.00998,
+              "recall": 0.408749,
+              "precision": 0.866401
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.295402,
+              "fpr_real": 0.049974,
+              "recall": 0.722013,
+              "precision": 0.69583
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.789203,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.434584,
+              "fpr_real": 0.009977,
+              "recall": 0.68169,
+              "precision": 0.780645
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.204844,
+              "fpr_real": 0.049883,
+              "recall": 0.805634,
+              "precision": 0.456869
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.607182,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.576718,
+              "fpr_real": 0.009937,
+              "recall": 0.425676,
+              "precision": 0.741176
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.263069,
+              "fpr_real": 0.04991,
+              "recall": 0.631757,
+              "precision": 0.458333
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.581942,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.35549,
+              "fpr_real": 0.009868,
+              "recall": 0.403846,
+              "precision": 0.677419
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.145405,
+              "fpr_real": 0.05,
+              "recall": 0.596154,
+              "precision": 0.379592
+            }
+          ]
+        }
+      }
+    },
+    "sin_transaccion": {
+      "descripcion": "Todo menos los datos de la transacción.",
+      "grupos": [
+        "sospechosas",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.60348,
+          "ap_ic95": [
+            0.578625,
+            0.626251
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.355304,
+              "fpr_real": 0.009998,
+              "recall": 0.529276,
+              "precision": 0.65383
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.0928,
+              "fpr_real": 0.049996,
+              "recall": 0.692397,
+              "precision": 0.330707
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.529759,
+          "ap_ic95": [
+            0.502579,
+            0.552813
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.44486,
+              "fpr_real": 0.009992,
+              "recall": 0.430119,
+              "precision": 0.664324
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.133248,
+              "fpr_real": 0.05,
+              "recall": 0.589166,
+              "precision": 0.351383
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.827606,
+          "ap_ic95": [
+            0.776023,
+            0.868159
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.123137,
+              "fpr_real": 0.009992,
+              "recall": 0.814917,
+              "precision": 0.629333
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.01714,
+              "fpr_real": 0.049989,
+              "recall": 0.938536,
+              "precision": 0.281017
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.507159,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.58917,
+              "fpr_real": 0.009914,
+              "recall": 0.408163,
+              "precision": 0.642202
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.193473,
+              "fpr_real": 0.049949,
+              "recall": 0.591837,
+              "precision": 0.340604
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.137043,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.22936,
+              "fpr_real": 0.009991,
+              "recall": 0.113555,
+              "precision": 0.208288
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.08685,
+              "fpr_real": 0.049994,
+              "recall": 0.323424,
+              "precision": 0.130237
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.75205,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.908241,
+              "fpr_real": 0.00998,
+              "recall": 0.425212,
+              "precision": 0.870906
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.391176,
+              "fpr_real": 0.049974,
+              "recall": 0.716369,
+              "precision": 0.694166
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.739121,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.579404,
+              "fpr_real": 0.009977,
+              "recall": 0.619718,
+              "precision": 0.763889
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.274341,
+              "fpr_real": 0.049883,
+              "recall": 0.726761,
+              "precision": 0.431438
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.54979,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.627589,
+              "fpr_real": 0.009937,
+              "recall": 0.405405,
+              "precision": 0.731707
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.296515,
+              "fpr_real": 0.04991,
+              "recall": 0.543919,
+              "precision": 0.421466
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.551808,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.430175,
+              "fpr_real": 0.009868,
+              "recall": 0.352564,
+              "precision": 0.647059
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.134012,
+              "fpr_real": 0.05,
+              "recall": 0.583333,
+              "precision": 0.374486
+            }
+          ]
+        }
+      }
+    },
+    "sin_sospechosas": {
+      "descripcion": "Todo menos C, D, V e identidad.",
+      "grupos": [
+        "transaccion",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.446603,
+          "ap_ic95": [
+            0.410236,
+            0.480956
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.271975,
+              "fpr_real": 0.009998,
+              "recall": 0.335148,
+              "precision": 0.544626
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.105157,
+              "fpr_real": 0.049996,
+              "recall": 0.576612,
+              "precision": 0.291528
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.300483,
+          "ap_ic95": [
+            0.278065,
+            0.326045
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.314111,
+              "fpr_real": 0.009992,
+              "recall": 0.196533,
+              "precision": 0.474869
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.140883,
+              "fpr_real": 0.05,
+              "recall": 0.423185,
+              "precision": 0.28012
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.810877,
+          "ap_ic95": [
+            0.754334,
+            0.849001
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.115874,
+              "fpr_real": 0.009992,
+              "recall": 0.79558,
+              "precision": 0.623714
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.027048,
+              "fpr_real": 0.049989,
+              "recall": 0.941298,
+              "precision": 0.281612
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.294355,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.385335,
+              "fpr_real": 0.009914,
+              "recall": 0.206997,
+              "precision": 0.47651
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.161413,
+              "fpr_real": 0.049949,
+              "recall": 0.390671,
+              "precision": 0.254269
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.126089,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.169435,
+              "fpr_real": 0.009991,
+              "recall": 0.110583,
+              "precision": 0.203947
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.076725,
+              "fpr_real": 0.049994,
+              "recall": 0.302021,
+              "precision": 0.122676
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.434604,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.466925,
+              "fpr_real": 0.00998,
+              "recall": 0.138288,
+              "precision": 0.686916
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.262105,
+              "fpr_real": 0.049974,
+              "recall": 0.328786,
+              "precision": 0.510219
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.425519,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.426303,
+              "fpr_real": 0.009977,
+              "recall": 0.273239,
+              "precision": 0.587879
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.227465,
+              "fpr_real": 0.049883,
+              "recall": 0.501408,
+              "precision": 0.343629
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.317968,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.502778,
+              "fpr_real": 0.009937,
+              "recall": 0.189189,
+              "precision": 0.56
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.301919,
+              "fpr_real": 0.04991,
+              "recall": 0.371622,
+              "precision": 0.332326
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.262724,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.425664,
+              "fpr_real": 0.009868,
+              "recall": 0.108974,
+              "precision": 0.361702
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.195146,
+              "fpr_real": 0.05,
+              "recall": 0.339744,
+              "precision": 0.258537
+            }
+          ]
+        }
+      }
+    },
+    "sin_vecindario": {
+      "descripcion": "Todo menos el vecindario del grafo.",
+      "grupos": [
+        "transaccion",
+        "sospechosas",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.62398,
+          "ap_ic95": [
+            0.59772,
+            0.651025
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.264049,
+              "fpr_real": 0.009998,
+              "recall": 0.553521,
+              "precision": 0.663897
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.068802,
+              "fpr_real": 0.049996,
+              "recall": 0.731486,
+              "precision": 0.342974
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.558291,
+          "ap_ic95": [
+            0.532475,
+            0.584376
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.31893,
+              "fpr_real": 0.009992,
+              "recall": 0.462622,
+              "precision": 0.68037
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.095435,
+              "fpr_real": 0.05,
+              "recall": 0.63467,
+              "precision": 0.36852
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.825163,
+          "ap_ic95": [
+            0.771078,
+            0.866739
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.124863,
+              "fpr_real": 0.009992,
+              "recall": 0.820442,
+              "precision": 0.630908
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.014425,
+              "fpr_real": 0.049989,
+              "recall": 0.951657,
+              "precision": 0.283831
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.545927,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.330441,
+              "fpr_real": 0.009914,
+              "recall": 0.466472,
+              "precision": 0.672269
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.108773,
+              "fpr_real": 0.049949,
+              "recall": 0.676385,
+              "precision": 0.3712
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.177204,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.173148,
+              "fpr_real": 0.009991,
+              "recall": 0.150416,
+              "precision": 0.258427
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.067045,
+              "fpr_real": 0.049994,
+              "recall": 0.413793,
+              "precision": 0.160776
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.743299,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.88032,
+              "fpr_real": 0.00998,
+              "recall": 0.378645,
+              "precision": 0.857295
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.318574,
+              "fpr_real": 0.049974,
+              "recall": 0.729539,
+              "precision": 0.69802
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.791052,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.317213,
+              "fpr_real": 0.009977,
+              "recall": 0.684507,
+              "precision": 0.78135
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.109805,
+              "fpr_real": 0.049883,
+              "recall": 0.797183,
+              "precision": 0.454254
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.620774,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.460211,
+              "fpr_real": 0.009937,
+              "recall": 0.456081,
+              "precision": 0.75419
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.172793,
+              "fpr_real": 0.04991,
+              "recall": 0.635135,
+              "precision": 0.459658
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.61526,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.290243,
+              "fpr_real": 0.009868,
+              "recall": 0.429487,
+              "precision": 0.690722
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.095059,
+              "fpr_real": 0.05,
+              "recall": 0.615385,
+              "precision": 0.387097
+            }
+          ]
+        }
+      }
+    },
+    "sin_C": {
+      "descripcion": "Todo menos las C.",
+      "grupos": [
+        "transaccion",
+        "D",
+        "V",
+        "identidad",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.600419,
+          "ap_ic95": [
+            0.576415,
+            0.626763
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.265027,
+              "fpr_real": 0.009998,
+              "recall": 0.520699,
+              "precision": 0.650124
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.089519,
+              "fpr_real": 0.049996,
+              "recall": 0.69685,
+              "precision": 0.332128
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.517889,
+          "ap_ic95": [
+            0.491392,
+            0.54338
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.318995,
+              "fpr_real": 0.009992,
+              "recall": 0.413434,
+              "precision": 0.655445
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.120906,
+              "fpr_real": 0.05,
+              "recall": 0.588732,
+              "precision": 0.351215
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.840552,
+          "ap_ic95": [
+            0.793796,
+            0.877372
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.119998,
+              "fpr_real": 0.009992,
+              "recall": 0.822514,
+              "precision": 0.631495
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.020248,
+              "fpr_real": 0.049989,
+              "recall": 0.95511,
+              "precision": 0.284568
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.491291,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.38292,
+              "fpr_real": 0.009914,
+              "recall": 0.35277,
+              "precision": 0.60804
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.142053,
+              "fpr_real": 0.049949,
+              "recall": 0.594752,
+              "precision": 0.341709
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.148215,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.204218,
+              "fpr_real": 0.009991,
+              "recall": 0.127824,
+              "precision": 0.22848
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.08145,
+              "fpr_real": 0.049994,
+              "recall": 0.363853,
+              "precision": 0.14417
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.723195,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.75743,
+              "fpr_real": 0.00998,
+              "recall": 0.399341,
+              "precision": 0.863683
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.253151,
+              "fpr_real": 0.049974,
+              "recall": 0.67921,
+              "precision": 0.682742
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.738124,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.38602,
+              "fpr_real": 0.009977,
+              "recall": 0.611268,
+              "precision": 0.761404
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.168174,
+              "fpr_real": 0.049883,
+              "recall": 0.785915,
+              "precision": 0.450727
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.5508,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.55174,
+              "fpr_real": 0.009937,
+              "recall": 0.375,
+              "precision": 0.716129
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.252863,
+              "fpr_real": 0.04991,
+              "recall": 0.581081,
+              "precision": 0.437659
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.548596,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.405825,
+              "fpr_real": 0.009868,
+              "recall": 0.384615,
+              "precision": 0.666667
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.160723,
+              "fpr_real": 0.05,
+              "recall": 0.570513,
+              "precision": 0.369295
+            }
+          ]
+        }
+      }
+    },
+    "sin_D": {
+      "descripcion": "Todo menos las D.",
+      "grupos": [
+        "transaccion",
+        "C",
+        "V",
+        "identidad",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.623443,
+          "ap_ic95": [
+            0.598665,
+            0.647486
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.298731,
+              "fpr_real": 0.009998,
+              "recall": 0.551212,
+              "precision": 0.662964
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.087053,
+              "fpr_real": 0.049996,
+              "recall": 0.72258,
+              "precision": 0.340219
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.550532,
+          "ap_ic95": [
+            0.522299,
+            0.574628
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.377436,
+              "fpr_real": 0.009992,
+              "recall": 0.445287,
+              "precision": 0.672008
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.12327,
+              "fpr_real": 0.05,
+              "recall": 0.617551,
+              "precision": 0.362181
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.839633,
+          "ap_ic95": [
+            0.787519,
+            0.875535
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.115326,
+              "fpr_real": 0.009992,
+              "recall": 0.834254,
+              "precision": 0.634787
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.018101,
+              "fpr_real": 0.049989,
+              "recall": 0.945442,
+              "precision": 0.282501
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.533273,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.513081,
+              "fpr_real": 0.009914,
+              "recall": 0.387755,
+              "precision": 0.630332
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.155077,
+              "fpr_real": 0.049949,
+              "recall": 0.641399,
+              "precision": 0.358891
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.155962,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.215344,
+              "fpr_real": 0.009991,
+              "recall": 0.133769,
+              "precision": 0.236593
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.090379,
+              "fpr_real": 0.049994,
+              "recall": 0.372771,
+              "precision": 0.147183
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.756382,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.879736,
+              "fpr_real": 0.00998,
+              "recall": 0.402634,
+              "precision": 0.864646
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.305797,
+              "fpr_real": 0.049974,
+              "recall": 0.730009,
+              "precision": 0.698156
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.788366,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.464177,
+              "fpr_real": 0.009977,
+              "recall": 0.661972,
+              "precision": 0.775578
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.191133,
+              "fpr_real": 0.049883,
+              "recall": 0.8,
+              "precision": 0.455128
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.600981,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.595493,
+              "fpr_real": 0.009937,
+              "recall": 0.425676,
+              "precision": 0.741176
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.291313,
+              "fpr_real": 0.04991,
+              "recall": 0.608108,
+              "precision": 0.448878
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.632792,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.353833,
+              "fpr_real": 0.009868,
+              "recall": 0.423077,
+              "precision": 0.6875
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.12165,
+              "fpr_real": 0.05,
+              "recall": 0.705128,
+              "precision": 0.419847
+            }
+          ]
+        }
+      }
+    },
+    "sin_V": {
+      "descripcion": "Todo menos las V.",
+      "grupos": [
+        "transaccion",
+        "C",
+        "D",
+        "identidad",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.611195,
+          "ap_ic95": [
+            0.586801,
+            0.635627
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.317449,
+              "fpr_real": 0.009998,
+              "recall": 0.528451,
+              "precision": 0.653477
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.088647,
+              "fpr_real": 0.049996,
+              "recall": 0.711529,
+              "precision": 0.336768
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.53389,
+          "ap_ic95": [
+            0.506493,
+            0.558178
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.391535,
+              "fpr_real": 0.009992,
+              "recall": 0.424052,
+              "precision": 0.661149
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.125001,
+              "fpr_real": 0.05,
+              "recall": 0.612351,
+              "precision": 0.360229
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.836088,
+          "ap_ic95": [
+            0.786877,
+            0.87179
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.121056,
+              "fpr_real": 0.009992,
+              "recall": 0.813536,
+              "precision": 0.628938
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.01856,
+              "fpr_real": 0.049989,
+              "recall": 0.948895,
+              "precision": 0.283241
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.503658,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.544468,
+              "fpr_real": 0.009914,
+              "recall": 0.370262,
+              "precision": 0.619512
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.172116,
+              "fpr_real": 0.049949,
+              "recall": 0.591837,
+              "precision": 0.340604
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.161446,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.187709,
+              "fpr_real": 0.009991,
+              "recall": 0.15874,
+              "precision": 0.268882
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.082639,
+              "fpr_real": 0.049994,
+              "recall": 0.370392,
+              "precision": 0.146382
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.747746,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.846081,
+              "fpr_real": 0.00998,
+              "recall": 0.408278,
+              "precision": 0.866267
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.342475,
+              "fpr_real": 0.049974,
+              "recall": 0.700376,
+              "precision": 0.689352
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.725874,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.516882,
+              "fpr_real": 0.009977,
+              "recall": 0.597183,
+              "precision": 0.757143
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.242103,
+              "fpr_real": 0.049883,
+              "recall": 0.777465,
+              "precision": 0.448052
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.516361,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.669507,
+              "fpr_real": 0.009937,
+              "recall": 0.334459,
+              "precision": 0.692308
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.330577,
+              "fpr_real": 0.04991,
+              "recall": 0.560811,
+              "precision": 0.428941
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.555982,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.356968,
+              "fpr_real": 0.009868,
+              "recall": 0.358974,
+              "precision": 0.651163
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.136268,
+              "fpr_real": 0.05,
+              "recall": 0.621795,
+              "precision": 0.389558
+            }
+          ]
+        }
+      }
+    },
+    "sin_identidad": {
+      "descripcion": "Todo menos la identidad (id_01 a id_38, dispositivo).",
+      "grupos": [
+        "transaccion",
+        "C",
+        "D",
+        "V",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.624892,
+          "ap_ic95": [
+            0.600034,
+            0.653078
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.266902,
+              "fpr_real": 0.009998,
+              "recall": 0.548738,
+              "precision": 0.661958
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.076915,
+              "fpr_real": 0.049996,
+              "recall": 0.721095,
+              "precision": 0.339758
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.553054,
+          "ap_ic95": [
+            0.528537,
+            0.576674
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.321243,
+              "fpr_real": 0.009992,
+              "recall": 0.450704,
+              "precision": 0.674668
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.107084,
+              "fpr_real": 0.05,
+              "recall": 0.622319,
+              "precision": 0.363959
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.832089,
+          "ap_ic95": [
+            0.783542,
+            0.870755
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.107482,
+              "fpr_real": 0.009992,
+              "recall": 0.826657,
+              "precision": 0.632664
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.016018,
+              "fpr_real": 0.049989,
+              "recall": 0.946823,
+              "precision": 0.282797
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.560107,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.424217,
+              "fpr_real": 0.009914,
+              "recall": 0.437318,
+              "precision": 0.657895
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.137741,
+              "fpr_real": 0.049949,
+              "recall": 0.635569,
+              "precision": 0.356792
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.164614,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.202543,
+              "fpr_real": 0.009991,
+              "recall": 0.142687,
+              "precision": 0.248447
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.082947,
+              "fpr_real": 0.049994,
+              "recall": 0.390606,
+              "precision": 0.153147
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.749032,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.8555,
+              "fpr_real": 0.00998,
+              "recall": 0.393697,
+              "precision": 0.861998
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.258265,
+              "fpr_real": 0.049974,
+              "recall": 0.721072,
+              "precision": 0.695554
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.80096,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.366028,
+              "fpr_real": 0.009977,
+              "recall": 0.707042,
+              "precision": 0.786834
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.144962,
+              "fpr_real": 0.049883,
+              "recall": 0.816901,
+              "precision": 0.460317
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.64683,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.506964,
+              "fpr_real": 0.009937,
+              "recall": 0.483108,
+              "precision": 0.764706
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.213463,
+              "fpr_real": 0.04991,
+              "recall": 0.668919,
+              "precision": 0.472554
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.585764,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.316476,
+              "fpr_real": 0.009868,
+              "recall": 0.397436,
+              "precision": 0.673913
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.115627,
+              "fpr_real": 0.05,
+              "recall": 0.596154,
+              "precision": 0.379592
+            }
+          ]
+        }
+      }
+    },
+    "transaccion_vecindario": {
+      "descripcion": "Sin sospechosas ni historia: lo más defendible fuera de IEEE-CIS.",
+      "grupos": [
+        "transaccion",
+        "vecindario"
+      ],
+      "esquema": "realista",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.417232,
+          "ap_ic95": [
+            0.384006,
+            0.453267
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.278851,
+              "fpr_real": 0.009998,
+              "recall": 0.320798,
+              "precision": 0.533754
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.11055,
+              "fpr_real": 0.049996,
+              "recall": 0.550388,
+              "precision": 0.282008
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.298189,
+          "ap_ic95": [
+            0.274971,
+            0.324731
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.307434,
+              "fpr_real": 0.009992,
+              "recall": 0.201517,
+              "precision": 0.481117
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.141191,
+              "fpr_real": 0.05,
+              "recall": 0.416901,
+              "precision": 0.277114
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.73179,
+          "ap_ic95": [
+            0.657105,
+            0.781857
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.171013,
+              "fpr_real": 0.009992,
+              "recall": 0.714088,
+              "precision": 0.598034
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.038449,
+              "fpr_real": 0.049989,
+              "recall": 0.910221,
+              "precision": 0.27487
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.30176,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.376151,
+              "fpr_real": 0.009914,
+              "recall": 0.212828,
+              "precision": 0.483444
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.149883,
+              "fpr_real": 0.049949,
+              "recall": 0.41691,
+              "precision": 0.266791
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.118753,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.1711,
+              "fpr_real": 0.009991,
+              "recall": 0.102854,
+              "precision": 0.192436
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.077624,
+              "fpr_real": 0.049994,
+              "recall": 0.298454,
+              "precision": 0.121403
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.428832,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.481799,
+              "fpr_real": 0.00998,
+              "recall": 0.134055,
+              "precision": 0.680191
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.265626,
+              "fpr_real": 0.049974,
+              "recall": 0.326435,
+              "precision": 0.508425
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.424183,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.400031,
+              "fpr_real": 0.009977,
+              "recall": 0.284507,
+              "precision": 0.597633
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.220348,
+              "fpr_real": 0.049883,
+              "recall": 0.504225,
+              "precision": 0.344894
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.331037,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.522132,
+              "fpr_real": 0.009937,
+              "recall": 0.182432,
+              "precision": 0.55102
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.292629,
+              "fpr_real": 0.04991,
+              "recall": 0.381757,
+              "precision": 0.338323
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.264855,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.33111,
+              "fpr_real": 0.009868,
+              "recall": 0.102564,
+              "precision": 0.347826
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.18236,
+              "fpr_real": 0.05,
+              "recall": 0.410256,
+              "precision": 0.296296
+            }
+          ]
+        }
+      }
+    },
+    "completo_todas_las_etiquetas": {
+      "descripcion": "Comparación: entrena y valida con todas las etiquetas de desarrollo.",
+      "grupos": [
+        "transaccion",
+        "sospechosas",
+        "vecindario",
+        "historia"
+      ],
+      "esquema": "todas_las_etiquetas",
+      "prueba": {
+        "todos": {
+          "transacciones": 175998,
+          "fraudes": 6063,
+          "prevalencia": 0.034449,
+          "ap": 0.665718,
+          "ap_ic95": [
+            0.642877,
+            0.689034
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.268327,
+              "fpr_real": 0.009998,
+              "recall": 0.584529,
+              "precision": 0.675949
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.080628,
+              "fpr_real": 0.049996,
+              "recall": 0.759855,
+              "precision": 0.351599
+            }
+          ]
+        },
+        "nuevos": {
+          "transacciones": 104995,
+          "fraudes": 4615,
+          "prevalencia": 0.043954,
+          "ap": 0.585468,
+          "ap_ic95": [
+            0.560289,
+            0.608211
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.32868,
+              "fpr_real": 0.009992,
+              "recall": 0.480823,
+              "precision": 0.688703
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.115078,
+              "fpr_real": 0.05,
+              "recall": 0.648104,
+              "precision": 0.373408
+            }
+          ]
+        },
+        "vistos": {
+          "transacciones": 71003,
+          "fraudes": 1448,
+          "prevalencia": 0.020394,
+          "ap": 0.887151,
+          "ap_ic95": [
+            0.852908,
+            0.915657
+          ],
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.093146,
+              "fpr_real": 0.009992,
+              "recall": 0.882597,
+              "precision": 0.647745
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.012892,
+              "fpr_real": 0.049989,
+              "recall": 0.959945,
+              "precision": 0.285597
+            }
+          ]
+        }
+      },
+      "prueba_cortes": {
+        "nuevos_estrictos": {
+          "transacciones": 8211,
+          "fraudes": 343,
+          "prevalencia": 0.041773,
+          "ap": 0.578602,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.367017,
+              "fpr_real": 0.009914,
+              "recall": 0.466472,
+              "precision": 0.672269
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.140875,
+              "fpr_real": 0.049949,
+              "recall": 0.626822,
+              "precision": 0.353618
+            }
+          ]
+        },
+        "nuevos_W": {
+          "transacciones": 74351,
+          "fraudes": 1682,
+          "prevalencia": 0.022622,
+          "ap": 0.201093,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.220336,
+              "fpr_real": 0.009991,
+              "recall": 0.180143,
+              "precision": 0.294461
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.086338,
+              "fpr_real": 0.049994,
+              "recall": 0.435196,
+              "precision": 0.167698
+            }
+          ]
+        },
+        "nuevos_C": {
+          "transacciones": 15553,
+          "fraudes": 2126,
+          "prevalencia": 0.136694,
+          "ap": 0.778335,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.800759,
+              "fpr_real": 0.00998,
+              "recall": 0.44826,
+              "precision": 0.876725
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.256725,
+              "fpr_real": 0.049974,
+              "recall": 0.75635,
+              "precision": 0.705573
+            }
+          ]
+        },
+        "nuevos_R": {
+          "transacciones": 7171,
+          "fraudes": 355,
+          "prevalencia": 0.049505,
+          "ap": 0.818264,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.34596,
+              "fpr_real": 0.009977,
+              "recall": 0.715493,
+              "precision": 0.78882
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.141083,
+              "fpr_real": 0.049883,
+              "recall": 0.839437,
+              "precision": 0.467085
+            }
+          ]
+        },
+        "nuevos_H": {
+          "transacciones": 4724,
+          "fraudes": 296,
+          "prevalencia": 0.062659,
+          "ap": 0.637222,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.510529,
+              "fpr_real": 0.009937,
+              "recall": 0.469595,
+              "precision": 0.759563
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.215698,
+              "fpr_real": 0.04991,
+              "recall": 0.64527,
+              "precision": 0.463592
+            }
+          ]
+        },
+        "nuevos_S": {
+          "transacciones": 3196,
+          "fraudes": 156,
+          "prevalencia": 0.048811,
+          "ap": 0.640414,
+          "recall_a_fpr": [
+            {
+              "fpr_objetivo": 0.01,
+              "umbral": 0.291172,
+              "fpr_real": 0.009868,
+              "recall": 0.487179,
+              "precision": 0.716981
+            },
+            {
+              "fpr_objetivo": 0.05,
+              "umbral": 0.123576,
+              "fpr_real": 0.05,
+              "recall": 0.641026,
+              "precision": 0.396825
+            }
+          ]
+        }
+      }
+    }
+  },
+  "aportes_por_grupo": {
+    "nuevos": {
+      "dejar_uno_fuera": {
+        "transaccion": 0.020929,
+        "sospechosas": 0.250205,
+        "vecindario": -0.007603,
+        "historia": 0.001657,
+        "C": 0.032799,
+        "D": 0.000156,
+        "V": 0.016798,
+        "identidad": -0.002366
+      },
+      "incremental": [
+        {
+          "paso": "transaccion",
+          "ap": 0.235201
+        },
+        {
+          "paso": "+ sospechosas",
+          "ap": 0.552991
+        },
+        {
+          "paso": "+ vecindario",
+          "ap": 0.549031
+        },
+        {
+          "paso": "+ historia",
+          "ap": 0.550688
+        }
+      ]
+    },
+    "nuevos_estrictos": {
+      "dejar_uno_fuera": {
+        "transaccion": 0.03381,
+        "sospechosas": 0.246614,
+        "vecindario": -0.004959,
+        "historia": 0.009794,
+        "C": 0.049677,
+        "D": 0.007695,
+        "V": 0.037311,
+        "identidad": -0.019139
+      },
+      "incremental": [
+        {
+          "paso": "transaccion",
+          "ap": 0.202998
+        },
+        {
+          "paso": "+ sospechosas",
+          "ap": 0.531493
+        },
+        {
+          "paso": "+ vecindario",
+          "ap": 0.531174
+        },
+        {
+          "paso": "+ historia",
+          "ap": 0.540969
+        }
+      ]
+    },
+    "nuevos_W": {
+      "dejar_uno_fuera": {
+        "transaccion": 0.024183,
+        "sospechosas": 0.035137,
+        "vecindario": -0.015978,
+        "historia": 0.007192,
+        "C": 0.013011,
+        "D": 0.005264,
+        "V": -0.00022,
+        "identidad": -0.003388
+      },
+      "incremental": [
+        {
+          "paso": "transaccion",
+          "ap": 0.076527
+        },
+        {
+          "paso": "+ sospechosas",
+          "ap": 0.14012
+        },
+        {
+          "paso": "+ vecindario",
+          "ap": 0.154033
+        },
+        {
+          "paso": "+ historia",
+          "ap": 0.161226
+        }
+      ]
+    }
+  },
+  "curvas_pr": [
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.02,
+      "precision": 0.99
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.04,
+      "precision": 0.963964
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.06,
+      "precision": 0.952218
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.08,
+      "precision": 0.946731
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.1,
+      "precision": 0.929254
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.12,
+      "precision": 0.926941
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.14,
+      "precision": 0.921017
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.16,
+      "precision": 0.919154
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.18,
+      "precision": 0.911366
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.2,
+      "precision": 0.910766
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.22,
+      "precision": 0.9
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.24,
+      "precision": 0.893805
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.26,
+      "precision": 0.886931
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.28,
+      "precision": 0.874917
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.3,
+      "precision": 0.86796
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.32,
+      "precision": 0.859375
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.34,
+      "precision": 0.848649
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.36,
+      "precision": 0.824405
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.38,
+      "precision": 0.797998
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.4,
+      "precision": 0.760807
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.42,
+      "precision": 0.72055
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.44,
+      "precision": 0.679025
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.46,
+      "precision": 0.64236
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.48,
+      "precision": 0.60152
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.5,
+      "precision": 0.560982
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.52,
+      "precision": 0.519818
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.54,
+      "precision": 0.494547
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.56,
+      "precision": 0.46021
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.58,
+      "precision": 0.426003
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.6,
+      "precision": 0.394726
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.62,
+      "precision": 0.364516
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.64,
+      "precision": 0.33849
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.66,
+      "precision": 0.314572
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.68,
+      "precision": 0.293557
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.7,
+      "precision": 0.26997
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.72,
+      "precision": 0.246477
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.74,
+      "precision": 0.228694
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.76,
+      "precision": 0.21289
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.78,
+      "precision": 0.196743
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.8,
+      "precision": 0.181854
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.82,
+      "precision": 0.167234
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.84,
+      "precision": 0.153813
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.86,
+      "precision": 0.139911
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.88,
+      "precision": 0.122384
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.9,
+      "precision": 0.107905
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.92,
+      "precision": 0.09468
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.94,
+      "precision": 0.082865
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.96,
+      "precision": 0.07056
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 0.98,
+      "precision": 0.05951
+    },
+    {
+      "variante": "completo",
+      "clientes": "nuevos",
+      "recall": 1.0,
+      "precision": 0.044687
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.02,
+      "precision": 1.0
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.04,
+      "precision": 0.983333
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.06,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.08,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.1,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.12,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.14,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.16,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.18,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.2,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.22,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.24,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.26,
+      "precision": 0.980488
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.28,
+      "precision": 0.978824
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.3,
+      "precision": 0.97593
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.32,
+      "precision": 0.973029
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.34,
+      "precision": 0.971264
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.36,
+      "precision": 0.97079
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.38,
+      "precision": 0.97079
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.4,
+      "precision": 0.970248
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.42,
+      "precision": 0.969925
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.44,
+      "precision": 0.969925
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.46,
+      "precision": 0.962697
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.48,
+      "precision": 0.959072
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.5,
+      "precision": 0.955243
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.52,
+      "precision": 0.949622
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.54,
+      "precision": 0.937873
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.56,
+      "precision": 0.92719
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.58,
+      "precision": 0.916122
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.6,
+      "precision": 0.905405
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.62,
+      "precision": 0.900901
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.64,
+      "precision": 0.888782
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.66,
+      "precision": 0.871468
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.68,
+      "precision": 0.856277
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.7,
+      "precision": 0.845962
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.72,
+      "precision": 0.838684
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.74,
+      "precision": 0.826656
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.76,
+      "precision": 0.794946
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.78,
+      "precision": 0.765583
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.8,
+      "precision": 0.723923
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.82,
+      "precision": 0.668919
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.84,
+      "precision": 0.587923
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.86,
+      "precision": 0.55255
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.88,
+      "precision": 0.504351
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.9,
+      "precision": 0.457383
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.92,
+      "precision": 0.396019
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.94,
+      "precision": 0.336379
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.96,
+      "precision": 0.192713
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 0.98,
+      "precision": 0.078065
+    },
+    {
+      "variante": "completo",
+      "clientes": "vistos",
+      "recall": 1.0,
+      "precision": 0.024345
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.02,
+      "precision": 0.592357
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.04,
+      "precision": 0.509434
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.06,
+      "precision": 0.468013
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.08,
+      "precision": 0.465174
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.1,
+      "precision": 0.445498
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.12,
+      "precision": 0.431555
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.14,
+      "precision": 0.412102
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.16,
+      "precision": 0.399252
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.18,
+      "precision": 0.375169
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.2,
+      "precision": 0.367775
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.22,
+      "precision": 0.361709
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.24,
+      "precision": 0.353035
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.26,
+      "precision": 0.345013
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.28,
+      "precision": 0.333505
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.3,
+      "precision": 0.319291
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.32,
+      "precision": 0.30329
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.34,
+      "precision": 0.28111
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.36,
+      "precision": 0.263684
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.38,
+      "precision": 0.253982
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.4,
+      "precision": 0.246594
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.42,
+      "precision": 0.237288
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.44,
+      "precision": 0.226801
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.46,
+      "precision": 0.216519
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.48,
+      "precision": 0.2093
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.5,
+      "precision": 0.20101
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.52,
+      "precision": 0.193657
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.54,
+      "precision": 0.186868
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.56,
+      "precision": 0.176234
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.58,
+      "precision": 0.168905
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.6,
+      "precision": 0.161911
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.62,
+      "precision": 0.15373
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.64,
+      "precision": 0.143908
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.66,
+      "precision": 0.136641
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.68,
+      "precision": 0.131344
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.7,
+      "precision": 0.125529
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.72,
+      "precision": 0.119101
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.74,
+      "precision": 0.113565
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.76,
+      "precision": 0.108687
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.78,
+      "precision": 0.102497
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.8,
+      "precision": 0.098045
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.82,
+      "precision": 0.091478
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.84,
+      "precision": 0.087292
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.86,
+      "precision": 0.083693
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.88,
+      "precision": 0.079308
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.9,
+      "precision": 0.074879
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.92,
+      "precision": 0.068879
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.94,
+      "precision": 0.06294
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.96,
+      "precision": 0.056852
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 0.98,
+      "precision": 0.051882
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "nuevos",
+      "recall": 1.0,
+      "precision": 0.043989
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.02,
+      "precision": 0.75
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.04,
+      "precision": 0.563636
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.06,
+      "precision": 0.491525
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.08,
+      "precision": 0.428044
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.1,
+      "precision": 0.397468
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.12,
+      "precision": 0.387665
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.14,
+      "precision": 0.3821
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.16,
+      "precision": 0.373016
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.18,
+      "precision": 0.346561
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.2,
+      "precision": 0.317546
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.22,
+      "precision": 0.301228
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.24,
+      "precision": 0.271239
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.26,
+      "precision": 0.247396
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.28,
+      "precision": 0.232932
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.3,
+      "precision": 0.218828
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.32,
+      "precision": 0.211364
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.34,
+      "precision": 0.200244
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.36,
+      "precision": 0.185831
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.38,
+      "precision": 0.179596
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.4,
+      "precision": 0.170682
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.42,
+      "precision": 0.161839
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.44,
+      "precision": 0.150495
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.46,
+      "precision": 0.144968
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.48,
+      "precision": 0.139984
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.5,
+      "precision": 0.131517
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.52,
+      "precision": 0.124258
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.54,
+      "precision": 0.117523
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.56,
+      "precision": 0.111749
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.58,
+      "precision": 0.104764
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.6,
+      "precision": 0.096965
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.62,
+      "precision": 0.088117
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.64,
+      "precision": 0.080211
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.66,
+      "precision": 0.075982
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.68,
+      "precision": 0.071683
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.7,
+      "precision": 0.066636
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.72,
+      "precision": 0.064125
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.74,
+      "precision": 0.059151
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.76,
+      "precision": 0.055893
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.78,
+      "precision": 0.052242
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.8,
+      "precision": 0.049124
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.82,
+      "precision": 0.047512
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.84,
+      "precision": 0.04536
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.86,
+      "precision": 0.042262
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.88,
+      "precision": 0.040593
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.9,
+      "precision": 0.036043
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.92,
+      "precision": 0.033153
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.94,
+      "precision": 0.029953
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.96,
+      "precision": 0.027601
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 0.98,
+      "precision": 0.023952
+    },
+    {
+      "variante": "solo_transaccion",
+      "clientes": "vistos",
+      "recall": 1.0,
+      "precision": 0.021093
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.02,
+      "precision": 0.841667
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.04,
+      "precision": 0.8
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.06,
+      "precision": 0.787634
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.08,
+      "precision": 0.721689
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.1,
+      "precision": 0.676428
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.12,
+      "precision": 0.626832
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.14,
+      "precision": 0.579697
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.16,
+      "precision": 0.55175
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.18,
+      "precision": 0.513863
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.2,
+      "precision": 0.483516
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.22,
+      "precision": 0.450243
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.24,
+      "precision": 0.417483
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.26,
+      "precision": 0.399401
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.28,
+      "precision": 0.376053
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.3,
+      "precision": 0.36063
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.32,
+      "precision": 0.344796
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.34,
+      "precision": 0.327254
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.36,
+      "precision": 0.314773
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.38,
+      "precision": 0.304408
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.4,
+      "precision": 0.288979
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.42,
+      "precision": 0.273754
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.44,
+      "precision": 0.258356
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.46,
+      "precision": 0.248014
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.48,
+      "precision": 0.234497
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.5,
+      "precision": 0.220671
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.52,
+      "precision": 0.211435
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.54,
+      "precision": 0.20152
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.56,
+      "precision": 0.191968
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.58,
+      "precision": 0.184341
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.6,
+      "precision": 0.172793
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.62,
+      "precision": 0.16472
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.64,
+      "precision": 0.157547
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.66,
+      "precision": 0.149607
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.68,
+      "precision": 0.143721
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.7,
+      "precision": 0.136008
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.72,
+      "precision": 0.130914
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.74,
+      "precision": 0.126089
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.76,
+      "precision": 0.118713
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.78,
+      "precision": 0.113087
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.8,
+      "precision": 0.108095
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.82,
+      "precision": 0.103449
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.84,
+      "precision": 0.097964
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.86,
+      "precision": 0.091947
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.88,
+      "precision": 0.086566
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.9,
+      "precision": 0.080519
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.92,
+      "precision": 0.075032
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.94,
+      "precision": 0.068457
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.96,
+      "precision": 0.062584
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 0.98,
+      "precision": 0.05502
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "nuevos",
+      "recall": 1.0,
+      "precision": 0.044452
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.0,
+      "precision": 1.0
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.02,
+      "precision": 1.0
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.04,
+      "precision": 1.0
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.06,
+      "precision": 1.0
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.08,
+      "precision": 1.0
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.1,
+      "precision": 1.0
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.12,
+      "precision": 0.994536
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.14,
+      "precision": 0.990338
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.16,
+      "precision": 0.984436
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.18,
+      "precision": 0.98227
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.2,
+      "precision": 0.976431
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.22,
+      "precision": 0.966967
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.24,
+      "precision": 0.966184
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.26,
+      "precision": 0.966184
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.28,
+      "precision": 0.964371
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.3,
+      "precision": 0.960352
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.32,
+      "precision": 0.957576
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.34,
+      "precision": 0.956439
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.36,
+      "precision": 0.949367
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.38,
+      "precision": 0.938776
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.4,
+      "precision": 0.933977
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.42,
+      "precision": 0.918552
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.44,
+      "precision": 0.900281
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.46,
+      "precision": 0.880263
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.48,
+      "precision": 0.860321
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.5,
+      "precision": 0.848769
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.52,
+      "precision": 0.828571
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.54,
+      "precision": 0.794949
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.56,
+      "precision": 0.767486
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.58,
+      "precision": 0.756757
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.6,
+      "precision": 0.733333
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.62,
+      "precision": 0.690238
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.64,
+      "precision": 0.666906
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.66,
+      "precision": 0.644639
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.68,
+      "precision": 0.626828
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.7,
+      "precision": 0.607995
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.72,
+      "precision": 0.581058
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.74,
+      "precision": 0.543611
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.76,
+      "precision": 0.505742
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.78,
+      "precision": 0.481466
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.8,
+      "precision": 0.453976
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.82,
+      "precision": 0.43106
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.84,
+      "precision": 0.398233
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.86,
+      "precision": 0.356286
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.88,
+      "precision": 0.326593
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.9,
+      "precision": 0.289101
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.92,
+      "precision": 0.257585
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.94,
+      "precision": 0.213513
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.96,
+      "precision": 0.151097
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 0.98,
+      "precision": 0.068332
+    },
+    {
+      "variante": "transaccion_vecindario",
+      "clientes": "vistos",
+      "recall": 1.0,
+      "precision": 0.021179
+    }
+  ]
+}

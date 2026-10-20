@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"mark": {"type": "bar", "cornerRadiusEnd": 4, "height": 14}, "encoding": {"color": {"value": "#2f6db5"}, "tooltip": [{"field": "corte", "type": "nominal"}, {"field": "transacciones", "type": "quantitative"}, {"field": "ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "ap", "title": "AP", "type": "quantitative"}, "y": {"field": "corte", "sort": ["nuevos W", "nuevos C", "nuevos R", "nuevos H", "nuevos S"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "ap", "format": ".3f", "type": "quantitative"}, "tooltip": [{"field": "corte", "type": "nominal"}, {"field": "transacciones", "type": "quantitative"}, {"field": "ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "ap", "title": "AP", "type": "quantitative"}, "y": {"field": "corte", "sort": ["nuevos W", "nuevos C", "nuevos R", "nuevos H", "nuevos S"], "title": null, "type": "nominal"}}}], "data": {"name": "data-5c242c0226691806807ff437a05692c0"}, "height": 120, "title": "AP del modelo principal en clientes nuevos, por producto (prueba)", "width": 460, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-5c242c0226691806807ff437a05692c0": [{"corte": "nuevos W", "ap": 0.161226, "transacciones": 74351}, {"corte": "nuevos C", "ap": 0.752506, "transacciones": 15553}, {"corte": "nuevos R", "ap": 0.795028, "transacciones": 7171}, {"corte": "nuevos H", "ap": 0.607039, "transacciones": 4724}, {"corte": "nuevos S", "ap": 0.576947, "transacciones": 3196}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "data": {"name": "data-86357af924f40d12ec49de30f75bc21c"}, "facet": {"row": {"field": "corte", "sort": ["nuevos", "nuevos estrictos", "nuevos W"], "title": null, "type": "nominal"}}, "spec": {"layer": [{"mark": {"type": "bar", "color": "#2f6db5", "cornerRadiusEnd": 4, "height": 12}, "encoding": {"tooltip": [{"field": "corte", "type": "nominal"}, {"field": "grupo", "type": "nominal"}, {"field": "caida_ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "caida_ap", "title": "AP del modelo completo menos AP sin el grupo", "type": "quantitative"}, "y": {"axis": {"labelLimit": 360}, "field": "grupo", "sort": ["sin transacci\u00f3n", "sin sospechosas", "sin vecindario", "sin historia", "sin C", "sin D", "sin V", "sin identidad"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "caida_ap", "format": ".3f", "type": "quantitative"}, "tooltip": [{"field": "corte", "type": "nominal"}, {"field": "grupo", "type": "nominal"}, {"field": "caida_ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "caida_ap", "title": "AP del modelo completo menos AP sin el grupo", "type": "quantitative"}, "y": {"axis": {"labelLimit": 360}, "field": "grupo", "sort": ["sin transacci\u00f3n", "sin sospechosas", "sin vecindario", "sin historia", "sin C", "sin D", "sin V", "sin identidad"], "title": null, "type": "nominal"}}}], "height": 176, "width": 420}, "title": "Cu\u00e1nto cae la AP al quitar cada grupo (prueba, clientes nuevos)", "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-86357af924f40d12ec49de30f75bc21c": [{"corte": "nuevos", "grupo": "sin transacci\u00f3n", "caida_ap": 0.020929}, {"corte": "nuevos", "grupo": "sin sospechosas", "caida_ap": 0.250205}, {"corte": "nuevos", "grupo": "sin vecindario", "caida_ap": -0.007603}, {"corte": "nuevos", "grupo": "sin historia", "caida_ap": 0.001657}, {"corte": "nuevos", "grupo": "sin C", "caida_ap": 0.032799}, {"corte": "nuevos", "grupo": "sin D", "caida_ap": 0.000156}, {"corte": "nuevos", "grupo": "sin V", "caida_ap": 0.016798}, {"corte": "nuevos", "grupo": "sin identidad", "caida_ap": -0.002366}, {"corte": "nuevos estrictos", "grupo": "sin transacci\u00f3n", "caida_ap": 0.03381}, {"corte": "nuevos estrictos", "grupo": "sin sospechosas", "caida_ap": 0.246614}, {"corte": "nuevos estrictos", "grupo": "sin vecindario", "caida_ap": -0.004959}, {"corte": "nuevos estrictos", "grupo": "sin historia", "caida_ap": 0.009794}, {"corte": "nuevos estrictos", "grupo": "sin C", "caida_ap": 0.049677}, {"corte": "nuevos estrictos", "grupo": "sin D", "caida_ap": 0.007695}, {"corte": "nuevos estrictos", "grupo": "sin V", "caida_ap": 0.037311}, {"corte": "nuevos estrictos", "grupo": "sin identidad", "caida_ap": -0.019139}, {"corte": "nuevos W", "grupo": "sin transacci\u00f3n", "caida_ap": 0.024183}, {"corte": "nuevos W", "grupo": "sin sospechosas", "caida_ap": 0.035137}, {"corte": "nuevos W", "grupo": "sin vecindario", "caida_ap": -0.015978}, {"corte": "nuevos W", "grupo": "sin historia", "caida_ap": 0.007192}, {"corte": "nuevos W", "grupo": "sin C", "caida_ap": 0.013011}, {"corte": "nuevos W", "grupo": "sin D", "caida_ap": 0.005264}, {"corte": "nuevos W", "grupo": "sin V", "caida_ap": -0.00022}, {"corte": "nuevos W", "grupo": "sin identidad", "caida_ap": -0.003388}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

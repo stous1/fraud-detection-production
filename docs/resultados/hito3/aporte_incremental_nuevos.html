@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"background": "#fcfcfb", "font": "Segoe UI, Helvetica, Arial, sans-serif", "view": {"stroke": null}, "axis": {"gridColor": "#e6e6e3", "domainColor": "#b5b5b0", "tickColor": "#b5b5b0", "labelColor": "#4a4a46", "titleColor": "#4a4a46", "titleFontWeight": "normal"}, "title": {"anchor": "start", "fontSize": 14, "color": "#1f1f1c", "offset": 10}, "legend": {"labelColor": "#4a4a46", "titleColor": "#4a4a46", "orient": "top"}}, "layer": [{"mark": {"type": "bar", "cornerRadiusEnd": 4, "height": 14}, "encoding": {"color": {"value": "#2f6db5"}, "tooltip": [{"field": "paso", "type": "nominal"}, {"field": "ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "ap", "title": "AP en clientes nuevos", "type": "quantitative"}, "y": {"field": "paso", "sort": ["transaccion", "+ sospechosas", "+ vecindario", "+ historia"], "title": null, "type": "nominal"}}}, {"mark": {"type": "text", "align": "left", "color": "#4a4a46", "dx": 4}, "encoding": {"text": {"field": "ap", "format": ".3f", "type": "quantitative"}, "tooltip": [{"field": "paso", "type": "nominal"}, {"field": "ap", "format": ".3f", "type": "quantitative"}], "x": {"axis": {"format": ".3f", "tickCount": 6}, "field": "ap", "title": "AP en clientes nuevos", "type": "quantitative"}, "y": {"field": "paso", "sort": ["transaccion", "+ sospechosas", "+ vecindario", "+ historia"], "title": null, "type": "nominal"}}}], "data": {"name": "data-3e64cf3d6b63ff0cac05b4f7d63c999f"}, "height": 100, "title": "AP en clientes nuevos al sumar grupos de variables (prueba)", "width": 460, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-3e64cf3d6b63ff0cac05b4f7d63c999f": [{"paso": "transaccion", "ap": 0.235201}, {"paso": "+ sospechosas", "ap": 0.552991}, {"paso": "+ vecindario", "ap": 0.549031}, {"paso": "+ historia", "ap": 0.550688}]}};
+      var embedOpt = {"formatLocale": {"decimal": ",", "thousands": ".", "grouping": [3], "currency": ["", " US$"]}, "mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
