@@ -61,6 +61,12 @@ uv run python scripts/hito3.py desarrollar    # 13 variantes en GPU, umbral por 
 uv run python scripts/publicar_resultados.py --hito 3 --solo-parametros   # congelar (+ tag)
 uv run python scripts/hito3.py publicar-modelo  # modelo principal -> docs/resultados/hito3/modelos
 uv run python scripts/hito3.py evaluar        # prueba, una vez, en CPU; exige hito3-congelado
+uv run python scripts/hito4.py paridad        # en línea vs lotes + data/estado_dia120.pkl
+uv run python scripts/hito4.py registrar      # modelos/registro.json
+uv run python scripts/hito4.py simular        # monitoreo semana a semana -> reports/hito4
+docker compose up -d --build                  # servicio en localhost:8000; docker compose down
+uv run python scripts/probar_servicio.py --n 3000   # prueba de humo por HTTP
+uv run python scripts/verificar_pages.py      # docs/ contra las URL públicas de Pages
 uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/resultados/hitoN
 ```
 
@@ -115,6 +121,16 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
     Congelado en `hito3-congelado`; el modelo principal se versiona en
     `docs/resultados/hito3/modelos/completo.ubj`, las ablaciones quedan en
     `reports/hito3/modelos/` con su huella en `parametros.json`.
+  - Hito 4: `estado_en_linea.py` (vecindario incremental; paridad exacta con
+    `vecindario.py`, en `tests/test_estado_en_linea.py` y en todo train con
+    `flujo_hito4.paridad`), `registro.py` + `modelos/registro.json` (versiones con SHA-256;
+    una sola en producción), `servicio.py` (FastAPI; `desde_entorno` lee `FRAUDE_REGISTRO`,
+    `FRAUDE_ESTADO`, `FRAUDE_VERSION`, `FRAUDE_COSTO_FP`), `monitoreo.py` (PSI, faltantes,
+    tasa de alertas, rendimiento maduro, relojes encubiertos, `REGLAS`) y `flujo_hito4.py`.
+    Ficha en `docs/ficha_modelo.md`. En producción: **1.1.0 (`sin_vecindario`)**; la 1.0.0
+    se retiró por relojes encubiertos en el vecindario.
+  - **Relojes encubiertos:** ninguna variable nueva con |Spearman con el día| >= 0,8
+    (`monitoreo.correlacion_con_dia`). La antigüedad de entidades gruesas lo es.
   - **Pasado = `TransactionID` menor.** `vecindario.columnas` nunca devuelve la etiqueta ni
     identificadores (en el hito 2 se coló `isFraud` antes de congelar; hay pruebas).
 - `scripts/`: puntos de entrada delgados que orquestan funciones de `src/`.
@@ -220,5 +236,6 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
 
 ## Docker
 
-Se usa en el hito 4 para el servicio de puntuación (FastAPI). Hasta entonces, todo corre local
-con DuckDB.
+`Dockerfile` y `docker-compose.yml` levantan el servicio de puntuación (FastAPI, CPU, con
+`xgboost-cpu`). La instantánea `data/estado_dia120.pkl` se monta en solo lectura (no va en la
+imagen). Solo se detienen los contenedores propios (`docker compose down`).

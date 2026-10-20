@@ -8,6 +8,7 @@ Detalle de cada hito, con todas las cifras. Cada número sale de un JSON en
 | [1. Datos y cliente](#hito-1-ingesta-exploración-sospechas-y-reconstrucción-del-cliente) | Ingesta, partición, exploración, sospechas y cliente | El cliente es `card1 + addr1 + D1n` exacto. **La etiqueta se propaga por cliente:** con un fraude conocido 30 días antes, el 58 % de las transacciones siguientes del mismo cliente son fraude (16 veces la prevalencia) |
 | [2. Grafo y vecindario](#hito-2-grafo-de-identidad-compartida-y-variables-de-vecindario) | Seis entidades, 139 variables solo con pasado, ocho variantes medidas una vez en prueba | Con el esquema realista (etiquetas hasta el día 90), una logística de vecindario llega a **AP 0,360** en prueba: **0,182 en clientes nuevos y 0,784 en ya vistos**. Sin retraso de etiquetas daría 0,681 |
 | [3. Modelo](#hito-3-xgboost-en-gpu-ablaciones-por-grupo-umbral-por-costo-y-shap) | XGBoost en GPU, 13 variantes congeladas, evaluación en CPU | **AP en clientes nuevos: rango de 0,300 (sin las variables opacas de Vesta) a 0,551 (con ellas)**, con W (0,161) como cota conservadora; azar 0,044. Las opacas pueden delatar cuentas ya marcadas por identificadores no publicados. El vecindario no aporta sobre XGBoost. Ya vistos: 0,831, inflada por la propagación |
+| [4. Producción](#hito-4-producción-y-monitoreo) | Estado en línea, registro, FastAPI en Docker, monitoreo semanal y ficha | Paridad exacta entre entrenamiento y servicio (0 de 34,3 millones de celdas). El monitoreo encontró en la semana 1, sin etiquetas, **relojes encubiertos** en el vecindario: la 1.0.0 se retira y pasa a producción la **1.1.0** (sin vecindario; AP en nuevos 0,558, madura 0,572) |
 
 ---
 
@@ -334,6 +335,13 @@ Lectura:
    0,360 en prueba; la de nuevos, 0,187 y 0,182. No hay señales de sobreajuste a la
    validación.
 
+> **Nota posterior (hito 4).** Cuatro variables de este hito resultaron ser **relojes
+> encubiertos**: la antigüedad de la región, el dominio de correo, el perfil de tarjeta y la
+> tarjeta con dirección (`*_dias_desde_primera`). Como esas entidades aparecen desde el día
+> 1, su antigüedad es casi el día calendario (Spearman de 0,87 a 1,00), y en prueba toman
+> valores que nunca se vieron al entrenar. Las cifras de este hito se mantienen como se
+> midieron; las variantes de vecindario las incluyen. Ver el hito 4.
+
 ### Lo que deja el hito 2 para el hito 3
 
 - Tablas `entidades` y `vecindario` en la base, y el esquema realista como principal.
@@ -368,6 +376,12 @@ bien aquí y no aportaría nada en producción.
 | Sin las variables opacas de Vesta (C, D, V, identidad): `sin_sospechosas` | **0,300** [0,278–0,326] |
 | Con ellas: modelo completo (principal) | **0,551** [0,526–0,574] |
 | Cota conservadora: clientes nuevos del producto W | **0,161** [0,121–0,207] |
+| Solo datos de la transacción (sin opacas y sin relojes encubiertos; ver hito 4) | 0,235 [0,215–0,257] |
+
+> **Nota posterior (hito 4).** El modelo de 0,300 (`sin_sospechosas`) incluye el vecindario,
+> que resultó traer relojes encubiertos. Sin opacas y sin relojes queda `solo_transaccion`,
+> con 0,235: la cota inferior limpia está entre 0,235 y 0,300. En producción se usa la 1.1.0
+> (`sin_vecindario`, 0,558 en nuevos), no el completo.
 
 La diferencia entre 0,300 y 0,551 es casi toda de las variables opacas (C y V sobre todo).
 **Hipótesis:** Vesta las calculó agregando por identificadores de cuenta que IEEE-CIS no
@@ -523,3 +537,109 @@ tasa baja a 6 % o menos.
 - Las ablaciones usan los hiperparámetros del modelo completo.
 - La prueba (días 121 a 182) ya se miró en el hito 2 con otros modelos; este hito la mide
   una vez con sus parámetros congelados.
+
+---
+
+## Hito 4: producción y monitoreo
+
+### Lo que se construyó
+
+| Pieza | Dónde | Qué hace |
+|---|---|---|
+| Estado en línea del vecindario | `estado_en_linea.py` | Calcula, transacción por transacción, las mismas variables que `vecindario.py`; los contracargos cuentan 30 días después de la transacción |
+| Registro de versiones | `modelos/registro.json`, `registro.py` | Versiones con SHA-256 del modelo y de los parámetros, métricas de prueba, umbrales y estado (producción, respaldo, retirado) |
+| Servicio de puntuación | `servicio.py`, `Dockerfile`, `docker-compose.yml` | FastAPI en Docker: `/puntuar` (probabilidad, alerta, versión y cinco motivos SHAP), `/etiqueta`, `/salud`, `/modelo`, `/metricas`; contrato de entrada estricto (`esquema.py`; rechaza `isFraud` y campos desconocidos) |
+| Monitoreo | `monitoreo.py`, `flujo_hito4.simular` | Semana a semana: PSI de variables y puntaje, faltantes, tasa de alertas, rendimiento con etiquetas maduras, relojes encubiertos y alertas |
+| Ficha del modelo | [docs/ficha_modelo.md](docs/ficha_modelo.md) | Propósito, datos, rango de métricas, umbral, monitoreo, limitaciones y plan de contingencia |
+
+**Paridad entre entrenamiento y servicio** ([paridad.json](docs/resultados/hito4/paridad.json)):
+recorriendo las 590.540 transacciones de train con el estado en línea, **0 de 34.251.320
+celdas** (58 variables) difieren de la tabla `vecindario` con la que se entrenó. El recorrido
+tarda unos 72 s (unas 8.000 transacciones por segundo) y deja la instantánea del estado al
+cierre del día 120 (94 MB, no versionada) con la que arranca el servicio.
+
+**Prueba de humo en Docker** ([servicio.json](docs/resultados/hito4/servicio.json)): 3.000
+transacciones de la primera semana de prueba por HTTP, en orden y con sus contracargos. Las
+probabilidades coinciden con la puntuación por lotes (diferencia máxima menor que 10⁻⁹).
+Latencia medida en el servicio: mediana 63 ms y percentil 95 de 77 ms, con el estado en
+línea y los motivos SHAP; desde el cliente, 66 ms y 85 ms. Tasa de alertas: 12,8 %.
+
+### Monitoreo: las semanas de prueba llegan una a una
+
+Referencia de deriva: los días 91 a 120 (los últimos antes de desplegar, sin etiqueta). Al
+cierre de cada semana, el rendimiento se mide solo con las transacciones de 30 días o más
+(en la semana 9, los días 121 a 152). Reglas declaradas antes de correr la simulación
+(`monitoreo.REGLAS`; ver la ficha). Resultados en
+[monitoreo.json](docs/resultados/hito4/monitoreo.json).
+
+**El hallazgo: relojes encubiertos en la versión 1.0.0.** Desde la **semana 1**, sin
+necesitar etiquetas, el monitoreo marcó dos alertas críticas: PSI de 6,35 en
+`direccion_dias_desde_primera` y de 4,11 en `tarjeta_dias_desde_primera` (y entre 6,7 y 7,0
+y entre 4,7 y 5,9 en las semanas siguientes). Son la antigüedad de una entidad dentro de los
+datos. Para entidades gruesas que aparecen desde el día 1 (una región, un dominio de correo,
+un perfil de tarjeta), esa antigüedad es el **día calendario**: correlación de Spearman con
+`dia` en desarrollo de 1,000 (correo), 0,995 (región), 0,939 (perfil de tarjeta) y 0,867
+(tarjeta y dirección). Lo mismo, algo menos, con los conteos acumulados de esas entidades
+(0,82 a 0,88). En prueba toman valores (121 a 182) que el modelo nunca vio al entrenar (hasta
+90). Es justo lo que se había excluido a propósito (`dia`), colado por el vecindario del hito
+2. Las pruebas de los hitos 2 y 3 verificaban que nada mirara el futuro, no que las variables
+fueran estacionarias.
+
+**La acción**, decidida con lo que existe en producción (la alerta de la semana 1, sin
+etiquetas, y la validación de desarrollo, no la prueba):
+
+- **Pasa a producción la 1.1.0, `sin_vecindario`**: ya congelada en el hito 3, sin ninguna
+  variable con |Spearman con el día| ≥ 0,8, y con AP de validación en nuevos de 0,640 contra
+  0,642 del completo. Su cifra de prueba (0,558 en nuevos) ya se había medido una vez bajo el
+  tag; no hubo una mirada nueva a la prueba para elegirla.
+- **Se retira la 1.0.0**, con el motivo en el registro.
+- **Respaldo: `solo_transaccion` (1.1.0-respaldo).** El respaldo previsto, `sin_sospechosas`,
+  también tenía los relojes; la única variante congelada sin variables opacas y sin relojes es
+  la de solo transacción (AP en nuevos 0,235).
+- `monitoreo.correlacion_con_dia` queda como chequeo: marca toda variable con |Spearman con
+  el día| ≥ 0,8.
+
+**Las nueve semanas con cada versión** (AP madura en nuevos al cierre de la semana 9, días
+121 a 152; 48.268 transacciones y 2.115 fraudes):
+
+| Versión | Alertas críticas | PSI máx. del puntaje | Tasa de alertas (esperada 14 %) | AP madura en nuevos (validación) | Recall / precisión al umbral en nuevos |
+|---|---|---|---|---|---|
+| 1.0.0 `completo` (retirada) | 2 a 4 por semana, todas las semanas | 0,028 | 12,7 % a 15,3 % | 0,558 (0,642) | 80,4 % / 17,3 % |
+| **1.1.0 `sin_vecindario`** | 2 en la semana 2 (D15, V91) y 1 en las semanas 6 a 9 (`id_31`) | 0,034 | 12,6 % a 15,8 % | **0,572 (0,640)** | **81,5 % / 17,7 %** |
+| 1.1.0-respaldo `solo_transaccion` | ninguna | 0,024 | 11,2 % a 14,5 % | 0,261 (0,301) | 60,6 % / 16,8 % |
+
+![Deriva semanal](docs/resultados/hito4/psi_semanal.png)
+![Rendimiento con etiquetas maduras](docs/resultados/hito4/rendimiento_maduro.png)
+![Tasa de alertas](docs/resultados/hito4/tasa_alertas.png)
+
+Lectura de las alertas de la 1.1.0:
+
+- **`id_31` (navegador y versión) deriva de forma creciente:** PSI de 0,17 a 0,20 en las
+  semanas 1 a 5 y de 0,29 a 0,50 en las 6 a 9. Los navegadores se actualizan y el codificador
+  congelado no conoce las versiones nuevas: hay que refrescar categorías y reentrenar con las
+  etiquetas maduras de forma periódica.
+- **D15 y V91 saltan solo en la semana 2** (PSI 0,41 y 0,35) y vuelven; `card6` sube a 0,21
+  (aviso) solo en la semana 6. Picos aislados: la regla del plan de contingencia pide que una
+  deriva se sostenga dos semanas antes de actuar.
+- El puntaje no deriva (PSI ≤ 0,034), la tasa de alertas se mantiene cerca de la esperada y la
+  AP madura en nuevos queda en 0,89 de la de validación (ninguna alerta de rendimiento). La
+  AP acumulada baja de 0,74 (semana 5, solo días 121 a 125) a 0,57 (semana 9): lo maduro
+  crece y se parece cada vez más al periodo completo de prueba.
+- Los faltantes por grupo no cambian contra la referencia (a lo más 0,045 en identidad, en la
+  semana 7). La caída de faltantes de las M que vio el hito 1 ya ocurrió dentro de
+  desarrollo: la referencia de los días 91 a 120 ya la contiene.
+
+### Limitaciones
+
+- El retraso del contracargo es fijo (30 días) en la simulación; los contracargos reales
+  llegan con retrasos variables.
+- La simulación usa las variables por lotes; la paridad exacta con el estado en línea
+  (verificada en todo train) es lo que permite hacerlo. La prueba de humo por HTTP cubre
+  3.000 transacciones, no las nueve semanas.
+- El servicio es un solo proceso con el estado en memoria; no hay persistencia del estado
+  entre reinicios más allá de la instantánea del día 120.
+- La latencia (unos 63 ms en la mediana) está dominada por armar la fila de 437 variables y
+  calcular los motivos SHAP; no se optimizó.
+- La prueba (días 121 a 182) ya se había medido en los hitos 2 y 3. La simulación no elige
+  nada con ella: las decisiones de versión se toman con la alerta sin etiquetas y con la
+  validación.
