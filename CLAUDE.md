@@ -51,6 +51,11 @@ uv run python scripts/hito1.py explorar       # -> reports/hito1/exploracion.jso
 uv run python scripts/hito1.py clientes       # uid, variantes, Splink -> tabla clientes (~1 min)
 uv run python scripts/hito1.py sospechas      # propagación, monotonía, prueba de futuro
 uv run python scripts/hito1.py todo           # explorar + clientes + sospechas
+uv run python scripts/hito2.py preparar       # entidades y vecindario (~20 s; requiere clientes)
+uv run python scripts/hito2.py desarrollar    # variantes en desarrollo -> reports/hito2/parametros.json
+uv run python scripts/publicar_resultados.py --hito 2 --solo-parametros   # congelar (+ tag)
+uv run python scripts/hito2.py evaluar        # prueba, una vez; se niega sin el tag hito2-congelado
+uv run python scripts/hito2.py graficos       # rehace los gráficos desde evaluacion.json
 uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/resultados/hitoN
 ```
 
@@ -89,6 +94,16 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
   - `flujo_hito1.py`: pasos del hito 1. `util.py`: JSON estable.
   - **Quién lee `isFraud`:** solo los módulos listados en `tests/test_flujo_hito1.py`, y en
     el hito 1 siempre a través de la vista `desarrollo`.
+  - Hito 2: `grafo.py` (tabla `entidades`: cliente, tarjeta y dirección, perfil de tarjeta,
+    huella de dispositivo, región, dominio de correo), `vecindario.py` (tabla `vecindario`,
+    139 variables solo con pasado; etiquetas con retraso `R` en 0, 15, 30, 60 y 90;
+    componentes en línea con límite de 5 clientes por entidad), `evaluacion.py` (AP con
+    bootstrap por cliente, recall a tasa fija de falsas alarmas, curva PR, nuevos y vistos),
+    `modelo_lineal.py` (logística con parámetros en JSON), `congelados.py` (verifica un
+    archivo contra un tag) y `flujo_hito2.py` (`VARIANTES` declaradas). Congelado en
+    `hito2-congelado` con `docs/resultados/hito2/parametros.json`.
+  - **Pasado = `TransactionID` menor.** `vecindario.columnas` nunca devuelve la etiqueta ni
+    identificadores (en el hito 2 se coló `isFraud` antes de congelar; hay pruebas).
 - `scripts/`: puntos de entrada delgados que orquestan funciones de `src/`.
 - `notebooks/`: solo exploración. Nada en `src/` ni `scripts/` importa de notebooks.
 - `tests/`: pytest. Las lentas se marcan con `@pytest.mark.integracion`. Todas corren sobre el
@@ -114,8 +129,15 @@ uv run python scripts/publicar_resultados.py --hito 1   # reports/hitoN -> docs/
 ## Regla de evaluación
 
 - **Partición temporal** fija (`particion.py`, tag `particion-fijada`, decidida antes de mirar
-  etiquetas): desarrollo = días 1 a 120 (entrenamiento 1 a 90, validación 91 a 120); prueba =
-  días 121 a 182 (ocho semanas y una novena de seis días).
+  etiquetas): desarrollo = días 1 a 120; prueba = días 121 a 182 (ocho semanas y una novena
+  de seis días).
+- **Esquema realista (principal, desde el hito 2):** el modelo entra a producción el día 121
+  y, con 30 días de retraso, solo conoce etiquetas hasta el día 90. Entrenamiento 1 a 60,
+  validación 61 a 90 (regularización, hiperparámetros, umbral), reajuste 1 a 90. Los días 91
+  a 120 son historia sin etiqueta. `todas_las_etiquetas` (entrena 1 a 90, valida 91 a 120,
+  reajusta 1 a 120) se reporta **solo como comparación**, para medir cuánto infla.
+- **Siempre por separado: clientes nuevos y ya vistos** (con transacciones antes del periodo;
+  en prueba, en desarrollo).
 - Toda decisión que mire etiquetas (variables, hiperparámetros, umbral) se toma en
   **desarrollo**. De prueba, antes de congelar, solo se miran volúmenes y faltantes, nunca
   `isFraud`. El modelo se congela con un tag y la prueba se mide **una sola vez**. Cifras de

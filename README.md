@@ -5,7 +5,7 @@ Caso 3 del portafolio de ciencia de datos aplicado a banca, sobre **IEEE-CIS Fra
 transacciones, grafo de identificadores compartidos, modelo con umbral elegido por costo y un
 servicio local con monitoreo de deriva y ficha del modelo.
 
-**Estado:** hito 1 de 5 terminado (datos, exploración, sospechas de filtración y cliente).
+**Estado:** hitos 1 y 2 de 5 terminados (datos, cliente, sospechas, grafo y vecindario).
 El detalle con todas las cifras está en [INFORME_TECNICO.md](INFORME_TECNICO.md).
 
 ## Lo que dejó el hito 1
@@ -26,6 +26,19 @@ El detalle con todas las cifras está en [INFORME_TECNICO.md](INFORME_TECNICO.md
 - Las variables opacas C, D y V no muestran señales de usar el futuro en una prueba directa
   (|ρ| ≤ 0,13), pero siguen declaradas sospechosas y tendrán ablación.
 
+## Lo que dejó el hito 2
+
+- **Esquema realista:** al desplegar el día 121, con 30 días de retraso de contracargo, solo
+  se conocen etiquetas hasta el día 90; con ellas se entrena y se valida. Usar todas las
+  etiquetas de desarrollo queda solo como comparación.
+- **Grafo de identidad** desde la tabla: cliente, tarjeta, huella de dispositivo, región y
+  dominio de correo (IEEE-CIS no trae la dirección de correo). 139 variables de vecindario
+  solo con el pasado, verificadas con pruebas de truncado y de etiquetas recientes.
+- **En prueba, una sola vez, tras el tag `hito2-congelado`:** una logística de vecindario
+  llega a AP 0,360 (azar: 0,034), pero **0,182 en clientes nuevos y 0,784 en ya vistos**.
+  Sin retraso de etiquetas daría 0,681 (filtración); con todas las etiquetas de desarrollo,
+  0,382.
+
 ## Cómo correrlo
 
 Requiere [uv](https://docs.astral.sh/uv/) y los CSV de train de IEEE-CIS en `data/raw/`.
@@ -35,6 +48,9 @@ uv sync
 uv run pytest                              # pruebas sobre un mini-IEEE sintético
 uv run python scripts/hito1.py preparar    # CSV -> data/fraude.duckdb
 uv run python scripts/hito1.py todo        # exploración, clientes y sospechas -> reports/hito1
+uv run python scripts/hito2.py preparar    # grafo y vecindario
+uv run python scripts/hito2.py desarrollar # variantes en desarrollo
+uv run python scripts/hito2.py evaluar     # prueba, con los parámetros congelados
 ```
 
 Guía de trabajo y reglas de evaluación: [CLAUDE.md](CLAUDE.md). Licencia MIT.
