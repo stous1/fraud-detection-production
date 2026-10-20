@@ -12,3 +12,4 @@
 *.parquet binary
 *.duckdb binary
 *.pt binary
+*.ubj binary
