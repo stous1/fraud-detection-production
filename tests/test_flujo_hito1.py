@@ -18,6 +18,7 @@ QUIEN_LEE_ETIQUETAS = {
     "flujo_hito2.py",  # desarrollo para elegir; prueba solo tras el tag de congelamiento
     "flujo_hito3.py",  # igual que el hito 2
     "flujo_hito4.py",  # simula contracargos (cuentan a los 30 días) y etiquetas maduras
+    "servicio.py",  # solo la nombra para rechazarla en la entrada de /puntuar
     "variables.py",  # carga la etiqueta junto a las variables y prohíbe usarla como variable
 }
 
